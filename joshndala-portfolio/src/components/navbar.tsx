@@ -13,23 +13,30 @@ import {
   UserCircleIcon,
   XMarkIcon,
   Bars3Icon,
+  WrenchScrewdriverIcon
 } from "@heroicons/react/24/solid";
+import { getSectionLink } from "../utils/paths";
 
 const NAV_MENU = [
   {
     name: "Home",
     icon: HomeIcon,
-    href: "/#hero",
+    href: getSectionLink("hero"),
+  },
+  {
+    name: "Skills",
+    icon: WrenchScrewdriverIcon,
+    href: getSectionLink("skills"),
   },
   {
     name: "Projects",
     icon: CodeBracketIcon,
-    href: "/#projects",
+    href: getSectionLink("projects"),
   },
   {
     name: "Resume",
     icon: DocumentTextIcon,
-    href: "/#resume",
+    href: getSectionLink("resume"),
   },
   // {
   //   name: "About",
@@ -68,7 +75,7 @@ export function Navbar() {
     e.preventDefault();
     const href = e.currentTarget.getAttribute("href");
     if (href) {
-      const targetId = href.replace("#", "");
+      const targetId = href.split("#")[1];
       const element = document.getElementById(targetId);
       if (element) {
         element.scrollIntoView({

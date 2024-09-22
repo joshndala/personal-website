@@ -1,13 +1,14 @@
 "use client";
 
 import { Typography } from "@material-tailwind/react";
+import { getSectionLink } from "../utils/paths";
 
 const LINKS = [
-  { name: "Home", href: "/" },
-  { name: "Projects", href: "/#projects" },
-  { name: "Skills", href: "/#skills" },
+  { name: "Home", href: getSectionLink("hero") },
+  { name: "Skills", href: getSectionLink("skills") },
+  { name: "Projects", href: getSectionLink("projects") },
   // { name: "About", href: "/about" },
-  { name: "Contact", href: "/#contact-section" },
+  { name: "Contact", href: getSectionLink("contact-section") },
 ];
 
 const CURRENT_YEAR = new Date().getFullYear();

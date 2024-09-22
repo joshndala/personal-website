@@ -23,7 +23,7 @@ export function ProjectCard({ img, title, desc, technologies = [], githubLink, l
     <Card className="overflow-hidden">
       <CardHeader floated={false} className="h-56 m-0">
         <Image
-          src={img}
+          src={getImagePath(img)}
           alt={title}
           width={768}
           height={768}

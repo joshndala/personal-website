@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import imageLoader from '../../imageLoader.js';
 import { Typography, Button } from "@material-tailwind/react";
 
 function Hero() {
@@ -42,6 +43,7 @@ function Hero() {
           </Typography>
         </div>
         <Image
+          loader={imageLoader}
           width={1024}
           height={1024}
           alt="Joshua Ndala"

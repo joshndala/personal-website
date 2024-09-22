@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  basePath: process.env.NODE_ENV === 'production' ? '/joshndala-portfolio' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/joshndala-portfolio/' : '',
+  basePath: process.env.NODE_ENV === 'production' ? '/personal-website/joshndala-portfolio' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/personal-website/joshndala-portfolio/' : '',
   images: {
     remotePatterns: [
       {

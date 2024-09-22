@@ -26,6 +26,10 @@ jobs:
           node-version: "16"
           cache: 'npm'
           cache-dependency-path: joshndala-portfolio/package-lock.json
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+        with:
+          static_site_generator: next
       - name: Install dependencies
         run: |
           cd joshndala-portfolio
@@ -34,6 +38,10 @@ jobs:
         run: |
           cd joshndala-portfolio
           npm run build
+      - name: Static HTML export with Next.js
+        run: |
+          cd joshndala-portfolio
+          npm run export
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:

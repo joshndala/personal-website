@@ -41,8 +41,6 @@ jobs:
           cat joshndala-portfolio/next.config.js
           echo "package.json content:"
           cat joshndala-portfolio/package.json
-          echo "tsconfig.json content (if exists):"
-          cat joshndala-portfolio/tsconfig.json || echo "tsconfig.json not found"
 
       - name: Install dependencies
         run: |
@@ -53,7 +51,25 @@ jobs:
         run: |
           cd joshndala-portfolio
           npm run build
+          echo "Contents of the out directory:"
+          ls -la out
         continue-on-error: true
+
+      - name: Verify build output
+        run: |
+          if [ ! -d "joshndala-portfolio/out" ]; then
+            echo "Error: 'out' directory not found!"
+            exit 1
+          fi
+
+      - name: Debug - List contents after build
+        run: |
+          echo "Root directory after build:"
+          ls -la
+          echo "joshndala-portfolio directory after build:"
+          ls -la joshndala-portfolio
+          echo "joshndala-portfolio/out directory after build (if exists):"
+          ls -la joshndala-portfolio/out || echo "out directory not found"
 
       - name: Capture build error
         if: failure()
@@ -75,9 +91,9 @@ jobs:
 
       - name: Upload artifact
         if: success()
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v2
         with:
-          path: ./joshndala-portfolio/out
+          path: joshndala-portfolio/out
 
   deploy:
     environment:
@@ -88,4 +104,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v3

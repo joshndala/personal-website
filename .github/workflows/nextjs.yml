@@ -26,16 +26,14 @@ jobs:
           ls -la
           echo "joshndala-portfolio directory:"
           ls -la joshndala-portfolio
-          echo "src directory:"
-          ls -la joshndala-portfolio/src
-          echo "public directory:"
-          ls -la joshndala-portfolio/public
+          echo "package.json location:"
+          find . -name "package.json"
+          echo "package-lock.json location:"
+          find . -name "package-lock.json"
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: "18"
-          cache: 'npm'
-          cache-dependency-path: joshndala-portfolio/package-lock.json
       - name: Setup Pages
         uses: actions/configure-pages@v3
         with:

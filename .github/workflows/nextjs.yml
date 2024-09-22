@@ -68,14 +68,14 @@ jobs:
 
       - name: Upload error log
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: build-error-log
           path: joshndala-portfolio/build_error.log
 
       - name: Upload artifact
         if: success()
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./joshndala-portfolio/out
 

@@ -24,7 +24,7 @@ function Hero() {
           </Typography>
           <div className="flex gap-4">
             <a href = "#projects">
-              <Button color="gray" className="px-4" href="#projects">
+              <Button color="gray" className="px-4">
                 View Projects
               </Button>
             </a>

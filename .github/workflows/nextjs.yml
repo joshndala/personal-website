@@ -26,10 +26,8 @@ jobs:
           ls -la
           echo "joshndala-portfolio directory:"
           ls -la joshndala-portfolio
-          echo "package.json location:"
-          find . -name "package.json"
-          echo "package-lock.json location:"
-          find . -name "package-lock.json"
+          echo "package.json content:"
+          cat joshndala-portfolio/package.json
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
@@ -41,7 +39,7 @@ jobs:
       - name: Install dependencies
         run: |
           cd joshndala-portfolio
-          npm ci
+          npm install
       - name: Build with Next.js
         run: |
           cd joshndala-portfolio

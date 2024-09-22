@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy Next.js site to Pages
 
 on:
   push:
@@ -20,10 +20,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Debug - List directory contents
+        run: |
+          echo "Root directory:"
+          ls -la
+          echo "joshndala-portfolio directory:"
+          ls -la joshndala-portfolio
+          echo "src directory:"
+          ls -la joshndala-portfolio/src
+          echo "public directory:"
+          ls -la joshndala-portfolio/public
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: "16"
+          node-version: "18"
           cache: 'npm'
           cache-dependency-path: joshndala-portfolio/package-lock.json
       - name: Setup Pages
@@ -34,16 +44,12 @@ jobs:
         run: |
           cd joshndala-portfolio
           npm ci
-      - name: Build
+      - name: Build with Next.js
         run: |
           cd joshndala-portfolio
           npm run build
-      - name: Static HTML export with Next.js
-        run: |
-          cd joshndala-portfolio
-          npm run export
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v2
         with:
           path: ./joshndala-portfolio/out
 

@@ -4,10 +4,10 @@ import { Typography } from "@material-tailwind/react";
 
 const LINKS = [
   { name: "Home", href: "/" },
-  { name: "Projects", href: "/projects" },
-  { name: "Skills", href: "/skills" },
-  { name: "About", href: "/about" },
-  { name: "Contact", href: "/contact" },
+  { name: "Projects", href: "/#projects" },
+  { name: "Skills", href: "/#skills" },
+  // { name: "About", href: "/about" },
+  { name: "Contact", href: "/#contact-section" },
 ];
 
 const CURRENT_YEAR = new Date().getFullYear();

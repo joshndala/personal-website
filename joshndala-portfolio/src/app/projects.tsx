@@ -26,7 +26,7 @@ const PROJECTS = [
     technologies: ["JavaScript", "Express.js", "Node.js", "React", "MySQL", "Ollama (AI)", "Phi-3 (LLM)","LangChain"],
   },
   {
-    img: "/image/forumrank.png",
+    img: "/image/forumrank.PNG",
     title: "ForumRank Website",
     desc: "Collaborated on a custom-designed discussion post website with contextual menus, responsive design, and MySQL database integration.",
     technologies: ["PHP", "MySQL", "AJAX", "JavaScript"],

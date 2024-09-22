@@ -10,6 +10,7 @@ import {
   ClockIcon,
 } from "@heroicons/react/24/solid";
 import { ResumeItem } from "@/components";
+import { getStaticFilePath } from '../utils/paths';
 
 const RESUME_ITEMS = [
   {
@@ -61,7 +62,7 @@ export function Resume() {
             Continuously expanding my skills in advanced machine learning techniques.
           </Typography>
           <a
-            href="/Joshua_Ndala_Resume.pdf"
+            href={getStaticFilePath('Joshua_Ndala_Resume.pdf')}
             download="Joshua_Ndala_Resume.pdf"
           >
             <Button

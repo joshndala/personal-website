@@ -3,6 +3,7 @@
 import { Typography, Button } from "@material-tailwind/react";
 import { MdEmail } from "react-icons/md";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
+import { getStaticFilePath } from '../utils/paths';
 
 export function ContactSection() {
   return (
@@ -32,7 +33,7 @@ export function ContactSection() {
           </a>
         </div>
         <a
-          href="/Joshua_Ndala_Resume.pdf"
+          href={getStaticFilePath('Joshua_Ndala_Resume.pdf')}
           download="Joshua_Ndala_Resume.pdf"
           >
           <Button 

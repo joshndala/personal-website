@@ -1,5 +1,5 @@
 import Image from "next/image";
-import imageLoader from '../../imageLoader.js';
+import { getImagePath } from '../utils/imagePath'
 import {
   Card,
   CardHeader,
@@ -23,7 +23,6 @@ export function ProjectCard({ img, title, desc, technologies = [], githubLink, l
     <Card className="overflow-hidden">
       <CardHeader floated={false} className="h-56 m-0">
         <Image
-          loader={imageLoader}
           src={img}
           alt={title}
           width={768}

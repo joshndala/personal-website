@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import imageLoader from '../../imageLoader.js';
+import { getImagePath } from '../utils/imagePath'
 import { Typography, Button } from "@material-tailwind/react";
 
 function Hero() {
@@ -43,11 +43,10 @@ function Hero() {
           </Typography>
         </div>
         <Image
-          loader={imageLoader}
           width={1024}
           height={1024}
           alt="Joshua Ndala"
-          src="/image/profile-photo.jpg"
+          src={getImagePath("/image/profile-photo.jpg")}
           className="h-[36rem] w-full rounded-xl object-cover"
         />
       </div>

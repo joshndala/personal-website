@@ -9,6 +9,7 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  transpilePackages: ['@material-tailwind/react'],
 };
 
 module.exports = nextConfig;

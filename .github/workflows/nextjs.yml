@@ -20,31 +20,61 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Debug - List directory contents
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+        with:
+          static_site_generator: next
+
+      - name: Debug - List directory contents and show files
         run: |
           echo "Root directory:"
           ls -la
           echo "joshndala-portfolio directory:"
           ls -la joshndala-portfolio
+          echo "next.config.js content:"
+          cat joshndala-portfolio/next.config.js
           echo "package.json content:"
           cat joshndala-portfolio/package.json
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: "18"
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-        with:
-          static_site_generator: next
+          echo "tsconfig.json content (if exists):"
+          cat joshndala-portfolio/tsconfig.json || echo "tsconfig.json not found"
+
       - name: Install dependencies
         run: |
           cd joshndala-portfolio
           npm install
+
       - name: Build with Next.js
         run: |
           cd joshndala-portfolio
           npm run build
+        continue-on-error: true
+
+      - name: Capture build error
+        if: failure()
+        run: |
+          cd joshndala-portfolio
+          echo "Build Error:" > build_error.log
+          npm run build --verbose >> build_error.log 2>&1
+          echo "Package.json contents:" >> build_error.log
+          cat package.json >> build_error.log
+          echo "next.config.js contents:" >> build_error.log
+          cat next.config.js >> build_error.log
+
+      - name: Upload error log
+        if: failure()
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-error-log
+          path: joshndala-portfolio/build_error.log
+
       - name: Upload artifact
+        if: success()
         uses: actions/upload-pages-artifact@v2
         with:
           path: ./joshndala-portfolio/out

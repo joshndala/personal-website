@@ -5,6 +5,7 @@ import Skills from "./skills";
 import Projects from "./projects";
 import Resume from "./resume";
 import ContactSection from "./contact-section";
+import TechStackCarousel from "@/components/techstack-carousel";
 
 export default function Portfolio() {
   return (
@@ -16,6 +17,9 @@ export default function Portfolio() {
         </section>
         <section id="skills">
           <Skills />
+        </section>
+        <section id="techstack-carousel">
+          <TechStackCarousel />
         </section>
         <section id="projects">
           <Projects />

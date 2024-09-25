@@ -16,9 +16,10 @@ interface ProjectCardProps {
   technologies?: string[];
   githubLink?: string;
   liveLink?: string;
+  inProgress?: boolean;
 }
 
-export function ProjectCard({ img, title, desc, technologies = [], githubLink, liveLink }: ProjectCardProps) {
+export function ProjectCard({ img, title, desc, technologies = [], githubLink, liveLink, inProgress }: ProjectCardProps) {
   return (
     <Card className="overflow-hidden">
       <CardHeader floated={false} className="h-56 m-0">
@@ -59,6 +60,9 @@ export function ProjectCard({ img, title, desc, technologies = [], githubLink, l
               </Button>
             </a>
           )}
+          {inProgress && (
+            <Chip value="In Progress" size="sm" color="red" />
+              )}
         </div>
       </CardBody>
     </Card>

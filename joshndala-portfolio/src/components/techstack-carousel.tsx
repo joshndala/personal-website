@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { getImagePath } from '../utils/imagePath';
+import { Typography } from '@material-tailwind/react';
 
 const technologies = [
   { name: 'Python', icon: '/icons/python.svg' },
@@ -45,6 +46,9 @@ const TechStackCarousel: React.FC = () => {
 
   return (
     <div className="w-full overflow-hidden bg-gray-100 py-12">
+      <Typography variant="h2" color="blue-gray" className="mb-4 text-center">
+          My Toolbox 🧰
+        </Typography>
       <div
         ref={scrollRef}
         className="flex animate-scroll"

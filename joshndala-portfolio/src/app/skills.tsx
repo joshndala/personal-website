@@ -52,24 +52,24 @@ const SKILLS = [
 
 export function Skills() {
   return (
-    <section className="px-8">
-      <div className="container mx-auto mb-20 text-center">
-        <Typography color="blue-gray" className="mb-2 font-bold uppercase">
+    <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto mb-12 sm:mb-16 md:mb-20 text-center">
+        <Typography color="blue-gray" className="mb-2 font-bold uppercase text-sm sm:text-base">
           my expertise
         </Typography>
-        <Typography variant="h1" color="blue-gray" className="mb-4">
+        <Typography variant="h1" color="blue-gray" className="mb-4 text-3xl sm:text-4xl md:text-5xl font-bold">
           Skills & Capabilities
         </Typography>
         <Typography
           variant="lead"
-          className="mx-auto w-full !text-gray-500 lg:w-10/12"
+          className="mx-auto w-full !text-gray-500 lg:w-10/12 text-base sm:text-lg"
         >
           As a software developer and AI enthusiast, I blend cutting-edge technologies 
           with creative problem-solving. From full-stack web development to machine 
           learning implementations, I bring ideas to life through code.
         </Typography>
       </div>
-      <div className="container mx-auto grid grid-cols-1 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
+      <div className="container mx-auto grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
         {SKILLS.map((props, idx) => (
           <SkillCard key={idx} {...props} />
         ))}

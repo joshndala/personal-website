@@ -28,7 +28,7 @@ export function ProjectCard({ img, title, desc, technologies = [], githubLink, l
           alt={title}
           width={768}
           height={768}
-          className="h-full w-full object-cover transition-transform duration-300 hover:scale-110"
+          className="h-full w-full object-cover"
         />
       </CardHeader>
       <CardBody>

@@ -14,33 +14,33 @@ export default function About() {
   ];
 
   return (
-    <section className="bg-white py-16">
+    <section className="bg-white py-8 sm:py-12 md:py-16">
       <div className="container mx-auto px-4">
-        <Typography variant="h2" color="blue-gray" className="mb-8 text-center">
-            About Me
+        <Typography variant="h2" color="blue-gray" className="mb-6 sm:mb-8 text-center text-3xl sm:text-4xl">
+          About Me
         </Typography>
         <div className="flex flex-col lg:flex-row items-start">
-          <div className="lg:w-1/2 mb-8 lg:mb-0 lg:pr-8">
-            <Typography variant="lead" className="mb-4 text-gray-700">
-                My name is Joshua, although most call me Josh, and I am a software developer and AI enthusiast with a truly global background. Born in South Africa, I've called Uganda, Ivory Coast, and now Montreal, Canada home.
+          <div className="w-full lg:w-1/2 mb-8 lg:mb-0 lg:pr-8">
+            <Typography variant="lead" className="mb-4 text-gray-700 text-base sm:text-lg">
+              My name is Joshua, although most call me Josh, and I am a software developer and AI enthusiast with a truly global background. Born in South Africa, I've called Uganda, Ivory Coast, and now Montreal, Canada home.
             </Typography>
-            <Typography variant="paragraph" className="mb-4 text-gray-600">
-                My international upbringing in American and British international schools sparked my curiosity for technology and diverse cultures. This led me to pursue Computer Science at the University of British Columbia, where I fell in love with data and machine learning.
+            <Typography variant="paragraph" className="mb-4 text-gray-600 text-sm sm:text-base">
+              My international upbringing in American and British international schools sparked my curiosity for technology and diverse cultures. This led me to pursue Computer Science at the University of British Columbia, where I fell in love with data and machine learning.
             </Typography>
-            <Typography variant="paragraph" className="mb-4 text-gray-600">
-                Outside of coding, I am a lifelong traveler with a passport full of stamps and stories from all over the world. From thrilling safaris to iconic landmarks, each journey has impacted my perspective and approaches to problem-solving.
+            <Typography variant="paragraph" className="mb-4 text-gray-600 text-sm sm:text-base">
+              Outside of coding, I am a lifelong traveler with a passport full of stamps and stories from all over the world. From thrilling safaris to iconic landmarks, each journey has impacted my perspective and approaches to problem-solving.
             </Typography>
-            <Typography variant="paragraph" className="text-gray-600">
-            When I'm not discovering new technology or destinations, you can find me rooting for Liverpool FC, a passion I've had since childhood. My diversified background and love of challenges inspire me to produce creative solutions in software development and artificial intelligence.
+            <Typography variant="paragraph" className="text-gray-600 text-sm sm:text-base">
+              When I'm not discovering new technology or destinations, you can find me rooting for Liverpool FC, a passion I've had since childhood. My diversified background and love of challenges inspire me to produce creative solutions in software development and artificial intelligence.
             </Typography>
           </div>
-          <div className="lg:w-1/2">
-            <Typography variant="h5" color="blue-gray" className="mb-4">
-                Adventures Around the World
+          <div className="w-full lg:w-1/2 mt-8 lg:mt-0">
+            <Typography variant="h5" color="blue-gray" className="mb-4 text-xl sm:text-2xl">
+              Adventures Around the World
             </Typography>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-2 sm:gap-4">
               {adventures.map((adventure, index) => (
-                <div key={index} className="relative h-48 rounded-lg overflow-hidden">
+                <div key={index} className="relative h-36 sm:h-48 rounded-lg overflow-hidden">
                   <Image
                     src={getImagePath(adventure.src)}
                     alt={adventure.alt}

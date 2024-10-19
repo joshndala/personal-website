@@ -49,19 +49,19 @@ const PROJECTS = [
 
 export function Projects() {
   return (
-    <section className="py-28 px-8">
-      <div className="container mx-auto mb-20 text-center">
-        <Typography variant="h2" color="blue-gray" className="mb-4">
+    <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto mb-12 sm:mb-16 md:mb-20 text-center">
+        <Typography variant="h2" color="blue-gray" className="mb-4 text-3xl sm:text-4xl md:text-5xl font-bold">
           My Projects
         </Typography>
         <Typography
           variant="lead"
-          className="mx-auto w-full px-4 font-normal !text-gray-500 lg:w-6/12"
+          className="mx-auto w-full px-0 sm:px-4 font-normal !text-gray-500 lg:w-9/12 text-base sm:text-lg"
         >
           From web development to AI, machine learning, and data analysis, here are some of the key projects I've worked on. Each project showcases my diverse skills in software engineering, data science, and problem-solving.
         </Typography>
       </div>
-      <div className="container mx-auto grid grid-cols-1 gap-x-10 gap-y-20 md:grid-cols-2 lg:grid-cols-3">
+      <div className="container mx-auto grid grid-cols-1 gap-8 sm:gap-10 md:grid-cols-2 lg:grid-cols-3">
         {PROJECTS.map((props, idx) => (
           <ProjectCard key={idx} {...props} />
         ))}

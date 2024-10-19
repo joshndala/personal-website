@@ -5,9 +5,9 @@ import { getSectionLink } from "../utils/paths";
 
 const LINKS = [
   { name: "Home", href: getSectionLink("hero") },
+  { name: "About", href: getSectionLink("about") },
   { name: "Skills", href: getSectionLink("skills") },
   { name: "Projects", href: getSectionLink("projects") },
-  // { name: "About", href: "/about" },
   { name: "Contact", href: getSectionLink("contact-section") },
 ];
 

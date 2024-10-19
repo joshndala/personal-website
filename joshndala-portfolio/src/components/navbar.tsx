@@ -24,6 +24,11 @@ const NAV_MENU = [
     href: getSectionLink("hero"),
   },
   {
+    name: "About",
+    icon: UserCircleIcon,
+    href: getSectionLink("about"),
+  },
+  {
     name: "Skills",
     icon: WrenchScrewdriverIcon,
     href: getSectionLink("skills"),
@@ -38,11 +43,6 @@ const NAV_MENU = [
     icon: DocumentTextIcon,
     href: getSectionLink("resume"),
   },
-  // {
-  //   name: "About",
-  //   icon: UserCircleIcon,
-  //   href: "/about",
-  // },
 ];
 
 interface NavItemProps {

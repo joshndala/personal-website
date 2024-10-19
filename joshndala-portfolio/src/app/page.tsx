@@ -1,6 +1,7 @@
 // components
 import { Navbar, Footer } from "@/components";
 import Hero from "./hero";
+import About from "./about";
 import Skills from "./skills";
 import Projects from "./projects";
 import Resume from "./resume";
@@ -14,6 +15,9 @@ export default function Portfolio() {
         <Navbar />
         <section id="hero">
           <Hero />
+        </section>
+        <section id="about">
+          <About />
         </section>
         <section id="skills">
           <Skills />

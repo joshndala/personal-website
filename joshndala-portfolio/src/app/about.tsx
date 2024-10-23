@@ -22,7 +22,7 @@ export default function About() {
         <div className="flex flex-col lg:flex-row items-start">
           <div className="w-full lg:w-1/2 mb-8 lg:mb-0 lg:pr-8">
             <Typography variant="lead" className="mb-4 text-gray-700 text-base sm:text-lg">
-              My name is Joshua, although most call me Josh, and I am a software developer and AI enthusiast with a truly global background. Born in South Africa, I've called Uganda, Ivory Coast, and now Montreal, Canada home.
+              My name is Joshua, although most call me Josh, and I am a software developer and AI enthusiast with a truly global background. Born in South Africa, I've called Uganda, Ivory Coast, and now Canada home.
             </Typography>
             <Typography variant="paragraph" className="mb-4 text-gray-600 text-sm sm:text-base">
               My international upbringing in American and British international schools sparked my curiosity for technology and diverse cultures. This led me to pursue Computer Science at the University of British Columbia, where I fell in love with data and machine learning.

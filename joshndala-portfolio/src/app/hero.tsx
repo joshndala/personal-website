@@ -22,7 +22,7 @@ function Hero() {
               variant="lead"
               className="mb-6 !text-gray-600 text-base sm:text-lg"
             >
-              I'm Joshua Ndala, a passionate software developer and AI enthusiast based in Montreal, Canada. Here, you'll explore my journey in software engineering, machine learning, and data-driven problem-solving.
+              I'm Joshua Ndala, a passionate software developer and AI enthusiast based in Canada. Here, you'll explore my journey in software engineering, machine learning, and data-driven problem-solving.
             </Typography>
             <div className="flex flex-col sm:flex-row gap-4 mb-6">
               <a href="#projects">

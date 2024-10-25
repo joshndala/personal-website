@@ -18,7 +18,7 @@ import { useState } from 'react';
 const SHARED_ITEMS = [
   {
     icon: AcademicCapIcon,
-    children: "Bachelor of Arts in Computer Science, University of British Columbia (Aug 2024)",
+    children: "Bachelor of Arts in Computer Science, University of British Columbia (2024)",
   },
   {
     icon: CheckBadgeIcon,

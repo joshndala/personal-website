@@ -11,7 +11,7 @@ import TechStackCarousel from "@/components/techstack-carousel";
 export default function Portfolio() {
   return (
     <>
-      <main className="flex flex-col space-y-16">
+      <main className="flex flex-col space-y-12">
         <Navbar />
         <section id="hero">
           <Hero />

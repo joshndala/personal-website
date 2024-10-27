@@ -45,8 +45,8 @@ const TechStackCarousel: React.FC = () => {
   }, []);
 
   return (
-    <div className="w-full overflow-hidden bg-gray-100 py-12">
-      <Typography variant="h2" color="blue-gray" className="mb-4 text-center">
+    <div className="w-full overflow-hidden bg-primary/5 py-12">
+      <Typography variant="h2" className="mb-4 text-center text-primary">
           My Toolbox 🧰
         </Typography>
       <div

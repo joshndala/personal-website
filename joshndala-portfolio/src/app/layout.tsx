@@ -33,7 +33,7 @@ export default function RootLayout({
         <link rel="shortcut icon" href="/favicon.png" type="image/png" />
       </head>
       <body 
-        className={`${roboto.className} min-h-screen w-full`}
+        className={`${roboto.className} min-h-screen w-full bg-[#ACF0D1]`}
         style={{
           backgroundImage: `url('${getImagePath("/textures/asfalt-dark.png")}')`,
         }}

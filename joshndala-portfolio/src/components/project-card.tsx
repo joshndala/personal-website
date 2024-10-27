@@ -21,7 +21,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ img, title, desc, technologies = [], githubLink, liveLink, inProgress }: ProjectCardProps) {
   return (
-    <Card className="overflow-hidden">
+    <Card className="overflow-hidden bg-[#f8f9fa]"> 
       <CardHeader floated={false} className="h-40 m-0">
         <Image
           src={getImagePath(img)}
@@ -32,37 +32,53 @@ export function ProjectCard({ img, title, desc, technologies = [], githubLink, l
         />
       </CardHeader>
       <CardBody>
-        <Typography variant="h5" color="blue-gray" className="mb-1">
+        <Typography variant="h5" className="mb-1 text-primary font-medium">
           {title}
         </Typography>
-        <Typography color="gray" className="mb-4 font-normal">
+        <Typography className="mb-4 font-normal text-primary/80">
           {desc}
         </Typography>
         {technologies.length > 0 && (
           <div className="mb-3 flex flex-wrap gap-1">
             {technologies.map((tech, index) => (
-              <Chip key={index} value={tech} size="sm" className="text-xs px-2 py-1"/>
+              <Chip 
+                key={index} 
+                value={tech} 
+                size="sm" 
+                className="text-xs px-2 py-1 bg-primary/10 text-primary"
+              />
             ))}
           </div>
         )}
         <div className="flex gap-2">
           {githubLink && (
             <a href={githubLink} target="_blank">
-              <Button size="sm" color="gray" variant="outlined" className="py-1 text-xs">
+              <Button 
+                size="sm" 
+                variant="outlined" 
+                className="py-1 text-xs border-primary text-primary hover:bg-primary hover:text-secondary"
+              >
                 GitHub
               </Button>
             </a>
           )}
           {liveLink && (
             <a href={liveLink} target="_blank">
-              <Button size="sm" color="blue" className="py-1 text-xs">
+              <Button 
+                size="sm" 
+                className="py-1 text-xs bg-primary text-secondary hover:bg-primary/90"
+              >
                 Live Demo
               </Button>
             </a>
           )}
           {inProgress && (
-            <Chip value="In Progress" size="sm" color="red" className="text-xs px-2 py-1"/>
-              )}
+            <Chip 
+              value="In Progress" 
+              size="sm" 
+              className="text-xs px-2 py-1 bg-red-500/10 text-red-600"
+            />
+          )}
         </div>
       </CardBody>
     </Card>

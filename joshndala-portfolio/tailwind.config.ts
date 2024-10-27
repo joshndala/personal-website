@@ -17,6 +17,16 @@ const config: Config = withMT({
           '100%': { transform: 'translateX(-50%)' },
         },
       },
+      colors: {
+        primary: '#00213F',    // Dark blue
+        secondary: '#ACF0D1',  // Mint green
+        "primary-dark": {
+          DEFAULT: "#00213F",
+        },
+        "primary-light": {
+          DEFAULT: "#ACF0D1",
+        },
+      }
     },
   },
   plugins: [],

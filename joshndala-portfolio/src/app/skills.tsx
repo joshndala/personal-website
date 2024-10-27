@@ -54,15 +54,15 @@ export function Skills() {
   return (
     <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto mb-12 sm:mb-16 md:mb-20 text-center">
-        <Typography color="blue-gray" className="mb-2 font-bold uppercase text-sm sm:text-base">
+        <Typography className="mb-2 font-bold uppercase text-sm sm:text-base text-primary">
           my expertise
         </Typography>
-        <Typography variant="h1" color="blue-gray" className="mb-4 text-3xl sm:text-4xl md:text-5xl font-bold">
+        <Typography variant="h1" className="mb-4 text-3xl sm:text-4xl md:text-5xl font-bold text-primary">
           Skills & Capabilities
         </Typography>
         <Typography
           variant="lead"
-          className="mx-auto w-full !text-gray-500 lg:w-10/12 text-base sm:text-lg"
+          className="mx-auto w-full lg:w-10/12 text-base sm:text-lg text-primary"
         >
           As a software developer and AI enthusiast, I blend cutting-edge technologies 
           with creative problem-solving. From full-stack web development to machine 

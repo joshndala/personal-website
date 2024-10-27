@@ -58,7 +58,7 @@ function NavItem({ children, href }: NavItemProps) {
         href={href}
         variant="paragraph"
         color="gray"
-        className="flex items-center gap-2 font-medium text-gray-900 hover:text-blue-500 transition-colors"
+        className="flex items-center gap-2 font-medium text-secondary hover:text-secondary/80 transition-colors"
       >
         {children}
       </Typography>
@@ -95,9 +95,9 @@ export function Navbar() {
   }, []);
 
   return (
-    <MTNavbar shadow={false} fullWidth className="border-0 sticky top-0 z-50">
+    <MTNavbar shadow={false} fullWidth className="border-0 sticky top-0 z-50 bg-primary">
       <div className="container mx-auto flex items-center justify-between">
-        <Typography color="blue-gray" className="text-lg font-bold">
+        <Typography className="text-lg font-bold text-secondary">
           Joshua Ndala
         </Typography>
         <ul className="ml-10 hidden items-center gap-8 lg:flex">
@@ -110,16 +110,15 @@ export function Navbar() {
         </ul>
         <div className="hidden items-center gap-2 lg:flex">
           <a href="#contact-section" onClick={handleClick}>
-            <Button className="rounded-full">
+            <Button className="rounded-full bg-secondary text-primary hover:bg-secondary/90">
               Contact Me
             </Button>
           </a>
         </div>
         <IconButton
           variant="text"
-          color="gray"
+          className="ml-auto inline-block lg:hidden text-secondary"
           onClick={handleOpen}
-          className="ml-auto inline-block lg:hidden"
         >
           {open ? (
             <XMarkIcon strokeWidth={2} className="h-6 w-6" />
@@ -129,7 +128,7 @@ export function Navbar() {
         </IconButton>
       </div>
       <Collapse open={open}>
-        <div className="container mx-auto mt-3 border-t border-gray-200 px-2 pt-4">
+        <div className="container mx-auto mt-3 border-t border-secondary/20 px-2 pt-4">
           <ul className="flex flex-col gap-4">
             {NAV_MENU.map(({ name, icon: Icon, href }) => (
               <NavItem key={name} href={href}>
@@ -140,7 +139,7 @@ export function Navbar() {
           </ul>
           <div className="mt-6 mb-4 flex items-center gap-2">
             <a href="#contact-section" onClick={handleClick} className="w-full">
-              <Button color="blue" className="rounded-full w-full">
+              <Button className="rounded-full w-full bg-secondary text-primary hover:bg-secondary/90">
                 Contact Me
               </Button>
             </a>

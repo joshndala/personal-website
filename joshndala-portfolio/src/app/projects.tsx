@@ -60,22 +60,22 @@ const FEATURED_PROJECTS = {
 
 export function Projects() {
   return (
-    <section className="py-8 sm:py-12 md:py-16 px-4 sm:px-6 lg:px-8"> 
+    <section className="py-8 sm:py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-primary"> 
       <div className="container mx-auto mb-8 sm:mb-12"> 
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
           <div>
-            <Typography variant="h2" color="blue-gray" className="mb-4 text-3xl sm:text-4xl md:text-5xl font-bold">
-              Featured Projects
-            </Typography>
-            <Typography
-              variant="lead"
-              className="font-normal !text-gray-500 max-w-3xl text-base sm:text-lg"
-            >
+          <Typography variant="h2" className="mb-4 text-3xl sm:text-4xl md:text-5xl font-bold text-secondary">
+            Featured Projects
+          </Typography>
+          <Typography
+            variant="lead"
+            className="font-normal text-secondary/90 max-w-3xl text-base sm:text-lg" 
+          >
               Highlighting my best work in software engineering and data science. Each project demonstrates my technical expertise and problem-solving abilities.
             </Typography>
           </div>
           {/* <Link href="/all-projects" className="mt-4 md:mt-0">
-            <Button className="flex items-center gap-2" color="blue">
+            <Button className="flex items-center gap-2 bg-secondary text-primary hover:bg-secondary/90">
               View All Projects
               <ArrowRight className="h-4 w-4" />
             </Button>
@@ -84,7 +84,7 @@ export function Projects() {
 
         {/* Software Engineering Section */}
         <div className="mb-12"> {/* Reduced margin */}
-          <Typography variant="h3" color="blue-gray" className="mb-6 text-2xl sm:text-3xl font-bold">
+          <Typography variant="h3" className="mb-6 text-2xl sm:text-3xl font-bold text-secondary/95">
             Software Engineering
           </Typography>
           <div className="grid grid-cols-1 gap-8 sm:gap-10 md:grid-cols-2 lg:grid-cols-3">
@@ -96,7 +96,7 @@ export function Projects() {
 
         {/* Data Science Section */}
         <div>
-          <Typography variant="h3" color="blue-gray" className="mb-6 text-2xl sm:text-3xl font-bold">
+          <Typography variant="h3" className="mb-6 text-2xl sm:text-3xl font-bold text-secondary">
             Data Science & Analytics
           </Typography>
           <div className="grid grid-cols-1 gap-8 sm:gap-10 md:grid-cols-2 lg:grid-cols-3">

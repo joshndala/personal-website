@@ -90,18 +90,24 @@ export function Resume() {
     <section className="px-8 py-12 sm:py-16">
       <div className="container mx-auto grid w-full grid-cols-1 items-start gap-8 lg:grid-cols-2">
         <div className="col-span-1">
-          <Typography variant="h2" color="blue-gray" className="mb-6">
+          <Typography variant="h2" className="mb-6 text-primary">
             My Resume
           </Typography>
           
           <Tabs value={activeTab} className="mb-8">
-            <TabsHeader>
+            <TabsHeader
+              className="bg-primary/5" // Light version of your primary color for the header background
+            >
               {RESUME_TYPES.map(({ label, value }) => (
                 <Tab 
                   key={value} 
                   value={value}
                   onClick={() => setActiveTab(value)}
-                  className="px-6 py-3"
+                  className={`px-6 py-3 ${
+                    activeTab === value
+                      ? "text-primary bg-white" // Active tab style
+                      : "text-primary/70 hover:text-primary/90" // Inactive tab style
+                  }`}
                 >
                   {label}
                 </Tab>
@@ -109,7 +115,7 @@ export function Resume() {
             </TabsHeader>
           </Tabs>
 
-          <Typography className="mb-4 w-11/12 font-normal !text-gray-500">
+          <Typography className="mb-4 w-11/12 font-normal !text-primary">
             {activeResume?.description}
           </Typography>
           
@@ -119,13 +125,12 @@ export function Resume() {
           >
             <Button
               variant="text"
-              color="gray"
-              className="flex items-center gap-2"
+              className="flex items-center gap-2 bg-primary text-secondary"
             >
               Download {activeResume?.label} Resume
               <ArrowRightIcon
                 strokeWidth={3}
-                className="h-3.5 w-3.5 text-gray-900"
+                className="h-3.5 w-3.5 text-primary"
               />
             </Button>
           </a>

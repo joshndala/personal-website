@@ -3,6 +3,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import { Layout } from "@/components";
+import { getImagePath } from "@/utils/imagePath";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -31,7 +32,12 @@ export default function RootLayout({
         ></script>
         <link rel="shortcut icon" href="/favicon.png" type="image/png" />
       </head>
-      <body className={roboto.className}>
+      <body 
+        className={`${roboto.className} min-h-screen w-full`}
+        style={{
+          backgroundImage: `url('${getImagePath("/textures/asfalt-dark.png")}')`,
+        }}
+      >
         <Layout>
           {children}
         </Layout>

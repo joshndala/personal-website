@@ -48,7 +48,7 @@ export default function About() {
                     objectFit="cover"
                     className="transition-transform duration-300 hover:scale-110"
                   />
-                </div>
+                </div> 
               ))}
             </div>
           </div>

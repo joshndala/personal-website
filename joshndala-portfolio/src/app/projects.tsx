@@ -15,9 +15,9 @@ const FEATURED_PROJECTS = {
     {
       img: "/image/triumph-education.png",
       title: "Triumph College Consulting Website",
-      desc: "Developing a comprehensive website using Next.js and Tailwind CSS to showcase services, team, and contact information for a college consulting company.",
+      desc: "Developed a comprehensive website using Next.js and Tailwind CSS to showcase services, team, and contact information for a college consulting company.",
       technologies: ["Next.js", "Tailwind CSS", "React"],
-      inProgress: true,
+      liveLink: "https://triumphcollegeinfo.com",
     },
     {
       img: "/image/learnification.png",

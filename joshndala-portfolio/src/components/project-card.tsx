@@ -68,7 +68,7 @@ export function ProjectCard({ img, title, desc, technologies = [], githubLink, l
                 size="sm" 
                 className="py-1 text-xs bg-primary text-secondary hover:bg-primary/90"
               >
-                Live Demo
+                Live Site
               </Button>
             </a>
           )}

@@ -93,10 +93,10 @@ jobs:
         if: success()
         uses: actions/upload-artifact@v4
         with:
-          name: github-pages
+          name: github-pages 
           path: joshndala-portfolio/out
 
-    deploy:
+  deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

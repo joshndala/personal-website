@@ -43,13 +43,6 @@ jobs:
           echo "Contents of the out directory:"
           ls -la out
 
-      - name: Verify build output
-        run: |
-          if [ ! -d "joshndala-portfolio/out" ]; then
-            echo "Error: 'out' directory not found!"
-            exit 1
-          fi
-
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v2
         with:

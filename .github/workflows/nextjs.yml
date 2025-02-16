@@ -84,7 +84,7 @@ jobs:
 
       - name: Upload error log
         if: failure()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: build-error-log
           path: joshndala-portfolio/build_error.log

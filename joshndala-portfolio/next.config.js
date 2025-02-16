@@ -5,7 +5,6 @@ const nextConfig = {
   assetPrefix: process.env.NODE_ENV === 'production' ? '/personal-website/' : '',
   images: {
     unoptimized: true,
-    path: '/personal-website/_next/image',
   },
   eslint: {
     ignoreDuringBuilds: true,

@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import { Layout } from "@/components";
 import { getImagePath } from "@/utils/imagePath";
+import { Analytics } from "@vercel/analytics/react";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -41,6 +42,7 @@ export default function RootLayout({
         <Layout>
           {children}
         </Layout>
+        <Analytics />
       </body>
     </html>
   );

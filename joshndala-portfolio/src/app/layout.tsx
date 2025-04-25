@@ -2,9 +2,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
-import { Layout } from "@/components";
 import { ThemeProvider } from "@/utils/themeContext";
-import { getImagePath } from "@/utils/imagePath";
 import { Analytics } from "@vercel/analytics/react";
 
 const roboto = Roboto({
@@ -35,21 +33,12 @@ export default function RootLayout({
         <link rel="shortcut icon" href="/favicon.png" type="image/png" />
       </head>
       <body 
-        className={`${roboto.className} min-h-screen w-full bg-secondary dark:bg-primary text-primary dark:text-secondary transition-colors duration-300`}
-        style={{
-          backgroundImage: `url('${getImagePath("/textures/asfalt-dark.png")}')`,
-          backgroundSize: 'auto',
-          backgroundRepeat: 'repeat',
-          backgroundBlendMode: 'multiply',
-          backgroundPosition: '0 0',
-        }}
+        className={`${roboto.className} texture-bg min-h-screen w-full bg-secondary dark:bg-primary text-primary dark:text-secondary transition-colors duration-300`}
       >
         <ThemeProvider>
-          <Layout>
-            {children}
-          </Layout>
-          <Analytics />
+          {children}
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );

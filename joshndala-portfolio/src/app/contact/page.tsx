@@ -1,28 +1,25 @@
 "use client";
 
-import { Navbar, Footer, FloatingTags } from "@/components";
-import Hero from "./hero";
+import { Navbar, Footer } from "@/components";
+import ContactSection from "../contact-section";
 import { motion } from "framer-motion";
 
-export default function HomePage() {
+export default function ContactPage() {
   return (
     <>
       <Navbar />
-      <FloatingTags />
       <motion.main
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 20 }}
         transition={{ duration: 0.5 }}
-        className="flex flex-col min-h-screen"
+        className="flex flex-col"
       >
-        <div className="flex-grow">
-          <section id="hero">
-            <Hero />
-          </section>
-        </div>
+        <section id="contact-section">
+          <ContactSection />
+        </section>
         <Footer />
       </motion.main>
     </>
   );
-}
+} 

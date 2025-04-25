@@ -6,9 +6,9 @@ import {
 } from "@material-tailwind/react";
 import { ProjectCard } from "@/components";
 
-// Featured projects for each category
+// Featured projects reorganized by professional/personal categories
 const FEATURED_PROJECTS = {
-  software: [
+  professional: [
     {
       img: "/image/triumph-education.png",
       title: "Triumph College Consulting Website",
@@ -36,20 +36,8 @@ const FEATURED_PROJECTS = {
       technicalDetails: "Implemented using Express.js/Node.js backend with MySQL and React/Material-UI frontend. Integrated Microsoft's Phi-3 LLM through Ollama for local processing. Comprehensive testing implemented with Mocha, Chai, and Jest.",
       technologies: ["JavaScript", "Express.js", "Node.js", "React", "MaterialUI", "MySQL", "Phi-3 LLM", "Ollama"],
     },
-    {
-      img: "/image/forumrank.PNG",
-      title: "ForumRank Website",
-      desc: "Collaborated on a custom-designed discussion post website with contextual menus, responsive design, and MySQL database integration.",
-      longDescription: "Developed a custom-designed discussion post website featuring a hand-styled layout, contextual menus, and a responsive 3-column design. The site includes secure user authentication, dynamic content loading, and real-time search functionality.",
-      achievements: [
-        "Implemented comprehensive form validation and server-side scripting",
-        "Created real-time search results using AJAX technology",
-        "Developed interactive content filtering system",
-        "Integrated user image uploads and discussion grouping features"
-      ],
-      technicalDetails: "Built using PHP for server-side scripting with MySQL database integration. Implemented AJAX for real-time interactions and dynamic content loading. Created responsive 3-column design for optimal user experience.",
-      technologies: ["PHP", "MySQL", "AJAX", "JavaScript", "Responsive Design"],
-    },
+  ],
+  personal: [
     {
       img: "/image/coverforme.png",
       title: "CoverForMe - AI Cover Letter Generator",
@@ -63,9 +51,7 @@ const FEATURED_PROJECTS = {
       technicalDetails: "Developing an AI pipeline using AWS Bedrock and LangChain, with a custom transformer model for accurate skill-to-requirement comparison.",
       technologies: ["React", "FastAPI", "AWS Bedrock", "LangChain", "PostgreSQL", "Firebase"],
       inProgress: true
-    }
-  ],
-  data: [
+    },
     {
       img: "/image/smartphone-price.jpg", 
       title: "Smartphone Price Prediction Analysis",
@@ -96,6 +82,20 @@ const FEATURED_PROJECTS = {
       githubLink: "https://github.com/joshndala/fake-news-detection/blob/main/Deep%20Learning%20on%20Fake%20News%20Detection%20Final%20Paper.pdf",
     },
     {
+      img: "/image/forumrank.PNG",
+      title: "ForumRank Website",
+      desc: "Collaborated on a custom-designed discussion post website with contextual menus, responsive design, and MySQL database integration.",
+      longDescription: "Developed a custom-designed discussion post website featuring a hand-styled layout, contextual menus, and a responsive 3-column design. The site includes secure user authentication, dynamic content loading, and real-time search functionality.",
+      achievements: [
+        "Implemented comprehensive form validation and server-side scripting",
+        "Created real-time search results using AJAX technology",
+        "Developed interactive content filtering system",
+        "Integrated user image uploads and discussion grouping features"
+      ],
+      technicalDetails: "Built using PHP for server-side scripting with MySQL database integration. Implemented AJAX for real-time interactions and dynamic content loading. Created responsive 3-column design for optimal user experience.",
+      technologies: ["PHP", "MySQL", "AJAX", "JavaScript", "Responsive Design"],
+    },
+    {
       img: "/image/cyclistic-bike-share.png",
       title: "Cyclistic Bike-Share Analysis",
       desc: "Analyzed 2.9 million data entries using R and created Tableau visualizations for a bike-share startup. Identified key usage patterns and proposed strategic marketing improvements.",
@@ -123,29 +123,29 @@ export function Projects() {
             Featured Projects
           </Typography>
           <Typography variant="lead" className="font-normal text-secondary/90 dark:text-primary/90 max-w-3xl text-base sm:text-lg">
-            Highlighting my best work in software engineering and data science. Each project demonstrates my technical expertise and problem-solving abilities.
+            Highlighting my best work in professional and personal projects. Each project demonstrates my technical expertise and problem-solving abilities.
           </Typography>
         </div>
 
-        {/* Software Engineering Section */}
+        {/* Professional Work Section */}
         <div className="mb-16">
           <Typography variant="h3" className="mb-8 text-2xl sm:text-3xl font-bold text-secondary/95 dark:text-primary/95">
-            Software Engineering
+            Professional Work
           </Typography>
           <div className="flex flex-col gap-8">
-            {FEATURED_PROJECTS.software.map((project, idx) => (
+            {FEATURED_PROJECTS.professional.map((project, idx) => (
               <ProjectCard key={idx} {...project} />
             ))}
           </div>
         </div>
 
-        {/* Data Science Section */}
+        {/* Personal Projects Section */}
         <div>
           <Typography variant="h3" className="mb-8 text-2xl sm:text-3xl font-bold text-secondary dark:text-primary">
-            Data Science & Analytics
+            Personal Projects
           </Typography>
           <div className="flex flex-col gap-8">
-            {FEATURED_PROJECTS.data.map((project, idx) => (
+            {FEATURED_PROJECTS.personal.map((project, idx) => (
               <ProjectCard key={idx} {...project} />
             ))}
           </div>

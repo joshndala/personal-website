@@ -1,14 +1,14 @@
 "use client";
 
 import { Typography } from "@material-tailwind/react";
-import { getSectionLink } from "../utils/paths";
+import Link from "next/link";
 
 const LINKS = [
-  { name: "Home", href: getSectionLink("hero") },
-  { name: "About", href: getSectionLink("about") },
-  { name: "Skills", href: getSectionLink("skills") },
-  { name: "Projects", href: getSectionLink("projects") },
-  { name: "Contact", href: getSectionLink("contact-section") },
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Skills", href: "/skills" },
+  { name: "Projects", href: "/projects" },
+  { name: "Contact", href: "/contact" },
 ];
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -22,13 +22,14 @@ export function Footer() {
       <ul className="flex flex-wrap items-center gap-y-2 gap-x-8">
         {LINKS.map((link) => (
           <li key={link.name}>
-            <Typography
-              as="a"
-              href={link.href}
-              className="font-normal text-primary dark:text-secondary transition-colors hover:text-primary/70 dark:hover:text-secondary/70 focus:text-primary/70 dark:focus:text-secondary/70"
-            >
-              {link.name}
-            </Typography>
+            <Link href={link.href} passHref>
+              <Typography
+                as="span"
+                className="font-normal text-primary dark:text-secondary transition-colors hover:text-primary/70 dark:hover:text-secondary/70 focus:text-primary/70 dark:focus:text-secondary/70 cursor-pointer"
+              >
+                {link.name}
+              </Typography>
+            </Link>
           </li>
         ))}
       </ul>

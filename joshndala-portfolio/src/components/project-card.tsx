@@ -37,7 +37,7 @@ export function ProjectCard({
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <Card className={`flex flex-col md:flex-row overflow-hidden bg-[#f8f9fa] transition-all duration-300 ease-in-out ${isExpanded ? 'md:h-auto' : 'md:h-64'}`}>
+    <Card className={`flex flex-col md:flex-row overflow-hidden bg-white dark:bg-gray-900 transition-all duration-300 ease-in-out ${isExpanded ? 'md:h-auto' : 'md:h-64'}`}>
       {/* Image Container */}
       <div className="relative w-full md:w-72 h-48 md:h-64 shrink-0 md:sticky md:top-0">
         <Image
@@ -54,28 +54,28 @@ export function ProjectCard({
       <div className="flex-grow p-5 flex flex-col">
         <div>
           <div className="flex justify-between items-start mb-2">
-            <Typography variant="h5" className="text-primary font-medium">
+            <Typography variant="h5" className="text-primary dark:text-secondary font-medium">
               {title}
             </Typography>
             {inProgress && (
               <Chip 
                 value="In Progress" 
                 size="sm" 
-                className="text-xs px-2 py-1 bg-red-500/10 text-red-600 ml-2"
+                className="text-xs px-2 py-1 bg-red-500/10 text-red-600 dark:bg-red-500/20 dark:text-red-400 ml-2"
               />
             )}
           </div>
 
-          <Typography className="text-primary/80 mb-3">
+          <Typography className="text-primary/80 dark:text-secondary/80 mb-3">
             {isExpanded ? longDescription || desc : desc}
           </Typography>
 
           {isExpanded && achievements && achievements.length > 0 && (
             <div className="mb-3">
-              <Typography variant="h6" className="text-primary font-medium mb-2">
+              <Typography variant="h6" className="text-primary dark:text-secondary font-medium mb-2">
                 Key Achievements
               </Typography>
-              <ul className="list-disc pl-5 text-primary/80">
+              <ul className="list-disc pl-5 text-primary/80 dark:text-secondary/80">
                 {achievements.map((achievement, idx) => (
                   <li key={idx} className="mb-1">
                     <Typography className="text-sm">{achievement}</Typography>
@@ -87,10 +87,10 @@ export function ProjectCard({
 
           {isExpanded && technicalDetails && (
             <div className="mb-3">
-              <Typography variant="h6" className="text-primary font-medium mb-2">
+              <Typography variant="h6" className="text-primary dark:text-secondary font-medium mb-2">
                 Technical Details
               </Typography>
-              <Typography className="text-primary/80 text-sm">
+              <Typography className="text-primary/80 dark:text-secondary/80 text-sm">
                 {technicalDetails}
               </Typography>
             </div>
@@ -104,7 +104,7 @@ export function ProjectCard({
                   key={index} 
                   value={tech} 
                   size="sm" 
-                  className="text-xs px-2 py-1 bg-primary/10 text-primary"
+                  className="text-xs px-2 py-1 bg-primary/10 text-primary dark:bg-secondary/10 dark:text-secondary"
                 />
               ))}
             </div>
@@ -112,14 +112,14 @@ export function ProjectCard({
         </div>
 
         {/* Action Buttons */}
-        <div className="flex items-center gap-2 mt-auto pt-3 border-t border-gray-200">
+        <div className="flex items-center gap-2 mt-auto pt-3 border-t border-gray-200 dark:border-gray-700">
           <div className="flex gap-2 flex-grow">
             {githubLink && (
               <a href={githubLink} target="_blank" rel="noopener noreferrer">
                 <Button 
                   size="sm" 
                   variant="outlined" 
-                  className="py-1 text-xs border-primary text-primary hover:bg-primary hover:text-secondary"
+                  className="py-1 text-xs border-primary text-primary dark:border-secondary dark:text-secondary hover:bg-primary hover:text-secondary dark:hover:bg-secondary dark:hover:text-primary"
                 >
                   GitHub
                 </Button>
@@ -129,7 +129,7 @@ export function ProjectCard({
               <a href={liveLink} target="_blank" rel="noopener noreferrer">
                 <Button 
                   size="sm" 
-                  className="py-1 text-xs bg-primary text-secondary hover:bg-primary/90"
+                  className="py-1 text-xs bg-primary text-secondary dark:bg-secondary dark:text-primary hover:bg-primary/90 dark:hover:bg-secondary/90"
                 >
                   Live Site
                 </Button>
@@ -141,7 +141,7 @@ export function ProjectCard({
             <Button
               variant="text"
               size="sm"
-              className="flex items-center gap-1 text-primary hover:bg-primary/10"
+              className="flex items-center gap-1 text-primary dark:text-secondary hover:bg-primary/10 dark:hover:bg-secondary/10"
               onClick={() => setIsExpanded(!isExpanded)}
             >
               <span className="text-sm">

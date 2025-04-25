@@ -29,7 +29,7 @@ const SHARED_ITEMS = [
           href="https://www.credly.com/badges/325ac3dd-6b59-41a7-8dc1-d9115184a962/public_url" 
           target="_blank" 
           rel="noopener noreferrer"
-          className="text-blue-500 hover:text-blue-700 underline"
+          className="text-primary dark:text-secondary hover:text-primary/70 dark:hover:text-secondary/70 underline"
         >
           (View Certificate)
         </a>
@@ -87,16 +87,16 @@ export function Resume() {
   const activeResume = RESUME_TYPES.find(type => type.value === activeTab);
 
   return (
-    <section className="px-8 py-12 sm:py-16">
+    <section className="px-8 py-12 sm:py-16 bg-secondary dark:bg-primary transition-colors duration-300">
       <div className="container mx-auto grid w-full grid-cols-1 items-start gap-8 lg:grid-cols-2">
         <div className="col-span-1">
-          <Typography variant="h2" className="mb-6 text-primary">
+          <Typography variant="h2" className="mb-6 text-primary dark:text-secondary">
             My Resume
           </Typography>
           
           <Tabs value={activeTab} className="mb-8">
             <TabsHeader
-              className="bg-primary/5" // Light version of your primary color for the header background
+              className="bg-primary/5 dark:bg-secondary/5"
             >
               {RESUME_TYPES.map(({ label, value }) => (
                 <Tab 
@@ -105,8 +105,8 @@ export function Resume() {
                   onClick={() => setActiveTab(value)}
                   className={`px-6 py-3 ${
                     activeTab === value
-                      ? "text-primary bg-white" // Active tab style
-                      : "text-primary/70 hover:text-primary/90" // Inactive tab style
+                      ? "text-primary dark:text-secondary bg-white dark:bg-primary"
+                      : "text-primary/70 dark:text-secondary/70 hover:text-primary/90 dark:hover:text-secondary/90"
                   }`}
                 >
                   {label}
@@ -115,7 +115,7 @@ export function Resume() {
             </TabsHeader>
           </Tabs>
 
-          <Typography className="mb-4 w-11/12 font-normal !text-primary">
+          <Typography className="mb-4 w-11/12 font-normal text-primary dark:text-secondary">
             {activeResume?.description}
           </Typography>
           
@@ -125,12 +125,12 @@ export function Resume() {
           >
             <Button
               variant="text"
-              className="flex items-center gap-2 bg-primary text-secondary"
+              className="flex items-center gap-2 bg-primary dark:bg-secondary text-secondary dark:text-primary transition-colors duration-300"
             >
               Download {activeResume?.label} Resume
               <ArrowRightIcon
                 strokeWidth={3}
-                className="h-3.5 w-3.5 text-primary"
+                className="h-3.5 w-3.5 text-secondary dark:text-primary"
               />
             </Button>
           </a>

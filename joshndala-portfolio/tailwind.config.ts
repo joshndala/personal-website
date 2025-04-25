@@ -6,6 +6,7 @@ const config: Config = withMT({
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class", // Enable dark mode with class strategy
   theme: {
     extend: {
       animation: {
@@ -18,14 +19,12 @@ const config: Config = withMT({
         },
       },
       colors: {
-        primary: '#00213F',    // Dark blue
-        secondary: '#ACF0D1',  // Mint green
-        "primary-dark": {
-          DEFAULT: "#00213F",
-        },
-        "primary-light": {
-          DEFAULT: "#ACF0D1",
-        },
+        // Light mode colors
+        primary: '#000000',    // Black
+        secondary: '#FFFFFF',  // White
+        accent: '#555555',     // Light gray
+        
+        // Dark mode colors will be handled by Tailwind's dark: modifier
       }
     },
   },

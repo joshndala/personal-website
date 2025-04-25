@@ -16,6 +16,7 @@ import {
   WrenchScrewdriverIcon
 } from "@heroicons/react/24/solid";
 import { getSectionLink } from "../utils/paths";
+import { ThemeToggle } from "./theme-toggle";
 
 const NAV_MENU = [
   {
@@ -57,8 +58,7 @@ function NavItem({ children, href }: NavItemProps) {
         as="a"
         href={href}
         variant="paragraph"
-        color="gray"
-        className="flex items-center gap-2 font-medium text-secondary hover:text-secondary/80 transition-colors"
+        className="flex items-center gap-2 font-medium text-primary dark:text-secondary hover:text-primary/80 dark:hover:text-secondary/80 transition-colors"
       >
         {children}
       </Typography>
@@ -95,9 +95,9 @@ export function Navbar() {
   }, []);
 
   return (
-    <MTNavbar shadow={false} fullWidth className="border-0 sticky top-0 z-50 bg-primary">
+    <MTNavbar shadow={false} fullWidth className="border-0 sticky top-0 z-50 bg-secondary dark:bg-primary transition-colors duration-300">
       <div className="container mx-auto flex items-center justify-between">
-        <Typography className="text-lg font-bold text-secondary">
+        <Typography className="text-lg font-bold text-primary dark:text-secondary">
           Joshua Ndala
         </Typography>
         <ul className="ml-10 hidden items-center gap-8 lg:flex">
@@ -108,16 +108,17 @@ export function Navbar() {
             </NavItem>
           ))}
         </ul>
-        <div className="hidden items-center gap-2 lg:flex">
+        <div className="hidden items-center gap-4 lg:flex">
+          <ThemeToggle />
           <a href="#contact-section" onClick={handleClick}>
-            <Button className="rounded-full bg-secondary text-primary hover:bg-secondary/90">
+            <Button className="rounded-full bg-primary text-secondary dark:bg-secondary dark:text-primary hover:bg-primary/90 dark:hover:bg-secondary/90 transition-colors duration-300">
               Contact Me
             </Button>
           </a>
         </div>
         <IconButton
           variant="text"
-          className="ml-auto inline-block lg:hidden text-secondary"
+          className="ml-auto inline-block lg:hidden text-primary dark:text-secondary"
           onClick={handleOpen}
         >
           {open ? (
@@ -128,7 +129,7 @@ export function Navbar() {
         </IconButton>
       </div>
       <Collapse open={open}>
-        <div className="container mx-auto mt-3 border-t border-secondary/20 px-2 pt-4">
+        <div className="container mx-auto mt-3 border-t border-primary/20 dark:border-secondary/20 px-2 pt-4">
           <ul className="flex flex-col gap-4">
             {NAV_MENU.map(({ name, icon: Icon, href }) => (
               <NavItem key={name} href={href}>
@@ -137,9 +138,12 @@ export function Navbar() {
               </NavItem>
             ))}
           </ul>
-          <div className="mt-6 mb-4 flex items-center gap-2">
+          <div className="mt-6 mb-4 flex flex-col gap-2">
+            <div className="flex justify-center mb-2">
+              <ThemeToggle />
+            </div>
             <a href="#contact-section" onClick={handleClick} className="w-full">
-              <Button className="rounded-full w-full bg-secondary text-primary hover:bg-secondary/90">
+              <Button className="rounded-full w-full bg-primary text-secondary dark:bg-secondary dark:text-primary hover:bg-primary/90 dark:hover:bg-secondary/90">
                 Contact Me
               </Button>
             </a>

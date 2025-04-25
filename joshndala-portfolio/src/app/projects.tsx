@@ -116,20 +116,20 @@ const FEATURED_PROJECTS = {
 
 export function Projects() {
   return (
-    <section className="py-8 sm:py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-primary">
+    <section className="py-8 sm:py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-primary dark:bg-secondary transition-colors duration-300">
       <div className="container mx-auto">
         <div className="mb-12">
-          <Typography variant="h2" className="mb-4 text-3xl sm:text-4xl md:text-5xl font-bold text-secondary">
+          <Typography variant="h2" className="mb-4 text-3xl sm:text-4xl md:text-5xl font-bold text-secondary dark:text-primary">
             Featured Projects
           </Typography>
-          <Typography variant="lead" className="font-normal text-secondary/90 max-w-3xl text-base sm:text-lg">
+          <Typography variant="lead" className="font-normal text-secondary/90 dark:text-primary/90 max-w-3xl text-base sm:text-lg">
             Highlighting my best work in software engineering and data science. Each project demonstrates my technical expertise and problem-solving abilities.
           </Typography>
         </div>
 
         {/* Software Engineering Section */}
         <div className="mb-16">
-          <Typography variant="h3" className="mb-8 text-2xl sm:text-3xl font-bold text-secondary/95">
+          <Typography variant="h3" className="mb-8 text-2xl sm:text-3xl font-bold text-secondary/95 dark:text-primary/95">
             Software Engineering
           </Typography>
           <div className="flex flex-col gap-8">
@@ -141,7 +141,7 @@ export function Projects() {
 
         {/* Data Science Section */}
         <div>
-          <Typography variant="h3" className="mb-8 text-2xl sm:text-3xl font-bold text-secondary">
+          <Typography variant="h3" className="mb-8 text-2xl sm:text-3xl font-bold text-secondary dark:text-primary">
             Data Science & Analytics
           </Typography>
           <div className="flex flex-col gap-8">

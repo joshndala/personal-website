@@ -46,11 +46,12 @@ const FEATURED_PROJECTS = {
       achievements: [
         "Reduced cover letter writing time by 80%",
         "Implemented secure user authentication with Firebase",
-        "Designed efficient PostgreSQL database schema"
+        "Designed efficient PostgreSQL database schema",
+        "Implemented SerpApi for real-time company information"
       ],
       technicalDetails: "Developing an AI pipeline using AWS Bedrock and LangChain, with a custom transformer model for accurate skill-to-requirement comparison.",
-      technologies: ["React", "FastAPI", "AWS Bedrock", "LangChain", "PostgreSQL", "Firebase"],
-      inProgress: true
+      technologies: ["React", "FastAPI", "AWS Bedrock", "LangChain", "PostgreSQL", "Firebase", "AWS RDS", "Docker", "SerpApi"],
+      githubLink: "https://github.com/joshndala/coverletter-ai",
     },
     {
       img: "/image/smartphone-price.jpg", 

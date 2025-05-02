@@ -69,6 +69,21 @@ const FEATURED_PROJECTS = {
       githubLink: "https://github.com/joshndala/coverletter-ai",
     },
     {
+      img: "/image/heart-disease-clustering.png",
+      title: "Heart Disease Patient Clustering Analysis",
+      desc: "Applied K-Means clustering to segment 303 heart disease patients into 3 distinct profiles, achieving a silhouette score of 0.1908 and uncovering patterns for personalized treatment.",
+      longDescription: "Performed unsupervised clustering on V.A. Medical Center data using K-Means, DBSCAN, and hierarchical agglomerative clustering with PCA visualization to identify meaningful patient subgroups. Standardized key continuous features and evaluated models via silhouette analysis, recommending K-Means (k=3) for clinical interpretability.",
+      achievements: [
+        "Clustered 303 patients into 3 profiles with silhouette score 0.1908",
+        "Detected outliers representing unique patient cases using DBSCAN",
+        "Validated clustering consistency across three algorithms",
+        "Conducted comprehensive data preprocessing and feature analysis"
+      ],
+      technicalDetails: "Standardized continuous features (age, trestbps, chol, thalach, oldpeak). Implemented K-Means (k=3), DBSCAN (eps=1.2, min_samples=5), and HAC with Ward linkage using scikit-learn. Applied PCA for 2D visualization and used correlation and outlier analysis to inform preprocessing.",
+      technologies: ["Python", "scikit-learn", "Pandas", "NumPy", "Matplotlib", "PCA", "K-Means", "DBSCAN", "Hierarchical Clustering"],
+      liveLink: "https://drive.google.com/file/d/1qVNldoohqjGsZK2qzQ_f6cUrxI18z6Hr/view?usp=sharing"
+    },
+    {
       img: "/image/smartphone-price.jpg", 
       title: "Smartphone Price Prediction Analysis",
       desc: "Designed and implemented end-to-end ML pipeline achieving 96.5% prediction accuracy. Engineered robust data processing system reducing feature extraction time by 40%.",

@@ -75,12 +75,13 @@ const FEATURED_PROJECTS = {
       desc: "Built a full-stack RAG application with React and FastAPI, enabling real-time question answering over user-uploaded documents with sub-second response times.",
       longDescription: "Developed a comprehensive Retrieval-Augmented Generation system allowing users to upload PDFs and HTML, automatically index content with a hybrid BM25 + semantic embedding pipeline in FAISS, and get streaming LLM-powered answers via the OpenRouter API. The React/Material UI frontend provides an intuitive interface for document ingestion and chat, while the FastAPI backend orchestrates search and inference with dynamic rate-limit backoff.",
       achievements: [
-        "Achieved <500 ms end-to-end query latency on corpora >100 MB",
+        "Integrated streaming inference via the OpenRouter API, delivering partial LLM responses to the client as they’re generated for a live chat experience.",
+        "Achieved <1 s end-to-end query latency on large document corpora",
         "Boosted retrieval relevance by 30% using a hybrid BM25 + Sentence-Transformer embedding approach",
         "Enabled any-model support (e.g. GPT-4, Claude, custom fine-tuned models) through a unified OpenRouterService",
         "Containerized entire stack with Docker Compose and automated deployments via GitHub Actions"
       ],
-      technicalDetails: "Backend in Python/FastAPI leveraging Whoosh for BM25 and Sentence-Transformer embeddings stored in FAISS. Frontend built with React and Material UI, using WebSockets for streaming LLM responses. Orchestrated LLM calls via OpenRouter with robust error handling. CI/CD pipelines configured in GitHub Actions; deployments managed on AWS ECS via Docker Compose.",
+      technicalDetails: "Backend in Python/FastAPI leveraging Whoosh for BM25 and Sentence-Transformer embeddings stored in FAISS. Frontend built with React and Material UI. Orchestrated LLM calls via OpenRouter with robust error handling. CI/CD pipelines configured in GitHub Actions; deployments containerized with Docker Compose.",
       technologies: [
         "React",
         "FastAPI",
@@ -91,9 +92,7 @@ const FEATURED_PROJECTS = {
         "Sentence-Transformers",
         "FAISS",
         "OpenRouter API",
-        "WebSockets",
-        "GitHub Actions",
-        "AWS ECS"
+        "GitHub Actions"
       ],
       githubLink: "https://github.com/joshndala/shyft-rag-app"
     },    

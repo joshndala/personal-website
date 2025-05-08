@@ -67,6 +67,13 @@ const EXPERIENCE = [
 // Project experiences
 const SOFTWARE_PROJECTS = [
   {
+    title: "Shyft RAG App – Retrieval-Augmented Generation System",
+    period: "Feb 2025",
+    icon: CodeBracketIcon,
+    description: "Built a full-stack RAG application with React, Material UI and FastAPI, enabling real-time question answering over user-uploaded documents. Implemented streaming responses and containerized the entire stack with Docker Compose. Automated deployments with GitHub Actions CI/CD pipelines.",
+    technologies: ["React", "FastAPI", "Material UI", "Docker Compose", "GitHub Actions", "CI/CD"]
+  },
+  {
     title: "CoverForMe - AI Cover Letter Generator",
     period: "Jan 2025 - Present",
     icon: CodeBracketIcon,
@@ -83,6 +90,13 @@ const SOFTWARE_PROJECTS = [
 ];
 
 const ML_PROJECTS = [
+  {
+    title: "Shyft RAG App – Retrieval-Augmented Generation System",
+    period: "Feb 2025",
+    icon: CpuChipIcon,
+    description: "Developed a comprehensive RAG system allowing users to upload PDFs and HTML documents with automatic content indexing. Implemented a hybrid BM25 + semantic embedding pipeline in FAISS that achieved <1s query latency and boosted retrieval relevance by 30%. Integrated streaming inference via OpenRouter API for real-time LLM responses.",
+    technologies: ["Python", "BM25", "Whoosh", "Sentence-Transformers", "FAISS", "Vector Search", "OpenRouter API", "GPT-4", "Claude"]
+  },
   {
     title: "CoverForMe - AI Cover Letter Generator",
     period: "Jan 2025 - Present",

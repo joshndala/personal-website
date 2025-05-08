@@ -92,7 +92,6 @@ const FEATURED_PROJECTS = {
         "Sentence-Transformers",
         "FAISS",
         "OpenRouter API",
-        "GitHub Actions"
       ],
       githubLink: "https://github.com/joshndala/shyft-rag-app"
     },    

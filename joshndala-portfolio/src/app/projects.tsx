@@ -38,21 +38,22 @@ const FEATURED_PROJECTS = {
     },
   ],
   personal: [
-    {
-      img: "/image/doris-symbol.png", 
-      title: "DORIS – Digital Omni-Response Interactive System",
-      desc: "Creating a voice-first AI companion that joins real-time conversations, listens intelligently, and responds naturally.",
-      longDescription: "Developing a real-time audio-first application where DORIS listens during group calls, detects when it's needed, and responds using live speech-to-text, context filtering, and AI-driven replies. Future plans include visual object recognition via webcam and memory-aware conversations.",
-      achievements: [
-        "Built real-time audio interface with AssemblyAI and Daily.co",
-        "Integrated Gemini Flash via OpenRouter for responsive LLM interaction",
-        "Implemented lightweight trigger detection for natural speech activation",
-        "Designed architecture for scalable vector-based memory and multimodal vision"
-      ],
-      technicalDetails: "Architecture leverages Next.js, AssemblyAI, OpenRouter, and Daily.co to support live transcription, token-efficient AI querying, and in-browser TTS. Planning integration with vector search and vision APIs for future multimodal input.",
-      technologies: ["Next.js", "TypeScript", "AssemblyAI", "OpenRouter", "Daily.co", "Tailwind CSS", "Vercel", "TTS API", "Vector Search"],
-      inProgress: true
-    },
+    // TODO: Add Doris project
+    // {
+    //   img: "/image/doris-symbol.png", 
+    //   title: "DORIS – Digital Omni-Response Interactive System",
+    //   desc: "Creating a voice-first AI companion that joins real-time conversations, listens intelligently, and responds naturally.",
+    //   longDescription: "Developing a real-time audio-first application where DORIS listens during group calls, detects when it's needed, and responds using live speech-to-text, context filtering, and AI-driven replies. Future plans include visual object recognition via webcam and memory-aware conversations.",
+    //   achievements: [
+    //     "Built real-time audio interface with AssemblyAI and Daily.co",
+    //     "Integrated Gemini Flash via OpenRouter for responsive LLM interaction",
+    //     "Implemented lightweight trigger detection for natural speech activation",
+    //     "Designed architecture for scalable vector-based memory and multimodal vision"
+    //   ],
+    //   technicalDetails: "Architecture leverages Next.js, AssemblyAI, OpenRouter, and Daily.co to support live transcription, token-efficient AI querying, and in-browser TTS. Planning integration with vector search and vision APIs for future multimodal input.",
+    //   technologies: ["Next.js", "TypeScript", "AssemblyAI", "OpenRouter", "Daily.co", "Tailwind CSS", "Vercel", "TTS API", "Vector Search"],
+    //   inProgress: true
+    // },
     {
       img: "/image/coverforme.png",
       title: "CoverForMe - AI Cover Letter Generator",

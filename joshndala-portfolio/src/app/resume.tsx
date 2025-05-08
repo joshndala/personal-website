@@ -67,18 +67,18 @@ const EXPERIENCE = [
 // Project experiences
 const SOFTWARE_PROJECTS = [
   {
-    title: "Shyft RAG App – Retrieval-Augmented Generation System",
-    period: "Feb 2025",
-    icon: CodeBracketIcon,
-    description: "Built a full-stack RAG application with React, Material UI and FastAPI, enabling real-time question answering over user-uploaded documents. Implemented streaming responses and containerized the entire stack with Docker Compose. Automated deployments with GitHub Actions CI/CD pipelines.",
-    technologies: ["React", "FastAPI", "Material UI", "Docker Compose", "GitHub Actions", "CI/CD"]
-  },
-  {
     title: "CoverForMe - AI Cover Letter Generator",
     period: "Jan 2025 - Present",
     icon: CodeBracketIcon,
     description: "Engineering a React/FastAPI application that automatically generates tailored cover letters. Implementing Firebase authentication, PostgreSQL database, and advanced AI pipeline.",
     technologies: ["React", "FastAPI", "AWS Bedrock", "LangChain", "PostgreSQL", "Firebase"]
+  },
+  {
+    title: "Shyft RAG App – Retrieval-Augmented Generation System",
+    period: "Feb 2025",
+    icon: CodeBracketIcon,
+    description: "Built a full-stack RAG application with React, Material UI and FastAPI, enabling real-time question answering over user-uploaded documents. Implemented streaming responses and containerized the entire stack with Docker Compose. Automated deployments with GitHub Actions CI/CD pipelines.",
+    technologies: ["React", "FastAPI", "Material UI", "Docker Compose", "GitHub Actions", "CI/CD"]
   },
   {
     title: "ForumRank Website",

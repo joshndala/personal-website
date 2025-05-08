@@ -102,7 +102,7 @@ const ML_PROJECTS = [
     period: "Feb 2025",
     icon: CpuChipIcon,
     description: "Developed a comprehensive RAG system allowing users to upload PDFs and HTML documents with automatic content indexing. Implemented a hybrid BM25 + semantic embedding pipeline in FAISS that achieved <1s query latency and boosted retrieval relevance by 30%. Integrated streaming inference via OpenRouter API for real-time LLM responses.",
-    technologies: ["Python", "BM25", "Whoosh", "Sentence-Transformers", "FAISS", "Vector Search", "OpenRouter API", "GPT-4", "Claude"]
+    technologies: ["Python", "BM25", "Sentence-Transformers", "FAISS", "Vector Search", "OpenRouter API", "GPT-4", "Claude"]
   },
   {
     title: "Automated Fake News Detection",

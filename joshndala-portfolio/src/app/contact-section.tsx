@@ -117,29 +117,6 @@ export function ContactSection() {
               </motion.div>
             ))}
           </div>
-
-          {/* Resume Download */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.5, duration: 0.5 }}
-            className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-md mt-8"
-          >
-            <Typography variant="h5" className="text-primary dark:text-secondary mb-4">
-              Need my resume?
-            </Typography>
-            <Typography className="text-primary/70 dark:text-secondary/70 mb-4">
-              You can download my up-to-date resume with all my experience and skills.
-            </Typography>
-            <a
-              href={getStaticFilePath('Joshua_Ndala_Resume.pdf')}
-              download="Joshua_Ndala_Resume.pdf"
-              className="inline-block w-auto mx-auto bg-primary dark:bg-secondary text-secondary dark:text-primary hover:shadow-lg transition-shadow px-6 py-3.5 rounded-lg font-medium text-center"
-            >
-              Download Resume
-            </a>
-          </motion.div>
         </div>
         
         {/* Inspirational Call to Action */}

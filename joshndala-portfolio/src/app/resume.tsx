@@ -1,11 +1,10 @@
 "use client";
 
-import { Typography, Button, Tabs, TabsHeader, Tab } from "@material-tailwind/react";
+import { Typography, Tabs, TabsHeader, Tab } from "@material-tailwind/react";
 import {
   AcademicCapIcon,
   CodeBracketIcon,
   ChartBarIcon,
-  ArrowRightIcon,
   CheckBadgeIcon,
   ClockIcon,
   CommandLineIcon,
@@ -15,7 +14,6 @@ import {
   CloudIcon,
   BeakerIcon,
 } from "@heroicons/react/24/solid";
-import { getStaticFilePath } from '../utils/paths';
 import { useState } from 'react';
 import { motion } from "framer-motion";
 
@@ -67,8 +65,15 @@ const EXPERIENCE = [
 // Project experiences
 const SOFTWARE_PROJECTS = [
   {
+    title: "VAR Vendetta - Football Decision Analysis Platform",
+    period: "May 2025",
+    icon: CodeBracketIcon,
+    description: "Designed and built a full-stack Next.js application with TypeScript for football decision analysis. Implemented speech-to-text for recording player decisions, created a responsive UI with voice and text capabilities, and designed a robust Prisma + SQLite database schema with efficient indexing.",
+    technologies: ["Next.js", "TypeScript", "React", "Prisma", "SQLite", "Web Speech API", "TailwindCSS"]
+  },
+  {
     title: "CoverForMe - AI Cover Letter Generator",
-    period: "Jan 2025 - Present",
+    period: "Jan 2025 - April 2025",
     icon: CodeBracketIcon,
     description: "Engineering a React/FastAPI application that automatically generates tailored cover letters. Implementing Firebase authentication, PostgreSQL database, and advanced AI pipeline.",
     technologies: ["React", "FastAPI", "AWS Bedrock", "LangChain", "PostgreSQL", "Firebase"]
@@ -77,8 +82,8 @@ const SOFTWARE_PROJECTS = [
     title: "Shyft RAG App – Retrieval-Augmented Generation System",
     period: "Feb 2025",
     icon: CodeBracketIcon,
-    description: "Built a full-stack RAG application with React, Material UI and FastAPI, enabling real-time question answering over user-uploaded documents. Implemented streaming responses and containerized the entire stack with Docker Compose. Automated deployments with GitHub Actions CI/CD pipelines.",
-    technologies: ["React", "FastAPI", "Material UI", "Docker Compose", "GitHub Actions", "CI/CD"]
+    description: "Built a full-stack RAG application with React, Material UI and FastAPI, enabling real-time question answering over user-uploaded documents. Implemented streaming responses via WebSockets and containerized the entire stack with Docker Compose. Automated deployments with GitHub Actions CI/CD pipelines.",
+    technologies: ["React", "FastAPI", "Material UI", "Docker Compose", "WebSockets", "GitHub Actions", "CI/CD"]
   },
   {
     title: "ForumRank Website",
@@ -91,8 +96,15 @@ const SOFTWARE_PROJECTS = [
 
 const ML_PROJECTS = [
   {
+    title: "VAR Vendetta - Football Decision Analysis Platform",
+    period: "May 2025",
+    icon: CpuChipIcon,
+    description: "Developed a sophisticated hybrid search system for football decision analysis combining BM25 and FAISS vector search with dynamic weighted merging, improving retrieval relevance by 40%. Connected with embedding models via HuggingFace API and LLMs via OpenRouter for AI-powered referee analysis.",
+    technologies: ["FAISS", "BM25", "HuggingFace API", "OpenRouter API", "Vector Search", "Hybrid Retrieval", "TypeScript"]
+  },
+  {
     title: "CoverForMe - AI Cover Letter Generator",
-    period: "Jan 2025 - Present",
+    period: "Jan 2025 - April 2025",
     icon: CpuChipIcon,
     description: "Building an AI system that analyzes resume content against job descriptions for personalized cover letter generation. Implementing a custom transformer model for skill-to-requirement comparison.",
     technologies: ["AWS Bedrock", "LangChain", "Llama 3", "Claude Opus", "Transformers", "NLP"]
@@ -102,7 +114,7 @@ const ML_PROJECTS = [
     period: "Feb 2025",
     icon: CpuChipIcon,
     description: "Developed a comprehensive RAG system allowing users to upload PDFs and HTML documents with automatic content indexing. Implemented a hybrid BM25 + semantic embedding pipeline in FAISS that achieved <1s query latency and boosted retrieval relevance by 30%. Integrated streaming inference via OpenRouter API for real-time LLM responses.",
-    technologies: ["Python", "BM25", "Sentence-Transformers", "FAISS", "Vector Search", "OpenRouter API", "GPT-4", "Claude"]
+    technologies: ["Python", "BM25", "Whoosh", "Sentence-Transformers", "FAISS", "Vector Search", "OpenRouter API", "GPT-4", "Claude"]
   },
   {
     title: "Automated Fake News Detection",
@@ -181,7 +193,6 @@ const RESUME_TYPES = [
     value: "swe",
     skills: SOFTWARE_SKILLS,
     projects: SOFTWARE_PROJECTS,
-    path: 'Joshua_Ndala_Resume.pdf',
     description: "Experienced in full-stack web development with a focus on building scalable applications. Strong foundation in software engineering principles and modern development practices."
   },
   {
@@ -189,7 +200,6 @@ const RESUME_TYPES = [
     value: "ml",
     skills: ML_SKILLS,
     projects: ML_PROJECTS,
-    path: 'Resume_Joshua_Ndala.pdf',
     description: "Passionate about machine learning with experience in developing predictive models, natural language processing, and deploying ML solutions to production environments."
   },
 ];
@@ -276,29 +286,6 @@ export function Resume() {
                   </motion.div>
                 ))}
               </div>
-            </div>
-            
-            <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-md">
-              <Typography variant="h4" className="font-bold text-primary dark:text-secondary mb-6 pb-2 border-b border-primary/10 dark:border-secondary/10">
-                Download Resume
-              </Typography>
-              
-              <Typography className="mb-6 text-primary/80 dark:text-secondary/80">
-                {activeResume?.description}
-              </Typography>
-              
-              <a 
-                href={getStaticFilePath(activeResume?.path)}
-                download={activeResume?.path}
-                className="inline-block"
-              >
-                <Button 
-                  className="flex items-center gap-2 bg-primary dark:bg-secondary text-secondary dark:text-primary transition-colors duration-300 shadow-md hover:shadow-lg"
-                >
-                  Download {activeResume?.label} Resume
-                  <ArrowRightIcon className="h-4 w-4" />
-                </Button>
-              </a>
             </div>
           </div>
           

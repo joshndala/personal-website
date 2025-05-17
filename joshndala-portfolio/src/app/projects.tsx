@@ -55,6 +55,34 @@ const FEATURED_PROJECTS = {
     //   inProgress: true
     // },
     {
+      img: "/image/var-vendetta.png", 
+      title: "VAR Vendetta - Football Decision Analysis Platform",
+      desc: "Designed and built a full-stack application using Next.js that records, analyzes, and provides AI-powered feedback on player decisions in virtual football games, using a sophisticated hybrid search system.",
+      longDescription: "Developed an interactive platform that lets users record player mistakes via speech-to-text, automatically indexes them with advanced retrieval techniques, and enables AI-powered referee analysis through natural language questions. The system uses a custom hybrid search approach combining keyword-based (BM25) and semantic vector search (FAISS) for highly relevant contextual retrieval.",
+      achievements: [
+        "Implemented dynamic weighted merging of BM25 and vector search results, improving retrieval relevance by 40%",
+        "Created a real-time speech-to-text interface for quick logging of player decisions",
+        "Built a responsive UI with both text and voice question capabilities",
+        "Designed and implemented a Prisma + SQLite database schema with efficient indexing",
+        "Optimized hybrid search with configurable weighting to balance keyword vs. semantic relevance"
+      ],
+      technicalDetails: "The system uses Next.js for both frontend and backend, with TypeScript throughout. Implemented a custom hybrid retrieval system combining BM25 for keyword search and FAISS for semantic similarity with dynamic score normalization and weighted merging. Frontend leverages the Web Speech API for voice input, while the backend connects to embedding (HuggingFace) and LLM (OpenRouter) services for AI-powered analysis.",
+      technologies: [
+        "Next.js",
+        "TypeScript",
+        "React",
+        "Prisma",
+        "SQLite",
+        "FAISS",
+        "BM25",
+        "Web Speech API",
+        "HuggingFace API",
+        "OpenRouter API",
+        "TailwindCSS"
+      ],
+      githubLink: "https://github.com/joshndala/var-vendetta", 
+    },
+    {
       img: "/image/coverforme.png",
       title: "CoverForMe - AI Cover Letter Generator",
       desc: "Engineered a full-stack application using React and FastAPI that automatically generates tailored cover letters, reducing writing time by 80%.",
@@ -75,7 +103,7 @@ const FEATURED_PROJECTS = {
       desc: "Built a full-stack RAG application with React and FastAPI, enabling real-time question answering over user-uploaded documents with sub-second response times.",
       longDescription: "Developed a comprehensive Retrieval-Augmented Generation system allowing users to upload PDFs and HTML, automatically index content with a hybrid BM25 + semantic embedding pipeline in FAISS, and get streaming LLM-powered answers via the OpenRouter API. The React/Material UI frontend provides an intuitive interface for document ingestion and chat, while the FastAPI backend orchestrates search and inference with dynamic rate-limit backoff.",
       achievements: [
-        "Integrated streaming inference via the OpenRouter API, delivering partial LLM responses to the client as they’re generated for a live chat experience.",
+        "Integrated streaming inference via the OpenRouter API, delivering partial LLM responses to the client as they're generated for a live chat experience.",
         "Achieved <1 s end-to-end query latency on large document corpora",
         "Boosted retrieval relevance by 30% using a hybrid BM25 + Sentence-Transformer embedding approach",
         "Enabled any-model support (e.g. GPT-4, Claude, custom fine-tuned models) through a unified OpenRouterService",

@@ -172,7 +172,7 @@ export function Skills() {
           className="container mx-auto grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3"
         >
           {TECH_SKILLS.map((props, idx) => (
-            <SkillCard key={idx} {...props} />
+          <SkillCard key={idx} {...props} />
           ))}
         </motion.div>
       )}
@@ -218,8 +218,8 @@ export function Skills() {
                   </ul>
                 </div>
               </div>
-            ))}
-          </div>
+        ))}
+      </div>
         </motion.div>
       )}
 

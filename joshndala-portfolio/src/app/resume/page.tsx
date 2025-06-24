@@ -3,8 +3,12 @@
 import { Navbar, Footer } from "@/components";
 import Resume from "../resume";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 
 export default function ResumePage() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <Navbar />

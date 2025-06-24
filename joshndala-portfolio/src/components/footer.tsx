@@ -23,12 +23,12 @@ export function Footer() {
         {LINKS.map((link) => (
           <li key={link.name}>
             <Link href={link.href} passHref>
-              <Typography
+            <Typography
                 as="span"
                 className="font-normal text-primary dark:text-secondary transition-colors hover:text-primary/70 dark:hover:text-secondary/70 focus:text-primary/70 dark:focus:text-secondary/70 cursor-pointer"
-              >
-                {link.name}
-              </Typography>
+            >
+              {link.name}
+            </Typography>
             </Link>
           </li>
         ))}

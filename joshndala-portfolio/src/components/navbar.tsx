@@ -57,15 +57,15 @@ function NavItem({ children, href, isActive }: NavItemProps) {
   return (
     <li>
       <Link href={href} passHref>
-        <Typography
+      <Typography
           as="span"
-          variant="paragraph"
+        variant="paragraph"
           className={`flex items-center gap-2 font-medium text-primary dark:text-secondary hover:text-primary/80 dark:hover:text-secondary/80 transition-colors cursor-pointer ${
             isActive ? "border-b-2 border-primary dark:border-secondary" : ""
           }`}
-        >
-          {children}
-        </Typography>
+      >
+        {children}
+      </Typography>
       </Link>
     </li>
   );
@@ -82,8 +82,8 @@ export function Navbar() {
       <div className="container mx-auto flex items-center justify-between">
         <Link href="/" passHref>
           <Typography className="text-lg font-bold text-primary dark:text-secondary cursor-pointer">
-            Joshua Ndala
-          </Typography>
+          Joshua Ndala
+        </Typography>
         </Link>
         <ul className="ml-10 hidden items-center gap-8 lg:flex">
           {NAV_MENU.map(({ name, icon: Icon, href }) => (

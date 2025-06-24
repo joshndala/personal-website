@@ -35,6 +35,7 @@ const FEATURED_PROJECTS = {
       ],
       technicalDetails: "Implemented using Express.js/Node.js backend with MySQL and React/Material-UI frontend. Integrated Microsoft's Phi-3 LLM through Ollama for local processing. Comprehensive testing implemented with Mocha, Chai, and Jest.",
       technologies: ["JavaScript", "Express.js", "Node.js", "React", "MaterialUI", "MySQL", "Phi-3 LLM", "Ollama"],
+      liveLink: "https://learnification.github.io/",
     },
   ],
   personal: [
@@ -202,40 +203,41 @@ const FEATURED_PROJECTS = {
 
 export function Projects() {
   return (
-    <section className="py-8 sm:py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-primary dark:bg-secondary transition-colors duration-300">
+    <section className="py-8 sm:py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-secondary dark:bg-primary transition-colors duration-300">
       <div className="container mx-auto">
-        <div className="mb-12">
-          <Typography variant="h2" className="mb-4 text-3xl sm:text-4xl md:text-5xl font-bold text-secondary dark:text-primary">
-            Featured Projects
+        {/* Header */}
+        <div className="max-w-4xl mx-auto text-center mb-12 md:mb-16">
+          <Typography variant="h1" className="text-4xl md:text-5xl font-extrabold text-primary dark:text-secondary tracking-tight mb-4">
+            My Projects
           </Typography>
-          <Typography variant="lead" className="font-normal text-secondary/90 dark:text-primary/90 max-w-3xl text-base sm:text-lg">
-            Highlighting my best work in professional and personal projects. Each project demonstrates my technical expertise and problem-solving abilities.
+          <Typography variant="lead" className="text-lg text-primary/80 dark:text-secondary/80 max-w-2xl mx-auto">
+            A curated selection of my professional endeavors and personal explorations in software and data.
           </Typography>
         </div>
 
         {/* Professional Work Section */}
-        <div className="mb-16">
-          <Typography variant="h3" className="mb-8 text-2xl sm:text-3xl font-bold text-secondary/95 dark:text-primary/95">
+        <section className="mb-16">
+          <Typography variant="h2" className="text-3xl font-bold text-primary dark:text-secondary mb-8 text-center">
             Professional Work
           </Typography>
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-6 max-w-6xl mx-auto">
             {FEATURED_PROJECTS.professional.map((project, idx) => (
-              <ProjectCard key={idx} {...project} />
+              <ProjectCard key={idx} {...project} layout="horizontal" />
             ))}
           </div>
-        </div>
+        </section>
 
         {/* Personal Projects Section */}
-        <div>
-          <Typography variant="h3" className="mb-8 text-2xl sm:text-3xl font-bold text-secondary dark:text-primary">
+        <section>
+          <Typography variant="h2" className="text-3xl font-bold text-primary dark:text-secondary mb-8 text-center">
             Personal Projects
           </Typography>
-          <div className="flex flex-col gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {FEATURED_PROJECTS.personal.map((project, idx) => (
-              <ProjectCard key={idx} {...project} />
+              <ProjectCard key={idx} {...project} layout="vertical" />
             ))}
           </div>
-        </div>
+        </section>
       </div>
     </section>
   );

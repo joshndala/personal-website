@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 export default function HomePage() {
   return (
     <>
-      <Navbar />
+        <Navbar />
       <FloatingTags />
       <motion.main
         initial={{ opacity: 0, y: 20 }}
@@ -17,9 +17,9 @@ export default function HomePage() {
         className="flex flex-col min-h-screen"
       >
         <div className="flex-grow">
-          <section id="hero">
-            <Hero />
-          </section>
+        <section id="hero">
+          <Hero />
+        </section>
         </div>
         <Footer />
       </motion.main>

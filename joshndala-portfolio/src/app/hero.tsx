@@ -219,7 +219,7 @@ function Hero() {
             </Typography>
             
             <Typography className="mb-8 text-lg text-primary/80 dark:text-secondary/80 max-w-2xl mx-auto leading-relaxed">
-              Full-stack developer focused on TypeScript, React, and AI-powered products; shipped 6 production apps used by 10k+ users.
+              Full-stack developer focused on TypeScript, React, and AI-powered products.
             </Typography>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">

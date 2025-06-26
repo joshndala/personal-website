@@ -25,7 +25,7 @@ const FEATURED_PROJECTS = [
   },
   {
     title: "CoverForMe – AI Cover-Letter Generator", 
-    hook: "Turns five job-posting links into a tailored cover letter in <30s—saving users ~80% of drafting time.",
+    hook: "Provide job postings to generate a tailored cover letter in <30s—saving users ~80% of drafting time.",
     image: "/image/coverforme.png",
     link: "/projects"
   },

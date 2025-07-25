@@ -56,6 +56,34 @@ const FEATURED_PROJECTS = {
     //   inProgress: true
     // },
     {
+      img: "/image/coachdeck.jpg",
+      title: "CoachDeck – AI-Powered Sports Coaching Assistant (formerly VAR Vendetta)",
+      desc: "Built a full-stack AI assistant that analyzes game sessions in real-time using voice logging and hybrid search, providing coaches with smart, sport-specific feedback.",
+      longDescription: "CoachDeck began as VAR Vendetta, a playful project to analyze FIFA gameplay, but evolved into a robust sports coaching platform. It lets users log player moments via voice, then leverages a hybrid RAG pipeline to retrieve relevant context and provide AI-generated coaching insights. The system combines BM25 keyword search, FAISS vector similarity, and Cohere's rerank API for accurate context selection. It supports soccer, basketball, tennis, and even esports.",
+      achievements: [
+        "Engineered a hybrid semantic retrieval system using BM25, FAISS, and Cohere Rerank to improve result precision",
+        "Implemented real-time speech-to-text logging using the Web Speech API",
+        "Integrated Cohere's LLM and embedding services for AI-powered contextual feedback",
+        "Refactored from SQLite/Prisma to Supabase for production-ready backend with JSONB vector storage",
+        "Optimized in-memory FAISS index for fast semantic lookups on user queries"
+      ],
+      technicalDetails: "The app uses Next.js with TypeScript across frontend and backend, Supabase for database and auth, and Cohere for embeddings, reranking, and LLM completions. FAISS is used in-memory for vector similarity. Voice input is handled via browser-native Web APIs, enabling a fully interactive coaching experience.",
+      technologies: [
+        "Next.js",
+        "TypeScript",
+        "React",
+        "Supabase",
+        "PostgreSQL",
+        "FAISS",
+        "BM25",
+        "Web Speech API",
+        "Cohere API",
+        "TailwindCSS"
+      ],
+      githubLink: "https://github.com/joshndala/var-vendetta",
+      liveLink: "https://coachdeck.app/"
+    },
+    {
       img: "/image/var-vendetta.png", 
       title: "VAR Vendetta - Football Decision Analysis Platform",
       desc: "Designed and built a full-stack application using Next.js that records, analyzes, and provides AI-powered feedback on player decisions in virtual football games, using a sophisticated hybrid search system.",
@@ -80,8 +108,7 @@ const FEATURED_PROJECTS = {
         "HuggingFace API",
         "OpenRouter API",
         "TailwindCSS"
-      ],
-      githubLink: "https://github.com/joshndala/var-vendetta", 
+      ]
     },
     {
       img: "/image/coverforme.png",

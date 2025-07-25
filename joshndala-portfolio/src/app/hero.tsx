@@ -18,21 +18,21 @@ import {
 // Featured projects data
 const FEATURED_PROJECTS = [
   {
-    title: "AI-Powered Assignment Grading System",
-    hook: "Cut grading time by 75% for an ed-tech platform by wiring a custom LLM pipeline into a Node/React app.",
-    image: "/image/learnification.png",
+    title: "CoachDeck – AI-Powered Sports Coaching Assistant",
+    hook: "AI-powered sports coaching assistant that analyzes game sessions in real-time using voice logging and hybrid search, providing coaches with smart, sport-specific feedback.",
+    image: "/image/coachdeck.jpg",
     link: "/projects"
   },
   {
-    title: "CoverForMe – AI Cover-Letter Generator", 
+    title: "CoverForMe – Cover-Letter Generator", 
     hook: "Provide job postings to generate a tailored cover letter in <30s—saving users ~80% of drafting time.",
     image: "/image/coverforme.png",
     link: "/projects"
   },
   {
-    title: "VAR Vendetta – Football Decision Analysis",
-    hook: "Captures in-game voice commands, tags mistakes, and returns AI feedback in real time for esports players.",
-    image: "/image/var-vendetta.png",
+    title: "AI-Powered Assignment Grading System",
+    hook: "Cut grading time by 75% for an ed-tech platform by wiring a custom LLM pipeline into a Node/React app.",
+    image: "/image/learnification.png",
     link: "/projects"
   }
 ];

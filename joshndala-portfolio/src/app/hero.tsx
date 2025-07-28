@@ -14,6 +14,7 @@ import {
   EnvelopeIcon,
   ArrowRightIcon
 } from "@heroicons/react/24/solid";
+import { ExternalLink, GithubIcon } from "lucide-react";
 
 // Featured projects data
 const FEATURED_PROJECTS = [
@@ -21,19 +22,20 @@ const FEATURED_PROJECTS = [
     title: "CoachDeck – AI-Powered Sports Coaching Assistant",
     hook: "AI-powered sports coaching assistant that analyzes game sessions in real-time using voice logging and hybrid search, providing coaches with smart, sport-specific feedback.",
     image: "/image/coachdeck.jpg",
-    link: "/projects"
+    liveLink: "https://coachdeck.app/",
+    githubLink: "https://github.com/joshndala/var-vendetta"
   },
   {
     title: "CoverForMe – Cover-Letter Generator", 
     hook: "Provide job postings to generate a tailored cover letter in <30s—saving users ~80% of drafting time.",
     image: "/image/coverforme.png",
-    link: "/projects"
+    githubLink: "https://github.com/joshndala/coverletter-ai"
   },
   {
     title: "AI-Powered Assignment Grading System",
     hook: "Cut grading time by 75% for an ed-tech platform by wiring a custom LLM pipeline into a Node/React app.",
     image: "/image/learnification.png",
-    link: "/projects"
+    liveLink: "https://learnification.github.io/"
   }
 ];
 
@@ -192,9 +194,35 @@ function Hero() {
                   <Typography variant="h5" className="text-lg font-semibold text-primary dark:text-secondary mb-3">
                     {project.title}
                   </Typography>
-                  <Typography className="text-primary/70 dark:text-secondary/70 text-sm leading-relaxed">
+                  <Typography className="text-primary/70 dark:text-secondary/70 text-sm leading-relaxed mb-4">
                     {project.hook}
                   </Typography>
+                  
+                  {/* Action Links */}
+                  <div className="flex items-center gap-2">
+                    {project.liveLink && (
+                      <a 
+                        href={project.liveLink} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                        Live Demo
+                      </a>
+                    )}
+                    {project.githubLink && (
+                      <a 
+                        href={project.githubLink} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
+                      >
+                        <GithubIcon className="w-4 h-4" />
+                        GitHub
+                      </a>
+                    )}
+                  </div>
                 </div>
               </Card>
             ))}

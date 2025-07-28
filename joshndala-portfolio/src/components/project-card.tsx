@@ -5,8 +5,9 @@ import {
   Card,
   Typography,
   Chip,
+  Button,
 } from "@material-tailwind/react";
-import { ChevronDown, ChevronUp, ArrowRight } from "lucide-react";
+import { ChevronDown, ChevronUp, ExternalLink, GithubIcon } from "lucide-react";
 
 interface ProjectCardProps {
   img: string;
@@ -103,16 +104,27 @@ export function ProjectCard({
           </div>
 
           {/* Action Links */}
-          <div className="flex items-center justify-start mt-auto pt-2">
+          <div className="flex items-center justify-start mt-auto pt-2 gap-2">
             {liveLink && (
               <a 
                 href={liveLink} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline"
+                className="inline-flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
               >
-                Learn More
-                <ArrowRight className="w-4 h-4 ml-1" />
+                <ExternalLink className="w-4 h-4" />
+                Live Demo
+              </a>
+            )}
+            {githubLink && (
+              <a 
+                href={githubLink} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
+              >
+                <GithubIcon className="w-4 h-4" />
+                GitHub
               </a>
             )}
           </div>
@@ -186,28 +198,27 @@ export function ProjectCard({
 
         {/* Action Links and Expand Button */}
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            {githubLink && !liveLink && (
-              <a 
-                href={githubLink} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline"
-              >
-                View Project
-                <ArrowRight className="w-4 h-4 ml-1" />
-              </a>
-            )}
-            
+          <div className="flex items-center gap-2">
             {liveLink && (
               <a 
                 href={liveLink} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline"
+                className="inline-flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
               >
-                View Project
-                <ArrowRight className="w-4 h-4 ml-1" />
+                <ExternalLink className="w-4 h-4" />
+                Live Demo
+              </a>
+            )}
+            {githubLink && (
+              <a 
+                href={githubLink} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
+              >
+                <GithubIcon className="w-4 h-4" />
+                GitHub
               </a>
             )}
           </div>

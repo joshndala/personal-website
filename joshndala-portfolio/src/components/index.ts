@@ -10,3 +10,4 @@ export * from "./theme-toggle";
 export * from "./page-transition";
 export * from "./floating-tags";
 export * from "./hero-decorations";
+export * from "./techstack-carousel";

@@ -167,6 +167,20 @@ export function ProjectCard({
           {isExpanded ? longDescription || desc : desc}
         </Typography>
 
+        {/* Tech Stack - Show limited tech when not expanded, full tech when expanded */}
+        {technologies.length > 0 && (
+          <div className="flex flex-wrap gap-1 mb-3">
+            {technologies.slice(0, isExpanded ? 6 : 4).map((tech, index) => (
+              <Chip 
+                key={index} 
+                value={tech} 
+                size="sm" 
+                className="text-xs px-2 py-1 bg-primary/10 text-primary dark:bg-secondary/10 dark:text-secondary"
+              />
+            ))}
+          </div>
+        )}
+
         {isExpanded && achievements && achievements.length > 0 && (
           <div className="mb-3">
             <Typography variant="h6" className="text-primary dark:text-secondary font-medium mb-1 text-sm">
@@ -179,20 +193,6 @@ export function ProjectCard({
                 </li>
               ))}
             </ul>
-          </div>
-        )}
-
-        {/* Tech Stack */}
-        {technologies.length > 0 && isExpanded && (
-          <div className="flex flex-wrap gap-1 mb-3">
-            {technologies.slice(0, 6).map((tech, index) => (
-              <Chip 
-                key={index} 
-                value={tech} 
-                size="sm" 
-                className="text-xs px-2 py-1 bg-primary/10 text-primary dark:bg-secondary/10 dark:text-secondary"
-              />
-            ))}
           </div>
         )}
 

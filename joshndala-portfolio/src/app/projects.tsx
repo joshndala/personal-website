@@ -39,22 +39,36 @@ const FEATURED_PROJECTS = {
     },
   ],
   personal: [
-    // TODO: Add Doris project
-    // {
-    //   img: "/image/doris-symbol.png", 
-    //   title: "DORIS – Digital Omni-Response Interactive System",
-    //   desc: "Creating a voice-first AI companion that joins real-time conversations, listens intelligently, and responds naturally.",
-    //   longDescription: "Developing a real-time audio-first application where DORIS listens during group calls, detects when it's needed, and responds using live speech-to-text, context filtering, and AI-driven replies. Future plans include visual object recognition via webcam and memory-aware conversations.",
-    //   achievements: [
-    //     "Built real-time audio interface with AssemblyAI and Daily.co",
-    //     "Integrated Gemini Flash via OpenRouter for responsive LLM interaction",
-    //     "Implemented lightweight trigger detection for natural speech activation",
-    //     "Designed architecture for scalable vector-based memory and multimodal vision"
-    //   ],
-    //   technicalDetails: "Architecture leverages Next.js, AssemblyAI, OpenRouter, and Daily.co to support live transcription, token-efficient AI querying, and in-browser TTS. Planning integration with vector search and vision APIs for future multimodal input.",
-    //   technologies: ["Next.js", "TypeScript", "AssemblyAI", "OpenRouter", "Daily.co", "Tailwind CSS", "Vercel", "TTS API", "Vector Search"],
-    //   inProgress: true
-    // },
+    {
+      "img": "/image/cantrip.jpg",
+      "title": "CanTrip – AI-Powered Canadian Travel Planning Platform",
+      "desc": "Built a full-stack travel planning platform that uses LangGraph AI agents to generate personalized itineraries, packing lists, and travel recommendations for destinations across Canada.",
+      "longDescription": "CanTrip is a comprehensive travel planning platform that leverages advanced AI agents to provide intelligent travel assistance for Canadian destinations. The system uses LangGraph to orchestrate multiple specialized AI agents that handle different aspects of travel planning - from destination exploration and itinerary generation to packing list creation. The platform integrates with weather APIs, event services, and attraction databases to provide real-time, contextual recommendations. It features a conversational AI interface that understands user preferences, mood, and travel constraints to deliver personalized travel experiences.",
+      "achievements": [
+        "Engineered a multi-agent LangGraph system with specialized AI agents for exploration, itinerary planning, and packing list generation",
+        "Implemented real-time weather and event data integration using OpenWeatherMap, Ticketmaster, and Eventbrite APIs",
+        "Built a hybrid architecture combining Go backend API with Python LangGraph agents for optimal performance and AI capabilities",
+        "Integrated Phoenix evaluation framework for monitoring AI agent performance and accuracy",
+        "Developed comprehensive PDF generation system for exporting itineraries and packing lists with professional formatting"
+      ],
+      "technicalDetails": "The platform uses a microservices architecture with Go (Gin framework) handling the REST API, database operations, and external API integrations, while Python LangGraph agents power the AI planning capabilities. The system integrates with multiple external APIs including OpenWeatherMap for weather data, Geoapify for places, and various event services. PDF generation is handled server-side with Google Cloud Storage for file management. The AI agents use OpenAI's GPT models for natural language understanding and response generation.",
+      "technologies": [
+        "Go",
+        "Gin",
+        "Python",
+        "LangGraph",
+        "LangChain",
+        "Gemini",
+        "FastAPI",
+        "PostgreSQL",
+        "Google Cloud Storage",
+        "OpenWeatherMap API",
+        "Phoenix Evaluation",
+        "Docker",
+        "GCP"
+      ],
+      "githubLink": "https://github.com/joshndala/cantrip"
+    },
     {
       img: "/image/coachdeck.jpg",
       title: "CoachDeck – AI-Powered Sports Coaching Assistant (formerly VAR Vendetta)",

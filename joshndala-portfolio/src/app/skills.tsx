@@ -7,7 +7,6 @@ import {
   CpuChipIcon,
   CloudIcon,
   BeakerIcon,
-  CommandLineIcon,
   WrenchIcon,
   DevicePhoneMobileIcon,
   LightBulbIcon,
@@ -16,6 +15,8 @@ import {
 import { SkillCard } from "@/components";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import { getImagePath } from '../utils/imagePath';
 
 // Technical Skills Section
 const TECH_SKILLS = [
@@ -23,37 +24,95 @@ const TECH_SKILLS = [
     icon: CodeBracketIcon,
     title: "Programming Languages",
     children:
-      "Proficient in multiple languages including Python, JavaScript, TypeScript, Java, SQL, and NoSQL. I leverage these languages to build efficient, scalable applications."
+      "Proficient in multiple languages including Python, JavaScript, TypeScript, Go, SQL, and NoSQL. I leverage these languages to build efficient, scalable applications across different domains."
   },
   {
     icon: DevicePhoneMobileIcon,
     title: "Web Development",
     children:
-      "Extensive experience with modern web technologies including React, Next.js, Express.js, Node.js, HTML, CSS, and RESTful APIs. I build responsive and dynamic user interfaces paired with robust backend systems."
+      "Extensive experience with modern web technologies including React, Next.js, Express.js, Node.js, Go/Gin, FastAPI, HTML, CSS, and RESTful APIs. I build responsive and dynamic user interfaces paired with robust backend systems."
   },
   {
     icon: CpuChipIcon,
     title: "AI and Machine Learning",
     children:
-      "Experienced in implementing various machine learning models, particularly in natural language processing. I've worked extensively with LSTM, RNN, BERT models, and large language models like Phi-3 and Claude Opus."
+      "Experienced in implementing both classic machine learning models and modern AI systems. I've worked with traditional ML algorithms (LSTM, RNN, BERT, XGBoost, Random Forest) and cutting-edge large language models (Gemini, Claude, GPT-4). I specialize in multi-agent systems with LangGraph, vector search with FAISS, and hybrid retrieval systems for comprehensive AI solutions."
   },
   {
     icon: CloudIcon,
     title: "Cloud & DevOps",
     children:
-      "Proficient with cloud platforms including AWS and Google Cloud Platform. Experienced with containerization using Docker, CI/CD practices, and version control with Git/GitHub."
+      "Proficient with cloud platforms including AWS, Google Cloud Platform, and Vercel. Experienced with containerization using Docker, CI/CD practices, version control with Git/GitHub, and modern deployment strategies."
   },
   {
     icon: ServerIcon,
     title: "Database Management",
     children:
-      "Skilled in designing and implementing database structures using SQL (MySQL) and NoSQL solutions. I create efficient schemas and write optimized queries for seamless data operations."
+      "Skilled in designing and implementing database structures using SQL (MySQL, PostgreSQL), NoSQL solutions, and modern platforms like Supabase. I create efficient schemas and write optimized queries for seamless data operations."
   },
   {
     icon: WrenchIcon,
     title: "Tools & Platforms",
     children:
-      "Proficient with essential development tools including Firebase, AWS Bedrock, LangChain, Ollama, Google Colab, and various testing frameworks including Mocha, Chai, and Jest."
+      "Proficient with essential development tools including Firebase, AWS Bedrock, LangChain, LangGraph, Cohere API, OpenRouter API, Ollama, Phoenix Evaluation, Google Colab, and various testing frameworks including Mocha, Chai, and Jest."
+  },
+];
+
+// Categorized Toolbox
+const TOOLBOX = [
+  {
+    category: "Programming Languages",
+    skills: [
+      { name: "Python", icon: "/icons/python.svg" },
+      { name: "Go", icon: "/icons/go.svg" },
+      { name: "JavaScript", icon: "/icons/javascript.svg" },
+      { name: "TypeScript", icon: "/icons/typescript.svg" },
+    ]
+  },
+  {
+    category: "Frontend Development",
+    skills: [
+      { name: "React", icon: "/icons/react.svg" },
+      { name: "Next.js", icon: "/icons/nextjs.svg" },
+    ]
+  },
+  {
+    category: "Backend Development",
+    skills: [
+      { name: "Node.js", icon: "/icons/nodejs.svg" },
+      { name: "Express.js", icon: "/icons/expressjs.svg" },
+      { name: "FastAPI", icon: "/icons/fastapi.svg" },
+    ]
+  },
+  {
+    category: "Databases",
+    skills: [
+      { name: "PostgreSQL", icon: "/icons/postgresql.svg" },
+      { name: "Supabase", icon: "/icons/supabase.svg" },
+      { name: "MySQL", icon: "/icons/mysql.svg" },
+    ]
+  },
+  {
+    category: "AI & Machine Learning",
+    skills: [
+      { name: "LangChain", icon: "/icons/langchain.svg" },
+      { name: "Gemini", icon: "/icons/gemini.svg" },
+      { name: "Cohere", icon: "/icons/cohere.svg" },
+      { name: "TensorFlow", icon: "/icons/tensorflow.svg" },
+      { name: "Scikit-Learn", icon: "/icons/scikit-learn.svg" },
+      { name: "R", icon: "/icons/r.svg" },
+      { name: "Ollama", icon: "/icons/ollama.svg" },
+    ]
+  },
+  {
+    category: "DevOps & Cloud",
+    skills: [
+      { name: "Docker", icon: "/icons/docker.svg" },
+      { name: "AWS", icon: "/icons/aws.svg" },
+      { name: "Google Cloud Platform", icon: "/icons/gcp.svg" },
+      { name: "Vercel", icon: "/icons/vercel.svg" },
+      { name: "GitHub", icon: "/icons/github.svg" },
+    ]
   },
 ];
 
@@ -113,6 +172,10 @@ export function Skills() {
       value: "technical",
     },
     {
+      label: "Toolbox",
+      value: "toolbox",
+    },
+    {
       label: "Experience",
       value: "experience",
     },
@@ -169,11 +232,64 @@ export function Skills() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="container mx-auto grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3"
+          className="container mx-auto max-w-4xl"
         >
-          {TECH_SKILLS.map((props, idx) => (
-          <SkillCard key={idx} {...props} />
-          ))}
+          <div className="space-y-8">
+            {TECH_SKILLS.map((skill, idx) => (
+              <div key={idx} className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="h-10 w-10 rounded-full bg-primary dark:bg-secondary text-secondary dark:text-primary flex items-center justify-center">
+                    <skill.icon className="h-5 w-5" />
+                  </div>
+                  <Typography variant="h5" className="font-bold text-primary dark:text-secondary">
+                    {skill.title}
+                  </Typography>
+                </div>
+                <Typography className="text-primary/70 dark:text-secondary/70 leading-relaxed">
+                  {skill.children}
+                </Typography>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+      )}
+
+      {/* Toolbox Tab Content */}
+      {activeTab === "toolbox" && (
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="container mx-auto"
+        >
+          <div className="text-center mb-12">
+            <Typography variant="h3" className="text-2xl font-bold text-primary dark:text-secondary mb-4">
+              My Toolbox 🧰
+            </Typography>
+            <Typography className="text-primary/70 dark:text-secondary/70 max-w-2xl mx-auto">
+              A comprehensive collection of technologies and tools I use to build modern applications
+            </Typography>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {TOOLBOX.map((category, idx) => (
+              <div key={idx} className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md">
+                <Typography variant="h5" className="font-bold text-primary dark:text-secondary mb-4">
+                  {category.category}
+                </Typography>
+                <div className="grid grid-cols-2 gap-3">
+                  {category.skills.map((skill, skillIdx) => (
+                    <div key={skillIdx} className="flex items-center gap-2">
+                      <Image src={getImagePath(skill.icon)} alt={skill.name} width={20} height={20} />
+                      <Typography className="text-sm text-primary/80 dark:text-secondary/80">
+                        {skill.name}
+                      </Typography>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
         </motion.div>
       )}
 

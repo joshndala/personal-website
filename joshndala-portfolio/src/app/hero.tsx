@@ -6,6 +6,7 @@ import Link from "next/link";
 import { getImagePath } from '../utils/imagePath'
 import { Typography, Button, Card, Chip } from "@material-tailwind/react";
 import { HeroDecorations } from "@/components";
+import TechStackCarousel from "@/components/techstack-carousel";
 import {
   UserCircleIcon,
   WrenchScrewdriverIcon,
@@ -23,32 +24,23 @@ const FEATURED_PROJECTS = [
     hook: "AI-powered sports coaching assistant that analyzes game sessions in real-time using voice logging and hybrid search, providing coaches with smart, sport-specific feedback.",
     image: "/image/coachdeck.jpg",
     liveLink: "https://coachdeck.app/",
-    githubLink: "https://github.com/joshndala/var-vendetta"
+    githubLink: "https://github.com/joshndala/var-vendetta",
+    technologies: ["Next.js", "TypeScript", "Supabase", "Cohere API", "FAISS"]
   },
   {
     title: "CoverForMe – Cover-Letter Generator", 
     hook: "Provide job postings to generate a tailored cover letter in <30s—saving users ~80% of drafting time.",
     image: "/image/coverforme.png",
-    githubLink: "https://github.com/joshndala/coverletter-ai"
+    githubLink: "https://github.com/joshndala/coverletter-ai",
+    technologies: ["React", "FastAPI", "AWS Bedrock", "PostgreSQL", "Docker"]
   },
   {
     title: "AI-Powered Assignment Grading System",
     hook: "Cut grading time by 75% for an ed-tech platform by wiring a custom LLM pipeline into a Node/React app.",
     image: "/image/learnification.png",
-    liveLink: "https://learnification.github.io/"
+    liveLink: "https://learnification.github.io/",
+    technologies: ["Node.js", "React", "Express.js", "MySQL", "Phi-3 LLM"]
   }
-];
-
-// Core tech stack with links to relevant projects
-const TECH_STACK = [
-  { name: "TypeScript", link: "/projects", icon: "typescript" },
-  { name: "React/Next.js", link: "/projects", icon: "react" },
-  { name: "Node.js", link: "/projects", icon: "nodejs" },
-  { name: "Python/FastAPI", link: "/projects", icon: "python" },
-  { name: "PostgreSQL", link: "/projects", icon: "database" },
-  { name: "AWS", link: "/projects", icon: "aws" },
-  { name: "Docker", link: "/projects", icon: "docker" },
-  { name: "Machine Learning", link: "/projects", icon: "ai" }
 ];
 
 function Hero() {
@@ -144,16 +136,7 @@ function Hero() {
             </Typography>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-3 mb-6" role="list" aria-label="Tech stack">
-            {TECH_STACK.map((tech, idx) => (
-              <Link key={idx} href={tech.link} className="transition-transform hover:scale-105">
-                <Chip 
-                  value={tech.name}
-                  className="bg-primary/20 dark:bg-secondary/20 text-primary dark:text-secondary border border-primary/30 dark:border-secondary/30 hover:bg-primary/30 dark:hover:bg-secondary/30 transition-colors duration-200 cursor-pointer text-sm font-medium px-4 py-2"
-                />
-              </Link>
-            ))}
-          </div>
+          <TechStackCarousel />
 
           <div className="text-center">
             <Link href="/skills" scroll={true}>
@@ -197,6 +180,20 @@ function Hero() {
                   <Typography className="text-primary/70 dark:text-secondary/70 text-sm leading-relaxed mb-4">
                     {project.hook}
                   </Typography>
+                  
+                  {/* Technologies */}
+                  {project.technologies && project.technologies.length > 0 && (
+                    <div className="flex flex-wrap gap-1 mb-4">
+                      {project.technologies.slice(0, 4).map((tech, index) => (
+                        <Chip 
+                          key={index} 
+                          value={tech} 
+                          size="sm" 
+                          className="text-xs px-2 py-1 bg-primary/10 text-primary dark:bg-secondary/10 dark:text-secondary"
+                        />
+                      ))}
+                    </div>
+                  )}
                   
                   {/* Action Links */}
                   <div className="flex items-center gap-2">

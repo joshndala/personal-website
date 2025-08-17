@@ -65,14 +65,21 @@ const EXPERIENCE = [
 // Project experiences
 const SOFTWARE_PROJECTS = [
   {
-    title: "VAR Vendetta - Football Decision Analysis Platform",
-    period: "May 2025",
+    title: "CanTrip – Canadian Travel Planning Platform",
+    period: "Aug 2025 - Present",
     icon: CodeBracketIcon,
-    description: "Designed and built a full-stack Next.js application with TypeScript for football decision analysis. Implemented speech-to-text for recording player decisions, created a responsive UI with voice and text capabilities, and designed a robust Prisma + SQLite database schema with efficient indexing.",
-    technologies: ["Next.js", "TypeScript", "React", "Prisma", "SQLite", "Web Speech API", "TailwindCSS"]
+    description: "Building a full-stack travel planning platform using Go (Gin framework) and Python LangGraph agents. Implemented multi-agent AI system for itinerary generation, integrated weather and event APIs, and developed comprehensive PDF export functionality.",
+    technologies: ["Go", "Gin", "Python", "LangGraph", "FastAPI", "PostgreSQL", "Docker", "Gemini", "GCP"]
   },
   {
-    title: "CoverForMe - AI Cover Letter Generator",
+    title: "CoachDeck – Sports Coaching Assistant",
+    period: "May 2025, Aug 2025",
+    icon: CodeBracketIcon,
+    description: "Designed and built a full-stack Next.js application with TypeScript for sports coaching analysis. Implemented speech-to-text for recording player moments, created a responsive UI with voice and text capabilities, and designed a robust Supabase + PostgreSQL database schema with efficient indexing.",
+    technologies: ["Next.js", "TypeScript", "React", "Supabase", "PostgreSQL", "Web Speech API", "TailwindCSS"]
+  },
+  {
+    title: "CoverForMe - Cover Letter Generator",
     period: "Jan 2025 - April 2025",
     icon: CodeBracketIcon,
     description: "Engineering a React/FastAPI application that automatically generates tailored cover letters. Implementing Firebase authentication, PostgreSQL database, and advanced AI pipeline.",
@@ -96,14 +103,21 @@ const SOFTWARE_PROJECTS = [
 
 const ML_PROJECTS = [
   {
-    title: "VAR Vendetta - Football Decision Analysis Platform",
-    period: "May 2025",
+    title: "CanTrip – Canadian Travel Planning Platform",
+    period: "Aug 2025 - Present",
     icon: CpuChipIcon,
-    description: "Developed a sophisticated hybrid search system for football decision analysis combining BM25 and FAISS vector search with dynamic weighted merging, improving retrieval relevance by 40%. Connected with embedding models via HuggingFace API and LLMs via OpenRouter for AI-powered referee analysis.",
-    technologies: ["FAISS", "BM25", "HuggingFace API", "OpenRouter API", "Vector Search", "Hybrid Retrieval", "TypeScript"]
+    description: "Engineered a multi-agent LangGraph system with specialized AI agents for exploration, itinerary planning, and packing list generation. Integrated real-time weather and event data using OpenWeatherMap, Ticketmaster, and Eventbrite APIs. Implemented Phoenix evaluation framework for monitoring AI agent performance.",
+    technologies: ["LangGraph", "LangChain", "Gemini", "Multi-Agent Systems", "Phoenix Evaluation", "Python"]
   },
   {
-    title: "CoverForMe - AI Cover Letter Generator",
+    title: "CoachDeck – Sports Coaching Assistant",
+    period: "May 2025, Aug 2025",
+    icon: CpuChipIcon,
+    description: "Developed a sophisticated hybrid search system for sports coaching analysis combining BM25 and FAISS vector search with Cohere's rerank API, improving retrieval relevance by 40%. Integrated Cohere's LLM and embedding services for AI-powered contextual feedback and real-time speech-to-text logging.",
+    technologies: ["FAISS", "BM25", "Cohere API", "Vector Search", "Hybrid Retrieval", "TypeScript", "Web Speech API"]
+  },
+  {
+    title: "CoverForMe - Cover Letter Generator",
     period: "Jan 2025 - April 2025",
     icon: CpuChipIcon,
     description: "Building an AI system that analyzes resume content against job descriptions for personalized cover letter generation. Implementing a custom transformer model for skill-to-requirement comparison.",
@@ -148,17 +162,17 @@ const SOFTWARE_SKILLS = [
   },
   {
     category: "Backend Development",
-    skills: ["Node.js", "Express.js", "Java", "Python", "REST APIs", "GraphQL"],
+    skills: ["Node.js", "Express.js", "Go", "Gin", "Python", "FastAPI", "REST APIs", "GraphQL"],
     icon: ServerIcon
   },
   {
     category: "Database Management",
-    skills: ["MySQL", "PostgreSQL", "MongoDB", "Firebase", "SQL", "NoSQL"],
+    skills: ["MySQL", "PostgreSQL", "Supabase", "MongoDB", "Firebase", "SQL", "NoSQL"],
     icon: CommandLineIcon
   },
   {
     category: "DevOps & Cloud",
-    skills: ["Docker", "CI/CD", "Git/GitHub", "AWS", "Google Cloud Platform"],
+    skills: ["Docker", "CI/CD", "Git/GitHub", "AWS", "Google Cloud Platform", "Vercel"],
     icon: CloudIcon
   }
 ];
@@ -167,22 +181,22 @@ const SOFTWARE_SKILLS = [
 const ML_SKILLS = [
   {
     category: "ML Frameworks & Libraries",
-    skills: ["TensorFlow", "PyTorch", "scikit-learn", "XGBoost", "LangChain", "Pandas", "NumPy"],
+    skills: ["TensorFlow", "PyTorch", "scikit-learn", "XGBoost", "LangChain", "LangGraph", "Pandas", "NumPy"],
     icon: CpuChipIcon
   },
   {
     category: "Natural Language Processing",
-    skills: ["LSTM", "RNN", "BERT", "Large Language Models", "Sentiment Analysis", "Text Classification"],
+    skills: ["LSTM", "RNN", "BERT", "Large Language Models", "Gemini", "Claude", "GPT-4", "Sentiment Analysis", "Text Classification"],
     icon: ChartBarIcon
   },
   {
-    category: "Data Analysis & Visualization",
-    skills: ["R", "Python", "Tableau", "Matplotlib", "Seaborn", "Jupyter Notebooks"],
+    category: "AI & Vector Search",
+    skills: ["FAISS", "BM25", "Vector Search", "Hybrid Retrieval", "Cohere API", "OpenRouter API", "Multi-Agent Systems"],
     icon: BeakerIcon
   },
   {
     category: "ML Deployment",
-    skills: ["AWS Bedrock", "Ollama", "Model Optimization", "MLOps", "Model Monitoring"],
+    skills: ["AWS Bedrock", "Ollama", "Model Optimization", "MLOps", "Model Monitoring", "Phoenix Evaluation"],
     icon: CloudIcon
   }
 ];

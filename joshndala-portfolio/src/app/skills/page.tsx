@@ -23,9 +23,6 @@ export default function SkillsPage() {
         <section id="skills">
           <Skills />
         </section>
-        <section id="techstack-carousel">
-          <TechStackCarousel />
-        </section>
         <Footer />
       </motion.main>
     </>

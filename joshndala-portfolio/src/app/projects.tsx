@@ -42,7 +42,7 @@ const FEATURED_PROJECTS = {
     {
       "img": "/image/cantrip.jpg",
       "title": "CanTrip – Canadian Travel Planning Platform",
-      "desc": "Built a full-stack travel planning platform that uses LangGraph AI agents to generate personalized itineraries, packing lists, and travel recommendations for destinations across Canada.",
+      "desc": "Building a full-stack travel planning platform that uses LangGraph AI agents to generate personalized itineraries, packing lists, and travel recommendations for destinations across Canada.",
       "longDescription": "CanTrip is a comprehensive travel planning platform that leverages advanced AI agents to provide intelligent travel assistance for Canadian destinations. The system uses LangGraph to orchestrate multiple specialized AI agents that handle different aspects of travel planning - from destination exploration and itinerary generation to packing list creation. The platform integrates with weather APIs, event services, and attraction databases to provide real-time, contextual recommendations. It features a conversational AI interface that understands user preferences, mood, and travel constraints to deliver personalized travel experiences.",
       "achievements": [
         "Engineered a multi-agent LangGraph system with specialized AI agents for exploration, itinerary planning, and packing list generation",

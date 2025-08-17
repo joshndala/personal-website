@@ -41,7 +41,7 @@ const FEATURED_PROJECTS = {
   personal: [
     {
       "img": "/image/cantrip.jpg",
-      "title": "CanTrip – AI-Powered Canadian Travel Planning Platform",
+      "title": "CanTrip – Canadian Travel Planning Platform",
       "desc": "Built a full-stack travel planning platform that uses LangGraph AI agents to generate personalized itineraries, packing lists, and travel recommendations for destinations across Canada.",
       "longDescription": "CanTrip is a comprehensive travel planning platform that leverages advanced AI agents to provide intelligent travel assistance for Canadian destinations. The system uses LangGraph to orchestrate multiple specialized AI agents that handle different aspects of travel planning - from destination exploration and itinerary generation to packing list creation. The platform integrates with weather APIs, event services, and attraction databases to provide real-time, contextual recommendations. It features a conversational AI interface that understands user preferences, mood, and travel constraints to deliver personalized travel experiences.",
       "achievements": [
@@ -71,7 +71,7 @@ const FEATURED_PROJECTS = {
     },
     {
       img: "/image/coachdeck.jpg",
-      title: "CoachDeck – AI-Powered Sports Coaching Assistant (formerly VAR Vendetta)",
+      title: "CoachDeck – Sports Coaching Assistant (formerly VAR Vendetta)",
       desc: "Built a full-stack AI assistant that analyzes game sessions in real-time using voice logging and hybrid search, providing coaches with smart, sport-specific feedback.",
       longDescription: "CoachDeck began as VAR Vendetta, a playful project to analyze FIFA gameplay, but evolved into a robust sports coaching platform. It lets users log player moments via voice, then leverages a hybrid RAG pipeline to retrieve relevant context and provide AI-generated coaching insights. The system combines BM25 keyword search, FAISS vector similarity, and Cohere's rerank API for accurate context selection. It supports soccer, basketball, tennis, and even esports.",
       achievements: [

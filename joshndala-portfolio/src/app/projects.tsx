@@ -98,33 +98,6 @@ const FEATURED_PROJECTS = {
       liveLink: "https://coachdeck.app/"
     },
     {
-      img: "/image/var-vendetta.png", 
-      title: "VAR Vendetta - Football Decision Analysis Platform",
-      desc: "Designed and built a full-stack application using Next.js that records, analyzes, and provides AI-powered feedback on player decisions in virtual football games, using a sophisticated hybrid search system.",
-      longDescription: "Developed an interactive platform that lets users record player mistakes via speech-to-text, automatically indexes them with advanced retrieval techniques, and enables AI-powered referee analysis through natural language questions. The system uses a custom hybrid search approach combining keyword-based (BM25) and semantic vector search (FAISS) for highly relevant contextual retrieval.",
-      achievements: [
-        "Implemented dynamic weighted merging of BM25 and vector search results, improving retrieval relevance by 40%",
-        "Created a real-time speech-to-text interface for quick logging of player decisions",
-        "Built a responsive UI with both text and voice question capabilities",
-        "Designed and implemented a Prisma + SQLite database schema with efficient indexing",
-        "Optimized hybrid search with configurable weighting to balance keyword vs. semantic relevance"
-      ],
-      technicalDetails: "The system uses Next.js for both frontend and backend, with TypeScript throughout. Implemented a custom hybrid retrieval system combining BM25 for keyword search and FAISS for semantic similarity with dynamic score normalization and weighted merging. Frontend leverages the Web Speech API for voice input, while the backend connects to embedding (HuggingFace) and LLM (OpenRouter) services for AI-powered analysis.",
-      technologies: [
-        "Next.js",
-        "TypeScript",
-        "React",
-        "Prisma",
-        "SQLite",
-        "FAISS",
-        "BM25",
-        "Web Speech API",
-        "HuggingFace API",
-        "OpenRouter API",
-        "TailwindCSS"
-      ]
-    },
-    {
       img: "/image/coverforme.png",
       title: "CoverForMe - AI Cover Letter Generator",
       desc: "Engineered a full-stack application using React and FastAPI that automatically generates tailored cover letters, reducing writing time by 80%.",

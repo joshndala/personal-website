@@ -45,27 +45,54 @@ const NAV_MENU = [
     icon: DocumentTextIcon,
     href: "/resume",
   },
+  {
+    name: "Articles",
+    icon: () => (
+      <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+      </svg>
+    ),
+    href: "https://medium.com/@joshndala",
+    external: true,
+  },
 ];
 
 interface NavItemProps {
   children: React.ReactNode;
   href: string;
   isActive: boolean;
+  external?: boolean;
 }
 
-function NavItem({ children, href, isActive }: NavItemProps) {
+function NavItem({ children, href, isActive, external = false }: NavItemProps) {
+  if (external) {
+    return (
+      <li>
+        <a href={href} target="_blank" rel="noopener noreferrer">
+          <Typography
+            as="span"
+            variant="paragraph"
+            className="flex items-center gap-2 font-medium text-primary dark:text-secondary hover:text-primary/80 dark:hover:text-secondary/80 transition-colors cursor-pointer"
+          >
+            {children}
+          </Typography>
+        </a>
+      </li>
+    );
+  }
+
   return (
     <li>
       <Link href={href} passHref>
-      <Typography
+        <Typography
           as="span"
-        variant="paragraph"
+          variant="paragraph"
           className={`flex items-center gap-2 font-medium text-primary dark:text-secondary hover:text-primary/80 dark:hover:text-secondary/80 transition-colors cursor-pointer ${
             isActive ? "border-b-2 border-primary dark:border-secondary" : ""
           }`}
-      >
-        {children}
-      </Typography>
+        >
+          {children}
+        </Typography>
       </Link>
     </li>
   );
@@ -86,9 +113,9 @@ export function Navbar() {
         </Typography>
         </Link>
         <ul className="ml-10 hidden items-center gap-8 lg:flex">
-          {NAV_MENU.map(({ name, icon: Icon, href }) => (
-            <NavItem key={name} href={href} isActive={pathname === href}>
-              <Icon className="h-5 w-5" />
+          {NAV_MENU.map(({ name, icon: Icon, href, external }) => (
+            <NavItem key={name} href={href} isActive={pathname === href} external={external}>
+              {typeof Icon === 'function' ? <Icon /> : <Icon className="h-5 w-5" />}
               {name}
             </NavItem>
           ))}
@@ -116,9 +143,9 @@ export function Navbar() {
       <Collapse open={open}>
         <div className="container mx-auto mt-3 border-t border-primary/20 dark:border-secondary/20 px-2 pt-4">
           <ul className="flex flex-col gap-4">
-            {NAV_MENU.map(({ name, icon: Icon, href }) => (
-              <NavItem key={name} href={href} isActive={pathname === href}>
-                <Icon className="h-5 w-5" />
+            {NAV_MENU.map(({ name, icon: Icon, href, external }) => (
+              <NavItem key={name} href={href} isActive={pathname === href} external={external}>
+                {typeof Icon === 'function' ? <Icon /> : <Icon className="h-5 w-5" />}
                 {name}
               </NavItem>
             ))}

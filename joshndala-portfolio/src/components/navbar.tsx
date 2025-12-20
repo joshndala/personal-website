@@ -15,7 +15,8 @@ import {
   UserCircleIcon,
   XMarkIcon,
   Bars3Icon,
-  WrenchScrewdriverIcon
+  WrenchScrewdriverIcon,
+  BriefcaseIcon
 } from "@heroicons/react/24/solid";
 import { ThemeToggle } from "./theme-toggle";
 
@@ -36,14 +37,14 @@ const NAV_MENU = [
     href: "/skills",
   },
   {
+    name: "Experience",
+    icon: BriefcaseIcon,
+    href: "/experience",
+  },
+  {
     name: "Projects",
     icon: CodeBracketIcon,
     href: "/projects",
-  },
-  {
-    name: "Resume",
-    icon: DocumentTextIcon,
-    href: "/resume",
   },
   {
     name: "Articles",

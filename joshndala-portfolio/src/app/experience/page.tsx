@@ -1,14 +1,10 @@
 "use client";
 
 import { Navbar, Footer } from "@/components";
-import Resume from "../resume";
+import Experience from "../experience";
 import { motion } from "framer-motion";
-import { useEffect } from "react";
 
-export default function ResumePage() {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+export default function ExperiencePage() {
   return (
     <>
       <Navbar />
@@ -19,11 +15,12 @@ export default function ResumePage() {
         transition={{ duration: 0.5 }}
         className="flex flex-col"
       >
-        <section id="resume">
-          <Resume />
+        <section id="experience">
+          <Experience />
         </section>
         <Footer />
       </motion.main>
     </>
   );
-} 
+}
+

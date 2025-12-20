@@ -11,6 +11,8 @@ import {
   DevicePhoneMobileIcon,
   LightBulbIcon,
   ClockIcon,
+  AcademicCapIcon,
+  CheckBadgeIcon,
 } from "@heroicons/react/24/solid";
 import { SkillCard } from "@/components";
 import { useState } from "react";
@@ -116,29 +118,36 @@ const TOOLBOX = [
   },
 ];
 
-// Professional Experience Section
-const EXPERIENCE = [
+
+// Education Section
+const EDUCATION = [
   {
-    title: "Freelance Web Developer",
-    company: "Triumph College Consulting",
-    period: "Aug 2024 - Dec 2024",
-    points: [
-      "Developed a full-stack website using Next.js and Tailwind CSS with dynamic content management",
-      "Implemented student success tracking, scholarship management, and consultation scheduling features",
-      "Enhanced user experience through intuitive UI/UX design and streamlined contact interfaces"
+    title: "Bachelor of Arts in Computer Science",
+    institution: "University of British Columbia",
+    period: "2020 - 2024",
+    icon: AcademicCapIcon,
+    description: "Completed a comprehensive curriculum in software engineering and data science, including courses in Software Engineering (Capstone Project, HCI, Project Management, Web Programming), Data Science & Machine Learning (Data Analytics, Making Predictions with Data, Introduction to Parallel Computing, Geographic Information Science), and an Independent Research Project on fake news detection using deep learning.",
+    highlights: [
+      "Independent Research Project: Fake news detection using deep learning",
+      "Academic Awards: Outstanding International Student Award; Deputy Vice-Chancellor Scholarship for International Students"
     ]
   },
   {
-    title: "Full-Stack Software Developer (Capstone Project)",
-    company: "Learnification",
-    period: "May 2024 - Aug 2024",
-    points: [
-      "Developed an AI-powered assignment grading system, improving grading speeds by 75%",
-      "Led development using Express.js/Node.js backend with MySQL and React/Material-UI frontend",
-      "Implemented AI functionality using Microsoft's Phi-3 LLM through Ollama",
-      "Managed version control and containerization using GitHub and Docker with CI/CD practices"
-    ]
-  }
+    title: "Google Data Analytics Professional Certificate",
+    institution: "Google & Coursera",
+    period: "2023",
+    icon: CheckBadgeIcon,
+    description: "Specialized in data analysis using SQL, R, and Tableau.",
+    link: "https://www.credly.com/badges/325ac3dd-6b59-41a7-8dc1-d9115184a962/public_url",
+    linkText: "View Certificate"
+  },
+  {
+    title: "IBM Machine Learning Professional Certificate",
+    institution: "IBM & Coursera",
+    period: "In Progress",
+    icon: ClockIcon,
+    description: "Advanced study of machine learning techniques and applications."
+  },
 ];
 
 // Soft Skills Section
@@ -176,8 +185,8 @@ export function Skills() {
       value: "toolbox",
     },
     {
-      label: "Experience",
-      value: "experience",
+      label: "Education",
+      value: "education",
     },
     {
       label: "Soft Skills",
@@ -293,8 +302,8 @@ export function Skills() {
         </motion.div>
       )}
 
-      {/* Experience Tab Content */}
-      {activeTab === "experience" && (
+      {/* Education Tab Content */}
+      {activeTab === "education" && (
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -302,40 +311,64 @@ export function Skills() {
           className="container mx-auto max-w-4xl"
         >
           <div className="relative pl-6 border-l-2 border-primary dark:border-secondary">
-            {EXPERIENCE.map((exp, idx) => (
-              <div key={idx} className="mb-12 relative">
+            {EDUCATION.map((edu, idx) => (
+              <div key={idx} className="mb-12 relative last:mb-0">
                 {/* Timeline Dot */}
                 <div className="absolute w-4 h-4 bg-primary dark:bg-secondary rounded-full -left-8 top-1.5"></div>
                 
-                {/* Experience Card */}
+                {/* Education Card */}
                 <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md">
-                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4">
-                    <div>
-                      <Typography variant="h5" className="font-bold text-primary dark:text-secondary">
-                        {exp.title}
-                      </Typography>
-                      <Typography className="text-primary/80 dark:text-secondary/80 font-medium">
-                        {exp.company}
-                      </Typography>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="h-10 w-10 rounded-full bg-primary dark:bg-secondary text-secondary dark:text-primary flex items-center justify-center">
+                      <edu.icon className="h-5 w-5" />
                     </div>
-                    <Typography className="text-primary/70 dark:text-secondary/70 text-sm mt-1 sm:mt-0">
-                      {exp.period}
-                    </Typography>
+                    <div className="flex-1">
+                      <Typography variant="h5" className="font-bold text-primary dark:text-secondary">
+                        {edu.title}
+                      </Typography>
+                      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mt-1">
+                        <Typography className="text-primary/80 dark:text-secondary/80 font-medium">
+                          {edu.institution}
+                        </Typography>
+                        <Typography className="text-primary/70 dark:text-secondary/70 text-sm">
+                          {edu.period}
+                        </Typography>
+                      </div>
+                    </div>
                   </div>
                   
-                  <ul className="list-disc pl-5 text-primary/80 dark:text-secondary/80">
-                    {exp.points.map((point, pointIdx) => (
-                      <li key={pointIdx} className="mb-1">
-                        <Typography className="text-sm">
-                          {point}
-                        </Typography>
-                      </li>
-                    ))}
-                  </ul>
+                  <Typography className="text-primary/70 dark:text-secondary/70 mb-3">
+                    {edu.description}
+                  </Typography>
+                  
+                  {edu.highlights && edu.highlights.length > 0 && (
+                    <div className="mt-3 pt-3 border-t border-primary/10 dark:border-secondary/10">
+                      <ul className="list-disc pl-5 space-y-1">
+                        {edu.highlights.map((highlight, highlightIdx) => (
+                          <li key={highlightIdx}>
+                            <Typography className="text-sm text-primary/70 dark:text-secondary/70">
+                              {highlight}
+                            </Typography>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  
+                  {edu.link && (
+                    <a 
+                      href={edu.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-sm text-primary dark:text-secondary underline hover:text-primary/70 dark:hover:text-secondary/70 inline-flex items-center gap-1 mt-2"
+                    >
+                      {edu.linkText}
+                    </a>
+                  )}
                 </div>
               </div>
-        ))}
-      </div>
+            ))}
+          </div>
         </motion.div>
       )}
 

@@ -6,39 +6,8 @@ import {
 } from "@material-tailwind/react";
 import { ProjectCard } from "@/components";
 
-// Featured projects reorganized by professional/personal categories
-const FEATURED_PROJECTS = {
-  professional: [
-    {
-      img: "/image/triumph-education.png",
-      title: "Triumph College Consulting Website",
-      desc: "Developed a comprehensive website using Next.js and Tailwind CSS to showcase services, team, and contact information for a college consulting company.",
-      longDescription: "Built a full-stack website featuring dynamic content management and responsive design. The site includes features for student success tracking, scholarship management, and consultation scheduling.",
-      achievements: [
-        "Enhanced user experience through intuitive UI/UX design",
-        "Implemented streamlined contact interfaces",
-        "Developed dynamic content management system"
-      ],
-      technologies: ["Next.js", "Tailwind CSS", "React"],
-      liveLink: "https://triumphcollegeinfo.com",
-    },
-    {
-      img: "/image/learnification.png",
-      title: "AI-Powered Assignment Grading System",
-      desc: "Led the development for an ed-tech startup, creating an AI-powered grading system that improved grading speeds by 75% while maintaining data security.",
-      longDescription: "Developed a comprehensive grading system integrating AI capabilities with a robust full-stack architecture. The system features secure data handling and efficient processing of student assignments.",
-      achievements: [
-        "Improved grading speeds by 75%",
-        "Increased user satisfaction by 20%",
-        "Enhanced system status visibility by 15%",
-        "Improved error messaging clarity by 25%"
-      ],
-      technicalDetails: "Implemented using Express.js/Node.js backend with MySQL and React/Material-UI frontend. Integrated Microsoft's Phi-3 LLM through Ollama for local processing. Comprehensive testing implemented with Mocha, Chai, and Jest.",
-      technologies: ["JavaScript", "Express.js", "Node.js", "React", "MaterialUI", "MySQL", "Phi-3 LLM", "Ollama"],
-      liveLink: "https://learnification.github.io/",
-    },
-  ],
-  personal: [
+// Featured projects
+const FEATURED_PROJECTS = [
     {
       "img": "/image/cantrip.jpg",
       "title": "CanTrip – Canadian Travel Planning Platform",
@@ -212,8 +181,7 @@ const FEATURED_PROJECTS = {
       githubLink: "https://github.com/joshndala/Cyclistic-Case-Study",
       liveLink: "https://public.tableau.com/views/CaseStudy-CyclisticRideLengthinSummer2023/Sheet1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link",
     },
-  ],
-};
+];
 
 export function Projects() {
   return (
@@ -225,33 +193,16 @@ export function Projects() {
             My Projects
           </Typography>
           <Typography variant="lead" className="text-lg text-primary/80 dark:text-secondary/80 max-w-2xl mx-auto">
-            A curated selection of my professional endeavors and personal explorations in software and data.
+            A curated selection of my personal explorations in software development, AI, and data science.
           </Typography>
         </div>
 
-        {/* Professional Work Section */}
-        <section className="mb-16">
-          <Typography variant="h2" className="text-3xl font-bold text-primary dark:text-secondary mb-8 text-center">
-            Professional Work
-          </Typography>
-          <div className="flex flex-col gap-6 max-w-6xl mx-auto">
-            {FEATURED_PROJECTS.professional.map((project, idx) => (
-              <ProjectCard key={idx} {...project} layout="horizontal" />
-            ))}
-          </div>
-        </section>
-
-        {/* Personal Projects Section */}
-        <section>
-          <Typography variant="h2" className="text-3xl font-bold text-primary dark:text-secondary mb-8 text-center">
-            Personal Projects
-          </Typography>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {FEATURED_PROJECTS.personal.map((project, idx) => (
-              <ProjectCard key={idx} {...project} layout="vertical" />
-            ))}
-          </div>
-        </section>
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {FEATURED_PROJECTS.map((project, idx) => (
+            <ProjectCard key={idx} {...project} layout="vertical" />
+          ))}
+        </div>
       </div>
     </section>
   );

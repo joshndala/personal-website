@@ -13,14 +13,15 @@ const EXPERIENCES = [
     company: "DevFortress",
     location: "Toronto, ON",
     period: "Dec 2025 - Present",
-    desc: "Developing UI components for an AI-driven collaborative whiteboard tool, enhancing real-time user interaction capabilities.",
-    longDescription: "Working as a Software Engineer Intern at DevFortress, focusing on frontend development for an innovative AI-powered collaborative whiteboard platform. Contributing to the development of interactive UI components that enable seamless real-time collaboration.",
+    desc: "Expanded role from UI development to full-stack contributions including performance optimization, product engineering, design systems, and AI feature prototyping.",
+    longDescription: "Evolved responsibilities at DevFortress to encompass multiple dimensions of product development, from infrastructure optimization and e-commerce engineering to design systems and generative AI experimentation.",
     achievements: [
-      "Developing UI components (JavaScript) for an AI-driven collaborative whiteboard tool, enhancing real-time user interaction capabilities",
-      "Documenting object behavior and code structure to streamline future development and accelerate team ramp-up on the codebase",
-      "Conducting quality assurance (QA) to validate UI functionality, identifying bugs, and ensuring platform stability prior to deployment"
+      "Enhanced client WordPress infrastructure through CDN migration and caching optimization, achieving significant performance improvements (D to A-grade scores)",
+      "Took lead ownership of company's e-commerce product, implementing custom theme engineering and conversion optimization strategies",
+      "Created and maintained design component libraries for the collaborative whiteboard platform, supporting millions of users with consistent visual standards",
+      "Prototyped generative AI capabilities for chatbot interfaces, iterating on LLM models to improve conversational quality and user experience"
     ],
-    technologies: ["JavaScript", "React", "UI/UX", "QA Testing"],
+    technologies: ["JavaScript", "React", "WordPress", "Shopify", "Liquid", "TypeScript", "LLM", "UI/UX Design", "Performance Optimization"],
     inProgress: true,
   },
   {

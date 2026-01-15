@@ -64,8 +64,8 @@ const TechStackCarousel: React.FC = () => {
   }, []);
 
   return (
-    <div className="w-full overflow-hidden bg-primary/5 py-12">
-      <Typography variant="h2" className="mb-4 text-center text-primary">
+    <div className="w-full overflow-hidden bg-primary/5 dark:bg-secondary/5 py-12">
+      <Typography variant="h2" className="mb-4 text-center text-primary dark:text-secondary">
           My Toolbox 🧰
         </Typography>
       
@@ -114,7 +114,7 @@ const TechStackCarousel: React.FC = () => {
             }`}>
               <Image src={getImagePath(tech.icon)} alt={tech.name} width={64} height={64} />
             </div>
-            <p className="text-sm text-center font-medium">{tech.name}</p>
+            <p className="text-sm text-center font-medium text-primary dark:text-secondary">{tech.name}</p>
           </div>
         ))}
       </div>

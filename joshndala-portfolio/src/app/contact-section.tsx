@@ -19,7 +19,7 @@ export function ContactSection() {
           transition={{ delay: 0.3, duration: 0.5 }}
           className="max-w-5xl mx-auto"
         >
-          <div className="bg-white dark:bg-gray-900 rounded-xl p-8 sm:p-12 shadow-lg text-center">
+          <div className="bg-white dark:bg-[#1A1E27] rounded-xl p-8 sm:p-12 shadow-lg text-center">
             <Typography variant="h2" className="text-primary dark:text-secondary mb-6 text-3xl sm:text-4xl md:text-5xl font-bold">
               Let's Create Something Amazing Together
             </Typography>

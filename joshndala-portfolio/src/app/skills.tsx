@@ -69,6 +69,7 @@ const TOOLBOX = [
       { name: "Go", icon: "/icons/go.svg" },
       { name: "JavaScript", icon: "/icons/javascript.svg" },
       { name: "TypeScript", icon: "/icons/typescript.svg" },
+      { name: "Java", icon: "/icons/java.svg" },
     ]
   },
   {
@@ -174,7 +175,7 @@ const SOFT_SKILLS = [
 
 export function Skills() {
   const [activeTab, setActiveTab] = useState("technical");
-  
+
   const tabs = [
     {
       label: "Technical Skills",
@@ -207,8 +208,8 @@ export function Skills() {
           variant="lead"
           className="mx-auto w-full lg:w-10/12 text-base sm:text-lg text-primary dark:text-secondary"
         >
-          As a software developer and AI enthusiast, I blend cutting-edge technologies 
-          with creative problem-solving. From full-stack web development to machine 
+          As a software developer and AI enthusiast, I blend cutting-edge technologies
+          with creative problem-solving. From full-stack web development to machine
           learning implementations, I bring ideas to life through code.
         </Typography>
 
@@ -221,11 +222,10 @@ export function Skills() {
                   key={value}
                   value={value}
                   onClick={() => setActiveTab(value)}
-                  className={`py-3 ${
-                    activeTab === value
+                  className={`py-3 ${activeTab === value
                       ? "text-primary dark:text-primary bg-white"
                       : "text-primary/70 dark:text-secondary/70 hover:text-primary/90 dark:hover:text-secondary/90"
-                  }`}
+                    }`}
                 >
                   {label}
                 </Tab>
@@ -237,7 +237,7 @@ export function Skills() {
 
       {/* Technical Skills Tab Content */}
       {activeTab === "technical" && (
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -265,7 +265,7 @@ export function Skills() {
 
       {/* Toolbox Tab Content */}
       {activeTab === "toolbox" && (
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -279,7 +279,7 @@ export function Skills() {
               A comprehensive collection of technologies and tools I use to build modern applications
             </Typography>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {TOOLBOX.map((category, idx) => (
               <div key={idx} className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md">
@@ -304,7 +304,7 @@ export function Skills() {
 
       {/* Education Tab Content */}
       {activeTab === "education" && (
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -315,7 +315,7 @@ export function Skills() {
               <div key={idx} className="mb-12 relative last:mb-0">
                 {/* Timeline Dot */}
                 <div className="absolute w-4 h-4 bg-primary dark:bg-secondary rounded-full -left-8 top-1.5"></div>
-                
+
                 {/* Education Card */}
                 <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md">
                   <div className="flex items-center gap-3 mb-4">
@@ -336,11 +336,11 @@ export function Skills() {
                       </div>
                     </div>
                   </div>
-                  
+
                   <Typography className="text-primary/70 dark:text-secondary/70 mb-3">
                     {edu.description}
                   </Typography>
-                  
+
                   {edu.highlights && edu.highlights.length > 0 && (
                     <div className="mt-3 pt-3 border-t border-primary/10 dark:border-secondary/10">
                       <ul className="list-disc pl-5 space-y-1">
@@ -354,11 +354,11 @@ export function Skills() {
                       </ul>
                     </div>
                   )}
-                  
+
                   {edu.link && (
-                    <a 
-                      href={edu.link} 
-                      target="_blank" 
+                    <a
+                      href={edu.link}
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="text-sm text-primary dark:text-secondary underline hover:text-primary/70 dark:hover:text-secondary/70 inline-flex items-center gap-1 mt-2"
                     >
@@ -374,7 +374,7 @@ export function Skills() {
 
       {/* Soft Skills Tab Content */}
       {activeTab === "soft" && (
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}

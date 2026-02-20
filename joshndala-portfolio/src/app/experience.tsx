@@ -13,15 +13,15 @@ const EXPERIENCES = [
     company: "DevFortress",
     location: "Toronto, ON",
     period: "Dec 2025 - Present",
-    desc: "Expanded role from UI development to full-stack contributions including performance optimization, product engineering, design systems, and AI feature prototyping.",
-    longDescription: "Evolved responsibilities at DevFortress to encompass multiple dimensions of product development, from infrastructure optimization and e-commerce engineering to design systems and generative AI experimentation.",
+    desc: "Contributed across performance engineering, e-commerce, design systems, and AI prototyping — spanning client infrastructure, internal products, and cutting-edge AI features.",
+    longDescription: "At DevFortress, responsibilities spanned four distinct areas of product development. Acted as a technical consultant to optimize a high-traffic client website, fully owned an e-commerce storefront, built scalable design libraries for a flagship AI product used by millions, and prototyped next-generation AI chatbot features.",
     achievements: [
-      "Enhanced client WordPress infrastructure through CDN migration and caching optimization, achieving significant performance improvements (D to A-grade scores)",
-      "Took lead ownership of company's e-commerce product, implementing custom theme engineering and conversion optimization strategies",
-      "Created and maintained design component libraries for the collaborative whiteboard platform, supporting millions of users with consistent visual standards",
-      "Prototyped generative AI capabilities for chatbot interfaces, iterating on LLM models to improve conversational quality and user experience"
+      "Boosted a client's high-traffic WordPress site speed from an F to an A (50% → 90% GTmetrix score) by migrating to QUIC.cloud CDN and fine-tuning LiteSpeed caching",
+      "Took full ownership of Athena's Shop — a Shopify print-on-demand storefront — engineering custom themes and adding strategic calls-to-action to drive traffic to the company's core AI product",
+      "Built reusable JavaScript component libraries for Athena Board (2M+ users), an AI-powered collaborative whiteboard, ensuring visual consistency across the platform",
+      "Prototyped generative AI features for a core chatbot interface using Python and JavaScript/TypeScript, experimenting with large language models to improve response accuracy and conversational flow"
     ],
-    technologies: ["JavaScript", "React", "WordPress", "Shopify", "Liquid", "TypeScript", "LLM", "UI/UX Design", "Performance Optimization"],
+    technologies: ["JavaScript", "TypeScript", "Python", "WordPress", "Shopify", "Liquid", "LLM", "LiteSpeed", "QUIC.cloud CDN", "Performance Optimization"],
     inProgress: true,
   },
   {

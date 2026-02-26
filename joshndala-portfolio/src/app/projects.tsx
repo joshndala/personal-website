@@ -22,7 +22,7 @@ const FEATURED_PROJECTS = [
     ],
     technicalDetails: "Frontend built with Vue 3 (Composition API), Vite, TypeScript, and Tailwind CSS. Backend written in Go using the Chi router and the GenAI Go SDK for Gemini 3.0 integration. Multi-file uploads are processed server-side with intelligent MIME-type detection to drive the analysis mode decision.",
     technologies: ["Vue 3", "TypeScript", "Vite", "Tailwind CSS", "Go", "Gemini 3.0", "GenAI SDK", "Chi"],
-    githubLink: "https://github.com/joshndala/hylite-studio",
+    githubLink: "https://github.com/joshndala/glimpse",
   },
   {
     img: "/image/the-third-act.png",
@@ -38,7 +38,8 @@ const FEATURED_PROJECTS = [
     ],
     technicalDetails: "Built with Java 19 and JavaFX 19 using pure code (no FXML). Database layer uses SQLite via sqlite-jdbc, stored at ~/.thirdact/thirdact.db. TMDb API integration handled with Gson for JSON parsing. Built with Maven.",
     technologies: ["Java 19", "JavaFX", "SQLite", "TMDb API", "Gson", "Maven"],
-    githubLink: "https://github.com/joshndala/the-third-act",
+    githubLink: "https://github.com/joshndala/third-act",
+    liveLink: "https://thethirdact.vercel.app",
   },
   {
     "img": "/image/cantrip.jpg",

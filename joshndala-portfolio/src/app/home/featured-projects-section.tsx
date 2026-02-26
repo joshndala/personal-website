@@ -24,14 +24,15 @@ const FEATURED_PROJECTS = [
     title: "Hylite Studio – Sports Recruitment Auditor",
     hook: "AI-powered recruitment platform that cross-references player videos, stat sheets, and reports through Gemini 3.0 — automatically picking the right analysis mode for scouts and recruiters.",
     image: "/image/hylite-studio.png",
-    githubLink: "https://github.com/joshndala/hylite-studio",
+    githubLink: "https://github.com/joshndala/glimpse",
     technologies: ["Vue 3", "TypeScript", "Go", "Gemini 3.0", "Tailwind CSS"]
   },
   {
     title: "The Third Act – Cinematic Movie Journal",
     hook: "A local-first movie journaling app with half-star ratings, TMDb integration, and a cinematic backdrop-card dashboard — more than a tracker, a personal film diary.",
     image: "/image/the-third-act.png",
-    githubLink: "https://github.com/joshndala/the-third-act",
+    githubLink: "https://github.com/joshndala/third-act",
+    liveLink: "https://thethirdact.vercel.app",
     technologies: ["Java 19", "JavaFX", "SQLite", "TMDb API", "Maven"]
   }
 ];

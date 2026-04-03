@@ -3,97 +3,133 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { getImagePath } from '../../utils/imagePath'
-import { Typography, Button } from "@material-tailwind/react";
-import { HeroDecorations } from "@/components";
-import {
-  UserCircleIcon,
-  WrenchScrewdriverIcon,
-  CodeBracketIcon,
-  EnvelopeIcon,
-} from "@heroicons/react/24/solid";
+import { getImagePath } from "../../utils/imagePath";
 import { GITHUB_URL, MEDIUM_URL } from "@/config";
+
+const NAV_LINKS = [
+  { label: "01", name: "About", href: "/about" },
+  { label: "02", name: "Skills", href: "/skills" },
+  { label: "03", name: "Experience", href: "/experience" },
+  { label: "04", name: "Projects", href: "/projects" },
+  { label: "05", name: "Articles", href: MEDIUM_URL, external: true },
+  { label: "06", name: "Contact", href: "/contact" },
+];
 
 export default function HeroSection() {
   return (
-      <header className="py-8 sm:py-12 md:py-16 relative">
-        <HeroDecorations />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid gap-8 md:gap-12 lg:gap-16 grid-cols-1 lg:grid-cols-2 items-center">
-            <div className="order-2 lg:order-1">
-              <Typography
-                as="h1"
-                className="mb-4 text-3xl sm:text-4xl lg:text-5xl font-bold !leading-tight text-primary dark:text-secondary"
-              >
-                Welcome to my <br className="hidden sm:inline" /> Software Development Portfolio!
-              </Typography>
-              <Typography
-                variant="lead"
-                className="mb-6 text-base sm:text-lg text-primary dark:text-secondary"
-              >
-                I'm Joshua Ndala, a passionate software developer and AI enthusiast based in Canada. Here, you'll explore my journey in software engineering, machine learning, and data-driven problem-solving.
-              </Typography>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-8">
-                <Link href="/about" passHref>
-                  <Button size="lg" className="w-full py-3 bg-primary text-secondary dark:bg-secondary dark:text-primary hover:bg-primary/90 dark:hover:bg-secondary/90 transition-colors duration-300 flex items-center justify-center gap-2 shadow-md hover:shadow-lg">
-                    <UserCircleIcon className="h-5 w-5" />
-                    About Me
-                  </Button>
-                </Link>
-                
-                <Link href="/skills" passHref>
-                  <Button size="lg" className="w-full py-3 bg-primary text-secondary dark:bg-secondary dark:text-primary hover:bg-primary/90 dark:hover:bg-secondary/90 transition-colors duration-300 flex items-center justify-center gap-2 shadow-md hover:shadow-lg">
-                    <WrenchScrewdriverIcon className="h-5 w-5" />
-                    Skills
-                  </Button>
-                </Link>
-                
-                <Link href="/projects" passHref>
-                  <Button size="lg" className="w-full py-3 bg-primary text-secondary dark:bg-secondary dark:text-primary hover:bg-primary/90 dark:hover:bg-secondary/90 transition-colors duration-300 flex items-center justify-center gap-2 shadow-md hover:shadow-lg">
-                    <CodeBracketIcon className="h-5 w-5" />
-                    Projects
-                  </Button>
-                </Link>
-                
-                <a href={MEDIUM_URL} target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" className="w-full py-3 bg-primary text-secondary dark:bg-secondary dark:text-primary hover:bg-primary/90 dark:hover:bg-secondary/90 transition-colors duration-300 flex items-center justify-center gap-2 shadow-md hover:shadow-lg">
-                    <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
-                    </svg>
-                    Articles
-                  </Button>
-                </a>
-                
-                <Link href="/contact" passHref className="sm:col-span-2 md:col-span-1">
-                  <Button size="lg" className="w-full py-3 bg-primary text-secondary dark:bg-secondary dark:text-primary hover:bg-primary/90 dark:hover:bg-secondary/90 transition-colors duration-300 flex items-center justify-center gap-2 shadow-md hover:shadow-lg">
-                    <EnvelopeIcon className="h-5 w-5" />
-                    Contact Me
-                  </Button>
-                </Link>
-              </div>
-              
-              <Typography variant="small" className="font-normal text-primary dark:text-secondary">
-                Check out my{" "}
-                <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="font-medium underline transition-colors hover:text-primary/70 dark:hover:text-secondary/70">
-                  GitHub Profile
-                </a>
-              </Typography>
+    <header className="relative min-h-screen flex items-center bg-cinema-cream dark:bg-cinema-black overflow-hidden film-grain">
+      {/* Background gradient vignette */}
+      <div className="absolute inset-0 bg-gradient-to-br from-cinema-amber/5 via-transparent to-transparent dark:from-cinema-amber/8 pointer-events-none" />
+
+      <div className="container mx-auto px-6 lg:px-12 py-24 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+
+          {/* ── Left: Text ── */}
+          <div className="order-2 lg:order-1 flex flex-col gap-8">
+
+            {/* Credit label */}
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-px bg-cinema-amber" />
+              <span className="cinema-label text-cinema-amber tracking-[0.25em]">
+                Software Engineer &amp; AI Enthusiast
+              </span>
             </div>
-            <div className="order-1 lg:order-2">
-              <div className="relative">
-              <Image
-                width={1024}
-                height={1024}
-                alt="Joshua Ndala"
-                src={getImagePath("/image/profile-photo.jpg")}
-                  className="w-full h-64 sm:h-80 md:h-96 lg:h-[36rem] rounded-xl object-cover shadow-lg z-10 relative"
-              />
-                <div className="absolute inset-0 bg-primary/20 dark:bg-secondary/20 rounded-xl backdrop-blur-[1px] transform -rotate-3 scale-105 -z-0"></div>
+
+            {/* Name */}
+            <div>
+              <h1 className="font-playfair text-6xl sm:text-7xl lg:text-8xl font-black italic leading-none text-cinema-warm dark:text-cinema-cream">
+                Joshua
+              </h1>
+              <h1 className="font-playfair text-6xl sm:text-7xl lg:text-8xl font-black italic leading-none text-cinema-amber">
+                Ndala
+              </h1>
+            </div>
+
+            {/* Logline */}
+            <p className="text-cinema-muted dark:text-cinema-cream-dim text-base sm:text-lg leading-relaxed max-w-md">
+              Building AI-powered products and full-stack applications.
+              Based in Toronto, Canada.
+            </p>
+
+            {/* Chapter nav */}
+            <nav className="flex flex-wrap gap-x-6 gap-y-3">
+              {NAV_LINKS.map(({ label, name, href, external }) =>
+                external ? (
+                  <a
+                    key={name}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-baseline gap-1.5"
+                  >
+                    <span className="cinema-label text-cinema-amber/60 dark:text-cinema-amber/50 group-hover:text-cinema-amber transition-colors duration-200">
+                      {label}
+                    </span>
+                    <span className="text-sm font-medium text-cinema-warm/60 dark:text-cinema-cream/50 group-hover:text-cinema-warm dark:group-hover:text-cinema-cream border-b border-transparent group-hover:border-cinema-amber transition-all duration-200">
+                      {name}
+                    </span>
+                  </a>
+                ) : (
+                  <Link key={name} href={href} className="group flex items-baseline gap-1.5">
+                    <span className="cinema-label text-cinema-amber/60 dark:text-cinema-amber/50 group-hover:text-cinema-amber transition-colors duration-200">
+                      {label}
+                    </span>
+                    <span className="text-sm font-medium text-cinema-warm/60 dark:text-cinema-cream/50 group-hover:text-cinema-warm dark:group-hover:text-cinema-cream border-b border-transparent group-hover:border-cinema-amber transition-all duration-200">
+                      {name}
+                    </span>
+                  </Link>
+                )
+              )}
+            </nav>
+
+            {/* GitHub */}
+            <div className="flex items-center gap-3 pt-2">
+              <div className="w-8 h-px bg-cinema-border dark:bg-cinema-border" />
+              <a
+                href={GITHUB_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cinema-label text-cinema-muted dark:text-cinema-cream-dim hover:text-cinema-amber transition-colors duration-200 tracking-[0.15em]"
+              >
+                GitHub Profile ↗
+              </a>
+            </div>
+          </div>
+
+          {/* ── Right: Poster ── */}
+          <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
+            <div className="relative w-72 sm:w-80 lg:w-96">
+              {/* Amber border frame (offset) */}
+              <div className="absolute -top-3 -right-3 w-full h-full border border-cinema-amber/40 rounded-sm" />
+              <div className="absolute -top-6 -right-6 w-full h-full border border-cinema-amber/20 rounded-sm" />
+
+              {/* Photo */}
+              <div className="relative overflow-hidden rounded-sm shadow-2xl">
+                <Image
+                  width={600}
+                  height={750}
+                  alt="Joshua Ndala"
+                  src={getImagePath("/image/profile-photo.jpg")}
+                  className="w-full aspect-[4/5] object-cover object-top"
+                  priority
+                />
+                {/* Gradient overlay at bottom */}
+                <div className="absolute bottom-0 inset-x-0 h-1/3 bg-gradient-to-t from-cinema-warm/80 dark:from-cinema-black/90 to-transparent" />
+
+                {/* Film-strip badge */}
+                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+                  <span className="cinema-label text-cinema-amber tracking-[0.2em]">Toronto, CA</span>
+                  <span className="cinema-label text-cinema-cream/50 tracking-[0.15em]">2026</span>
+                </div>
               </div>
             </div>
           </div>
+
         </div>
-      </header>
+      </div>
+
+      {/* Bottom amber rule */}
+      <div className="absolute bottom-0 inset-x-0 amber-rule opacity-40" />
+    </header>
   );
 }

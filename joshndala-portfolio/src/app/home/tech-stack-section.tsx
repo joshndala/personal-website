@@ -2,36 +2,47 @@
 
 import React from "react";
 import Link from "next/link";
-import { Typography, Button } from "@material-tailwind/react";
 import TechStackCarousel from "@/components/techstack-carousel";
-import {
-  ArrowRightIcon,
-} from "@heroicons/react/24/solid";
 
 export default function TechStackSection() {
-    return (
-        <section className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8 border-t border-primary/10 dark:border-secondary/10">
-        <div className="container mx-auto">
-          <div className="text-center mb-8">
-            <Typography variant="h3" className="mb-3 text-xl sm:text-2xl font-semibold text-primary dark:text-secondary">
+  return (
+    <section className="py-20 px-6 lg:px-12 bg-cinema-cream dark:bg-cinema-black border-t border-cinema-warm/10 dark:border-cinema-border">
+      <div className="container mx-auto">
+
+        {/* Header */}
+        <div className="flex items-end justify-between mb-12">
+          <div>
+            <span className="cinema-label text-cinema-amber tracking-[0.25em] block mb-3">
+              Arsenal
+            </span>
+            <h2 className="font-playfair text-4xl sm:text-5xl font-bold italic text-cinema-warm dark:text-cinema-cream leading-none">
               Core Technologies
-            </Typography>
-            <Typography className="text-primary/70 dark:text-secondary/70 text-sm sm:text-base max-w-2xl mx-auto">
-              The tools and technologies I use to build modern, scalable applications
-            </Typography>
+            </h2>
           </div>
-
-          <TechStackCarousel />
-
-          <div className="text-center">
-            <Link href="/skills" scroll={true}>
-              <Button variant="outlined" className="border-primary dark:border-secondary text-primary dark:text-secondary hover:bg-primary/10 dark:hover:bg-secondary/10 transition-colors duration-300 flex items-center gap-2 mx-auto">
-                View All Skills & Certifications
-                <ArrowRightIcon className="h-4 w-4" />
-              </Button>
-            </Link>
-          </div>
+          <Link
+            href="/skills"
+            className="hidden sm:flex items-center gap-2 cinema-label text-cinema-muted dark:text-cinema-cream-dim hover:text-cinema-amber transition-colors duration-200 tracking-[0.15em] pb-1 border-b border-transparent hover:border-cinema-amber"
+          >
+            Full Credits ↗
+          </Link>
         </div>
-      </section>
-    );
+
+        {/* Amber rule */}
+        <div className="amber-rule-left mb-10 opacity-50" />
+
+        {/* Carousel */}
+        <TechStackCarousel />
+
+        {/* Mobile link */}
+        <div className="sm:hidden mt-8 text-center">
+          <Link
+            href="/skills"
+            className="cinema-label text-cinema-amber tracking-[0.2em] border-b border-cinema-amber/40 pb-0.5"
+          >
+            View All Skills &amp; Certifications ↗
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
 }

@@ -13,6 +13,24 @@ export interface Project {
 
 export const TOP_PROJECTS: Project[] = [
     {
+        title: "mnemo – Agent Memory CLI",
+        desc: "A git-like CLI and Python SDK for managing AI agent memory — dump, diff, migrate, and query facts across Mem0, Letta, and your local filesystem. Ships with an MCP server, semantic search, a web dashboard, and auto-ingestion from Claude/ChatGPT chat exports.",
+        longDescription: "mnemo is a local-first tool for developers who want to own their agent's 'brain' instead of locking it into a single vendor. Inspired by Mnemosyne (Greek goddess of memory), it provides a normalized schema for agent facts and a rich CLI (17 commands) to dump, diff, migrate, and query memories across providers. It ships with TF-IDF, semantic (fastembed/ONNX), and hybrid search; an MCP server with JSON-RPC 2.0 and stdio transport for Claude Desktop and Cursor; a single-file web dashboard; S3/R2 push-pull sync; and auto-memory ingestion from Claude.ai, ChatGPT, and Cursor exports via LLM or offline heuristics.",
+        achievements: [
+            "Built 17 CLI commands with rich --help, tab-completion, and --dry-run safety across all write operations",
+            "Implemented three search modes: TF-IDF (zero deps), semantic cosine similarity via fastembed (ONNX, no PyTorch), and hybrid (0.7×semantic + 0.3×tfidf)",
+            "Shipped a full MCP 2024-11-05 server with JSON-RPC 2.0 (HTTP) and stdio transport — plug directly into Claude Desktop or Cursor",
+            "Built auto-memory ingestion from Claude.ai, ChatGPT, Cursor, and plain text exports via Claude API, OpenAI-compatible endpoints, Ollama, or offline heuristics",
+            "Delivered a Python SDK (MnemoClient + AsyncMnemoClient) with local file I/O, remote HTTP, file-watch stream, and context manager support",
+            "Added push/pull sync to S3, Cloudflare R2, and local filesystem remotes with timestamp-based merge and conflict detection"
+        ],
+        technicalDetails: "CLI built with Click. Storage is local JSON files under ~/.mnemo. FastAPI powers both the MCP HTTP server and the multi-agent web UI (served together). Semantic search uses fastembed with BAAI/bge-small-en-v1.5 (384-dim, ONNX, no PyTorch). Pydantic models for the normalized fact schema. Remote sync backends implemented for S3 (boto3) and Cloudflare R2. The single-file web dashboard uses Alpine.js + Tailwind CDN. 187+ tests across CLI, SDK, server, ingest, and remote modules.",
+        technologies: ["Python", "Click", "FastAPI", "Pydantic", "fastembed", "MCP", "Alpine.js", "S3", "Mem0", "Letta"],
+        githubLink: "https://github.com/joshndala/mnemo-agent",
+        liveLink: "https://pypi.org/project/mnemo-agent/",
+        inProgress: true,
+    },
+    {
         img: "/image/the-third-act.png",
         title: "The Third Act – Cinematic Movie Journal",
         desc: "A local-first JavaFX movie journaling app with half-star ratings, TMDb integration, and a cinematic backdrop-card dashboard — more than a tracker, a personal film diary.",

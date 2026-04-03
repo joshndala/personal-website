@@ -1,390 +1,419 @@
 "use client";
 
-import { Typography, Tabs, TabsHeader, Tab } from "@material-tailwind/react";
-import {
-  CodeBracketIcon,
-  ServerIcon,
-  CpuChipIcon,
-  CloudIcon,
-  BeakerIcon,
-  WrenchIcon,
-  DevicePhoneMobileIcon,
-  LightBulbIcon,
-  ClockIcon,
-  AcademicCapIcon,
-  CheckBadgeIcon,
-} from "@heroicons/react/24/solid";
-import { SkillCard } from "@/components";
-import { useState } from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
 import Image from "next/image";
-import { getImagePath } from '../utils/imagePath';
+import { getImagePath } from "@/utils/imagePath";
 
-// Technical Skills Section
-const TECH_SKILLS = [
-  {
-    icon: CodeBracketIcon,
-    title: "Programming Languages",
-    children:
-      "Proficient in multiple languages including Python, JavaScript, TypeScript, Go, SQL, and NoSQL. I leverage these languages to build efficient, scalable applications across different domains."
-  },
-  {
-    icon: DevicePhoneMobileIcon,
-    title: "Web Development",
-    children:
-      "Extensive experience with modern web technologies including React, Next.js, Express.js, Node.js, Go/Gin, FastAPI, HTML, CSS, and RESTful APIs. I build responsive and dynamic user interfaces paired with robust backend systems."
-  },
-  {
-    icon: CpuChipIcon,
-    title: "AI and Machine Learning",
-    children:
-      "Experienced in implementing both classic machine learning models and modern AI systems. I've worked with traditional ML algorithms (LSTM, RNN, BERT, XGBoost, Random Forest) and cutting-edge large language models (Gemini, Claude, GPT-4). I specialize in multi-agent systems with LangGraph, vector search with FAISS, and hybrid retrieval systems for comprehensive AI solutions."
-  },
-  {
-    icon: CloudIcon,
-    title: "Cloud & DevOps",
-    children:
-      "Proficient with cloud platforms including AWS, Google Cloud Platform, and Vercel. Experienced with containerization using Docker, CI/CD practices, version control with Git/GitHub, and modern deployment strategies."
-  },
-  {
-    icon: ServerIcon,
-    title: "Database Management",
-    children:
-      "Skilled in designing and implementing database structures using SQL (MySQL, PostgreSQL), NoSQL solutions, and modern platforms like Supabase. I create efficient schemas and write optimized queries for seamless data operations."
-  },
-  {
-    icon: WrenchIcon,
-    title: "Tools & Platforms",
-    children:
-      "Proficient with essential development tools including Firebase, AWS Bedrock, LangChain, LangGraph, Cohere API, OpenRouter API, Ollama, Phoenix Evaluation, Google Colab, and various testing frameworks including Mocha, Chai, and Jest."
-  },
-];
+// ─── Data ────────────────────────────────────────────────────────────
 
-// Categorized Toolbox
-const TOOLBOX = [
+const STACK = [
   {
     category: "Programming Languages",
     skills: [
-      { name: "Python", icon: "/icons/python.svg" },
-      { name: "Go", icon: "/icons/go.svg" },
-      { name: "JavaScript", icon: "/icons/javascript.svg" },
-      { name: "TypeScript", icon: "/icons/typescript.svg" },
-      { name: "Java", icon: "/icons/java.svg" },
-    ]
+      { name: "Python",      icon: "/icons/python.svg" },
+      { name: "Go",          icon: "/icons/go.svg" },
+      { name: "JavaScript",  icon: "/icons/javascript.svg" },
+      { name: "TypeScript",  icon: "/icons/typescript.svg" },
+      { name: "Java",        icon: "/icons/java.svg" },
+    ],
   },
   {
-    category: "Frontend Development",
+    category: "AI & Machine Learning",
     skills: [
-      { name: "React", icon: "/icons/react.svg" },
+      { name: "LangChain",    icon: "/icons/langchain.svg" },
+      { name: "LangGraph",    icon: null },
+      { name: "FAISS",        icon: null },
+      { name: "Gemini",       icon: "/icons/gemini.svg" },
+      { name: "Cohere",       icon: "/icons/cohere.svg" },
+      { name: "Ollama",       icon: "/icons/ollama.svg" },
+      { name: "TensorFlow",   icon: "/icons/tensorflow.svg" },
+      { name: "Scikit-Learn", icon: "/icons/scikit-learn.svg" },
+      { name: "R",            icon: "/icons/r.svg" },
+    ],
+  },
+  {
+    category: "Frontend",
+    skills: [
+      { name: "React",   icon: "/icons/react.svg" },
       { name: "Next.js", icon: "/icons/nextjs.svg" },
-    ]
-  },
-  {
-    category: "Backend Development",
-    skills: [
-      { name: "Node.js", icon: "/icons/nodejs.svg" },
-      { name: "Express.js", icon: "/icons/expressjs.svg" },
-      { name: "FastAPI", icon: "/icons/fastapi.svg" },
-    ]
+      { name: "Vue",     icon: null },
+      { name: "Remix",   icon: null },
+    ],
   },
   {
     category: "Databases",
     skills: [
       { name: "PostgreSQL", icon: "/icons/postgresql.svg" },
-      { name: "Supabase", icon: "/icons/supabase.svg" },
-      { name: "MySQL", icon: "/icons/mysql.svg" },
-    ]
+      { name: "Supabase",   icon: "/icons/supabase.svg" },
+      { name: "MySQL",      icon: "/icons/mysql.svg" },
+      { name: "Firebase",   icon: null },
+    ],
   },
   {
-    category: "AI & Machine Learning",
+    category: "Backend",
     skills: [
-      { name: "LangChain", icon: "/icons/langchain.svg" },
-      { name: "Gemini", icon: "/icons/gemini.svg" },
-      { name: "Cohere", icon: "/icons/cohere.svg" },
-      { name: "TensorFlow", icon: "/icons/tensorflow.svg" },
-      { name: "Scikit-Learn", icon: "/icons/scikit-learn.svg" },
-      { name: "R", icon: "/icons/r.svg" },
-      { name: "Ollama", icon: "/icons/ollama.svg" },
-    ]
+      { name: "Node.js",    icon: "/icons/nodejs.svg" },
+      { name: "Express.js", icon: "/icons/expressjs.svg" },
+      { name: "FastAPI",    icon: "/icons/fastapi.svg" },
+      { name: "Go / Gin",   icon: "/icons/go.svg" },
+    ],
   },
   {
     category: "DevOps & Cloud",
     skills: [
-      { name: "Docker", icon: "/icons/docker.svg" },
-      { name: "AWS", icon: "/icons/aws.svg" },
-      { name: "Google Cloud Platform", icon: "/icons/gcp.svg" },
-      { name: "Vercel", icon: "/icons/vercel.svg" },
-      { name: "GitHub", icon: "/icons/github.svg" },
-    ]
+      { name: "Docker",       icon: "/icons/docker.svg" },
+      { name: "AWS",          icon: "/icons/aws.svg" },
+      { name: "Google Cloud", icon: "/icons/gcp.svg" },
+      { name: "Vercel",       icon: "/icons/vercel.svg" },
+      { name: "GitHub",       icon: "/icons/github.svg" },
+    ],
   },
 ];
 
+interface EducationEntry {
+  year: string;
+  title: string;
+  institution: string;
+  period: string;
+  description: string;
+  highlights?: string[];
+  link?: string;
+  linkText?: string;
+  inProgress?: boolean;
+}
 
-// Education Section
-const EDUCATION = [
+const EDUCATION: EducationEntry[] = [
   {
+    year: "2024",
     title: "Bachelor of Arts in Computer Science",
     institution: "University of British Columbia",
-    period: "2020 - 2024",
-    icon: AcademicCapIcon,
-    description: "Completed a comprehensive curriculum in software engineering and data science, including courses in Software Engineering (Capstone Project, HCI, Project Management, Web Programming), Data Science & Machine Learning (Data Analytics, Making Predictions with Data, Introduction to Parallel Computing, Geographic Information Science), and an Independent Research Project on fake news detection using deep learning.",
+    period: "2020 – 2024",
+    description:
+      "Comprehensive curriculum spanning software engineering and data science — Software Engineering (Capstone, HCI, Web Programming, Project Management), Data Science & ML (Data Analytics, Making Predictions with Data, Parallel Computing, GIS), plus an independent research project on fake news detection using deep learning.",
     highlights: [
-      "Independent Research Project: Fake news detection using deep learning",
-      "Academic Awards: Outstanding International Student Award; Deputy Vice-Chancellor Scholarship for International Students"
-    ]
+      "Independent Research: Fake news detection using LSTM, RNN, and BERT models",
+      "Outstanding International Student Award",
+      "Deputy Vice-Chancellor Scholarship for International Students",
+    ],
   },
   {
+    year: "2023",
     title: "Google Data Analytics Professional Certificate",
     institution: "Google & Coursera",
     period: "2023",
-    icon: CheckBadgeIcon,
-    description: "Specialized in data analysis using SQL, R, and Tableau.",
+    description: "Specialized in data analysis using SQL, R, and Tableau. Completed a capstone analysis of 2.9 million Cyclistic bike-share entries.",
     link: "https://www.credly.com/badges/325ac3dd-6b59-41a7-8dc1-d9115184a962/public_url",
-    linkText: "View Certificate"
+    linkText: "View Certificate ↗",
   },
   {
+    year: "—",
     title: "IBM Machine Learning Professional Certificate",
     institution: "IBM & Coursera",
     period: "In Progress",
-    icon: ClockIcon,
-    description: "Advanced study of machine learning techniques and applications."
+    description: "Advanced study of machine learning techniques and real-world applications.",
+    inProgress: true,
   },
 ];
 
-// Soft Skills Section
-const SOFT_SKILLS = [
+const CRAFT = [
   {
-    icon: LightBulbIcon,
+    symbol: "◆",
     title: "Problem Solving",
-    children:
-      "Analytical approach to challenges, breaking complex problems into manageable components. I focus on developing creative, efficient solutions through methodical analysis."
+    desc: "Breaking complex challenges into components through methodical, creative analysis — then building the simplest thing that actually works.",
   },
   {
-    icon: BeakerIcon,
+    symbol: "◈",
     title: "Data Analysis",
-    children:
-      "Skilled in extracting meaningful insights from complex datasets. I apply statistical methods and visualization techniques to transform raw data into actionable intelligence."
+    desc: "Extracting actionable insights from complex datasets using statistical methods, visualization, and a healthy skepticism of the obvious answer.",
   },
   {
-    icon: ClockIcon,
+    symbol: "◇",
     title: "Project Management",
-    children:
-      "Experienced in managing software development lifecycles, ensuring projects are delivered on time and to specification while maintaining code quality and documentation."
+    desc: "Delivering software on time and to specification while keeping code quality and documentation from being the first things to slip.",
   },
 ];
 
-export function Skills() {
-  const [activeTab, setActiveTab] = useState("technical");
+// ─── Skill Pill ──────────────────────────────────────────────────────
 
-  const tabs = [
-    {
-      label: "Technical Skills",
-      value: "technical",
-    },
-    {
-      label: "Toolbox",
-      value: "toolbox",
-    },
-    {
-      label: "Education",
-      value: "education",
-    },
-    {
-      label: "Soft Skills",
-      value: "soft",
-    },
-  ];
+function SkillPill({ name, icon }: { name: string; icon: string | null }) {
+  return (
+    <div className="flex items-center gap-1.5 border border-cinema-border hover:border-cinema-amber/40 transition-colors duration-200 px-2.5 py-1.5 rounded-[2px]">
+      {icon && (
+        <Image
+          src={getImagePath(icon)}
+          alt=""
+          width={13}
+          height={13}
+          className="flex-shrink-0 opacity-80"
+        />
+      )}
+      <span className="cinema-label text-cinema-cream-dim tracking-[0.08em] whitespace-nowrap">
+        {name}
+      </span>
+    </div>
+  );
+}
+
+// ─── Stack Section ───────────────────────────────────────────────────
+
+function StackSection() {
+  return (
+    <div>
+      <div className="mb-8">
+        <span className="cinema-label text-cinema-amber tracking-[0.25em] block mb-3">
+          The Stack
+        </span>
+        <h2 className="font-playfair text-3xl sm:text-4xl font-bold italic text-cinema-warm dark:text-cinema-cream leading-none">
+          Core Technologies
+        </h2>
+      </div>
+      <div className="amber-rule-left opacity-40 mb-10" />
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-10">
+        {STACK.map((group) => (
+          <div key={group.category}>
+            <p className="font-mono text-[9px] tracking-[0.22em] uppercase text-cinema-amber/55 mb-3">
+              {group.category}
+            </p>
+            <div className="h-px bg-cinema-border mb-4" />
+            <div className="flex flex-wrap gap-2">
+              {group.skills.map((skill) => (
+                <SkillPill key={skill.name} {...skill} />
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ─── Academy (Education timeline) ───────────────────────────────────
+
+function AcademyEntry({
+  entry,
+  isLast,
+}: {
+  entry: EducationEntry;
+  isLast: boolean;
+}) {
+  const [expanded, setExpanded] = useState(false);
 
   return (
-    <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-secondary dark:bg-primary transition-colors duration-300">
-      <div className="container mx-auto mb-12 sm:mb-16 md:mb-20 text-center">
-        <Typography className="mb-2 font-bold uppercase text-sm sm:text-base text-primary dark:text-secondary">
-          my expertise
-        </Typography>
-        <Typography variant="h1" className="mb-4 text-3xl sm:text-4xl md:text-5xl font-bold text-primary dark:text-secondary">
-          Skills & Experience
-        </Typography>
-        <Typography
-          variant="lead"
-          className="mx-auto w-full lg:w-10/12 text-base sm:text-lg text-primary dark:text-secondary"
-        >
-          As a software developer and AI enthusiast, I blend cutting-edge technologies
-          with creative problem-solving. From full-stack web development to machine
-          learning implementations, I bring ideas to life through code.
-        </Typography>
+    <div className="grid" style={{ gridTemplateColumns: "3.5rem 1.5rem 1fr" }}>
 
-        {/* Tabs Navigation */}
-        <div className="mt-8 mb-12">
-          <Tabs value={activeTab}>
-            <TabsHeader className="bg-primary/5 dark:bg-secondary/5 w-full max-w-2xl mx-auto">
-              {tabs.map(({ label, value }) => (
-                <Tab
-                  key={value}
-                  value={value}
-                  onClick={() => setActiveTab(value)}
-                  className={`py-3 ${activeTab === value
-                      ? "text-primary dark:text-primary bg-white"
-                      : "text-primary/70 dark:text-secondary/70 hover:text-primary/90 dark:hover:text-secondary/90"
-                    }`}
-                >
-                  {label}
-                </Tab>
-              ))}
-            </TabsHeader>
-          </Tabs>
-        </div>
+      {/* Year */}
+      <div className="pt-[1.1rem] pr-3 text-right select-none">
+        <span
+          className="font-playfair italic leading-none text-cinema-amber"
+          style={{ fontSize: "clamp(0.85rem, 1.5vw, 1.1rem)" }}
+        >
+          {entry.year}
+        </span>
       </div>
 
-      {/* Technical Skills Tab Content */}
-      {activeTab === "technical" && (
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="container mx-auto max-w-4xl"
+      {/* Dot + line */}
+      <div className="relative flex justify-center">
+        {!isLast && (
+          <div
+            className="absolute top-5 bottom-0 w-px"
+            style={{
+              background:
+                "linear-gradient(to bottom, rgba(245,197,24,0.35), rgba(245,197,24,0.08))",
+            }}
+          />
+        )}
+        <div
+          className="relative z-10 mt-[1.1rem] w-3 h-3 rounded-full border-2 flex-shrink-0"
+          style={{
+            background: "#0d0d0d",
+            borderColor: "#f5c518",
+            boxShadow: "0 0 6px rgba(245,197,24,0.4)",
+          }}
+        />
+      </div>
+
+      {/* Card */}
+      <div className={`pl-5 ${isLast ? "pb-0" : "pb-10"}`}>
+        <div
+          className="rounded-[2px] border transition-colors duration-300 overflow-hidden"
+          style={{
+            background: "#111009",
+            borderColor: expanded
+              ? "rgba(245,197,24,0.35)"
+              : "rgba(46,42,38,0.8)",
+          }}
         >
-          <div className="space-y-8">
-            {TECH_SKILLS.map((skill, idx) => (
-              <div key={idx} className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="h-10 w-10 rounded-full bg-primary dark:bg-secondary text-secondary dark:text-primary flex items-center justify-center">
-                    <skill.icon className="h-5 w-5" />
-                  </div>
-                  <Typography variant="h5" className="font-bold text-primary dark:text-secondary">
-                    {skill.title}
-                  </Typography>
-                </div>
-                <Typography className="text-primary/70 dark:text-secondary/70 leading-relaxed">
-                  {skill.children}
-                </Typography>
+          <div
+            className="h-px w-full transition-opacity duration-300"
+            style={{ background: "#f5c518", opacity: expanded ? 1 : 0 }}
+          />
+
+          {/* Header */}
+          <div className="p-5 sm:p-6">
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-1">
+              <div>
+                <h3 className="font-playfair text-lg font-bold italic text-cinema-cream leading-tight mb-1">
+                  {entry.title}
+                </h3>
+                <span className="cinema-label text-cinema-amber/70 tracking-[0.15em]">
+                  {entry.institution}
+                </span>
               </div>
-            ))}
-          </div>
-        </motion.div>
-      )}
-
-      {/* Toolbox Tab Content */}
-      {activeTab === "toolbox" && (
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="container mx-auto"
-        >
-          <div className="text-center mb-12">
-            <Typography variant="h3" className="text-2xl font-bold text-primary dark:text-secondary mb-4">
-              My Toolbox 🧰
-            </Typography>
-            <Typography className="text-primary/70 dark:text-secondary/70 max-w-2xl mx-auto">
-              A comprehensive collection of technologies and tools I use to build modern applications
-            </Typography>
+              <div className="flex items-center gap-2 flex-shrink-0 mt-0.5">
+                {entry.inProgress && (
+                  <span className="cinema-label text-cinema-black bg-cinema-amber px-2 py-0.5 tracking-[0.12em]">
+                    In Production
+                  </span>
+                )}
+                <span className="font-mono text-[10px] tracking-[0.1em] text-cinema-muted">
+                  {entry.period}
+                </span>
+              </div>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {TOOLBOX.map((category, idx) => (
-              <div key={idx} className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md">
-                <Typography variant="h5" className="font-bold text-primary dark:text-secondary mb-4">
-                  {category.category}
-                </Typography>
-                <div className="grid grid-cols-2 gap-3">
-                  {category.skills.map((skill, skillIdx) => (
-                    <div key={skillIdx} className="flex items-center gap-2">
-                      <Image src={getImagePath(skill.icon)} alt={skill.name} width={20} height={20} />
-                      <Typography className="text-sm text-primary/80 dark:text-secondary/80">
-                        {skill.name}
-                      </Typography>
-                    </div>
+          {/* Expanded */}
+          {expanded && (
+            <div className="px-5 sm:px-6 pb-5 sm:pb-6 flex flex-col gap-5 border-t border-cinema-border/50">
+              <p className="pt-5 text-sm text-cinema-cream-dim leading-relaxed">
+                {entry.description}
+              </p>
+
+              {entry.highlights && entry.highlights.length > 0 && (
+                <ul className="flex flex-col gap-2.5">
+                  {entry.highlights.map((h, i) => (
+                    <li key={i} className="flex gap-3 text-sm text-cinema-cream-dim leading-relaxed">
+                      <span className="text-cinema-amber mt-1.5 flex-shrink-0 text-[9px]">◆</span>
+                      <span>{h}</span>
+                    </li>
                   ))}
-                </div>
-              </div>
-            ))}
+                </ul>
+              )}
+
+              {entry.link && (
+                <a
+                  href={entry.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 cinema-label text-cinema-amber hover:text-cinema-amber-dim transition-colors duration-200 tracking-[0.15em] border-b border-cinema-amber/30 pb-0.5 self-start"
+                >
+                  {entry.linkText}
+                </a>
+              )}
+            </div>
+          )}
+
+          {/* Toggle */}
+          <div className="border-t border-cinema-border/40 px-5 sm:px-6">
+            <button
+              onClick={() => setExpanded((v) => !v)}
+              className="w-full flex items-center justify-between py-3 group"
+            >
+              <span className="cinema-label text-cinema-muted group-hover:text-cinema-amber transition-colors duration-200 tracking-[0.15em]">
+                {expanded ? "Collapse" : "Read More"}
+              </span>
+              <span
+                className="text-cinema-muted group-hover:text-cinema-amber transition-all duration-300"
+                style={{ transform: expanded ? "rotate(180deg)" : "rotate(0deg)" }}
+              >
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </span>
+            </button>
           </div>
-        </motion.div>
-      )}
+        </div>
+      </div>
+    </div>
+  );
+}
 
-      {/* Education Tab Content */}
-      {activeTab === "education" && (
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="container mx-auto max-w-4xl"
-        >
-          <div className="relative pl-6 border-l-2 border-primary dark:border-secondary">
-            {EDUCATION.map((edu, idx) => (
-              <div key={idx} className="mb-12 relative last:mb-0">
-                {/* Timeline Dot */}
-                <div className="absolute w-4 h-4 bg-primary dark:bg-secondary rounded-full -left-8 top-1.5"></div>
+function AcademySection() {
+  return (
+    <div>
+      <div className="mb-8">
+        <span className="cinema-label text-cinema-amber tracking-[0.25em] block mb-3">
+          The Academy
+        </span>
+        <h2 className="font-playfair text-3xl sm:text-4xl font-bold italic text-cinema-warm dark:text-cinema-cream leading-none">
+          Education
+        </h2>
+      </div>
+      <div className="amber-rule-left opacity-40 mb-10" />
 
-                {/* Education Card */}
-                <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="h-10 w-10 rounded-full bg-primary dark:bg-secondary text-secondary dark:text-primary flex items-center justify-center">
-                      <edu.icon className="h-5 w-5" />
-                    </div>
-                    <div className="flex-1">
-                      <Typography variant="h5" className="font-bold text-primary dark:text-secondary">
-                        {edu.title}
-                      </Typography>
-                      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mt-1">
-                        <Typography className="text-primary/80 dark:text-secondary/80 font-medium">
-                          {edu.institution}
-                        </Typography>
-                        <Typography className="text-primary/70 dark:text-secondary/70 text-sm">
-                          {edu.period}
-                        </Typography>
-                      </div>
-                    </div>
-                  </div>
+      <div className="max-w-2xl">
+        {EDUCATION.map((entry, idx) => (
+          <AcademyEntry key={idx} entry={entry} isLast={idx === EDUCATION.length - 1} />
+        ))}
+      </div>
+    </div>
+  );
+}
 
-                  <Typography className="text-primary/70 dark:text-secondary/70 mb-3">
-                    {edu.description}
-                  </Typography>
+// ─── Craft (Soft Skills) ─────────────────────────────────────────────
 
-                  {edu.highlights && edu.highlights.length > 0 && (
-                    <div className="mt-3 pt-3 border-t border-primary/10 dark:border-secondary/10">
-                      <ul className="list-disc pl-5 space-y-1">
-                        {edu.highlights.map((highlight, highlightIdx) => (
-                          <li key={highlightIdx}>
-                            <Typography className="text-sm text-primary/70 dark:text-secondary/70">
-                              {highlight}
-                            </Typography>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
+function CraftSection() {
+  return (
+    <div>
+      <div className="mb-8">
+        <span className="cinema-label text-cinema-amber tracking-[0.25em] block mb-3">
+          The Craft
+        </span>
+        <h2 className="font-playfair text-3xl sm:text-4xl font-bold italic text-cinema-warm dark:text-cinema-cream leading-none">
+          Soft Skills
+        </h2>
+      </div>
+      <div className="amber-rule-left opacity-40 mb-10" />
 
-                  {edu.link && (
-                    <a
-                      href={edu.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm text-primary dark:text-secondary underline hover:text-primary/70 dark:hover:text-secondary/70 inline-flex items-center gap-1 mt-2"
-                    >
-                      {edu.linkText}
-                    </a>
-                  )}
-                </div>
-              </div>
-            ))}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl">
+        {CRAFT.map((item) => (
+          <div key={item.title} className="flex flex-col gap-3">
+            <span className="text-cinema-amber text-xl leading-none select-none">
+              {item.symbol}
+            </span>
+            <h3 className="font-playfair text-lg font-bold italic text-cinema-warm dark:text-cinema-cream">
+              {item.title}
+            </h3>
+            <p className="text-sm text-cinema-muted dark:text-cinema-cream-dim leading-relaxed">
+              {item.desc}
+            </p>
           </div>
-        </motion.div>
-      )}
+        ))}
+      </div>
+    </div>
+  );
+}
 
-      {/* Soft Skills Tab Content */}
-      {activeTab === "soft" && (
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="container mx-auto grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-3"
-        >
-          {SOFT_SKILLS.map((props, idx) => (
-            <SkillCard key={idx} {...props} />
-          ))}
-        </motion.div>
-      )}
+// ─── Page ────────────────────────────────────────────────────────────
+
+export function Skills() {
+  return (
+    <section className="min-h-screen bg-cinema-cream dark:bg-cinema-black py-16 px-6 lg:px-12 transition-colors duration-300">
+      <div className="container mx-auto max-w-4xl">
+
+        {/* Page header */}
+        <div className="mb-20">
+          <div className="flex items-center gap-4 mb-3">
+            <div className="w-8 h-px bg-cinema-amber" />
+            <span className="cinema-label text-cinema-amber tracking-[0.25em]">The Programme</span>
+          </div>
+          <h1 className="font-playfair text-5xl sm:text-6xl font-black italic text-cinema-warm dark:text-cinema-cream leading-none mb-4">
+            Skills &amp; Education
+          </h1>
+          <p className="text-cinema-muted dark:text-cinema-cream-dim text-sm leading-relaxed max-w-md">
+            A full-stack engineer and AI enthusiast — from language models to production infrastructure.
+          </p>
+        </div>
+
+        {/* Sections */}
+        <div className="flex flex-col gap-24">
+          <StackSection />
+          <AcademySection />
+          <CraftSection />
+        </div>
+
+      </div>
     </section>
   );
 }

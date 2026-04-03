@@ -4,59 +4,131 @@
 
 @layer base {
   :root {
-    --background-texture-opacity: 0.1;
+    --cinema-black: #0d0d0d;
+    --cinema-warm: #1a1614;
+    --cinema-amber: #f5c518;
+    --cinema-amber-dim: #c9a227;
+    --cinema-cream: #f5f0e8;
+    --cinema-cream-dim: #b8b0a0;
+    --cinema-border: #2e2a26;
+    --cinema-card: #161410;
+    --cinema-muted: #6b6560;
   }
 
-  .dark {
-    --background-texture-opacity: 0.15;
-  }
-
-  /* Smooth scrolling for all elements */
   html {
     scroll-behavior: smooth;
   }
 }
 
-/* Page transition styles */
+/* ─── Film Grain ─────────────────────────────────────────────────── */
+.film-grain {
+  position: relative;
+  isolation: isolate;
+}
+
+.film-grain::after {
+  content: "";
+  position: absolute;
+  inset: -200%;
+  width: 400%;
+  height: 400%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.07;
+  pointer-events: none;
+  z-index: 1;
+  animation: grain 8s steps(10) infinite;
+}
+
+@keyframes grain {
+  0%, 100% { transform: translate(0, 0); }
+  10%       { transform: translate(-5%, -10%); }
+  20%       { transform: translate(-15%, 5%); }
+  30%       { transform: translate(7%, -25%); }
+  40%       { transform: translate(-5%, 25%); }
+  50%       { transform: translate(-15%, 10%); }
+  60%       { transform: translate(15%, 0%); }
+  70%       { transform: translate(0%, 15%); }
+  80%       { transform: translate(3%, 35%); }
+  90%       { transform: translate(-10%, 10%); }
+}
+
+/* ─── Page Transitions ───────────────────────────────────────────── */
 .page-transition-enter {
   opacity: 0;
   transform: translateY(20px);
 }
-
 .page-transition-enter-active {
   opacity: 1;
   transform: translateY(0);
   transition: opacity 0.5s, transform 0.5s;
 }
-
 .page-transition-exit {
   opacity: 1;
   transform: translateY(0);
 }
-
 .page-transition-exit-active {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.5s, transform 0.5s;
 }
 
-/* Texture background */
-.texture-bg {
-  position: relative;
+/* ─── Filmstrip ──────────────────────────────────────────────────── */
+.film-strip-sprockets {
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 5px,
+    rgba(245, 240, 232, 0.07) 5px,
+    rgba(245, 240, 232, 0.07) 21px,
+    transparent 21px,
+    transparent 29px
+  );
 }
 
-.texture-bg::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url('/textures/asfalt-dark.png');
-  background-size: auto;
-  background-repeat: repeat;
-  opacity: var(--background-texture-opacity);
-  pointer-events: none;
-  z-index: -1;
+.film-frame-img {
+  filter: sepia(40%) contrast(1.05) brightness(0.75) saturate(0.6);
+  transition: filter 0.65s ease, transform 0.65s ease;
 }
 
+.film-frame:hover .film-frame-img {
+  filter: sepia(0%) contrast(1.1) brightness(1.05) saturate(1);
+  transform: scale(1.03);
+}
+
+@keyframes projector-border {
+  0%, 18%, 22%, 60%, 64%, 100% {
+    box-shadow: none;
+    border-color: rgba(46, 42, 38, 0.8);
+  }
+  20%, 62% {
+    box-shadow: 0 0 6px rgba(245, 197, 24, 0.2);
+    border-color: rgba(245, 197, 24, 0.25);
+  }
+}
+
+.filmstrip-flicker {
+  animation: projector-border 7s ease-in-out infinite;
+}
+
+/* ─── Cinema Utilities ───────────────────────────────────────────── */
+.font-playfair {
+  font-family: var(--font-playfair), Georgia, serif;
+}
+
+.cinema-label {
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.amber-rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cinema-amber), transparent);
+}
+
+.amber-rule-left {
+  height: 1px;
+  background: linear-gradient(90deg, var(--cinema-amber), transparent);
+}

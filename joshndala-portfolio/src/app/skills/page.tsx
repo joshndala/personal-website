@@ -2,14 +2,9 @@
 
 import { Navbar, Footer } from "@/components";
 import Skills from "../skills";
-import TechStackCarousel from "@/components/techstack-carousel";
 import { motion } from "framer-motion";
-import { useEffect } from "react";
 
 export default function SkillsPage() {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
   return (
     <>
       <Navbar />
@@ -27,4 +22,4 @@ export default function SkillsPage() {
       </motion.main>
     </>
   );
-} 
+}

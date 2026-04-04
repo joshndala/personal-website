@@ -1,8 +1,6 @@
 "use client";
 
-import { Navbar, Footer, FloatingTags } from "@/components";
-import Hero from "./hero";
-import { motion } from "framer-motion";
+import { Navbar } from "@/components";
 import {
   CtaSection,
   FeaturedProjectsSection,
@@ -11,22 +9,11 @@ import {
   WorkExperienceSection,
 } from "./home";
 
-
 export default function HomePage() {
   return (
     <>
-        <Navbar />
-      {/* <FloatingTags />
-      <motion.main
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: 20 }}
-        transition={{ duration: 0.5 }}
-        className="flex flex-col min-h-screen"
-      > */}
-        <HeroSection />
-      {/* </motion.main> */}
-
+      <Navbar />
+      <HeroSection />
       <TechStackSection />
       <WorkExperienceSection />
       <FeaturedProjectsSection />

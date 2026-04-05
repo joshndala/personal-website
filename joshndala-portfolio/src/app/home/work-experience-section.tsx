@@ -13,7 +13,7 @@ const RECENT_EXPERIENCES = [
   },
   {
     period: "2025–2026",
-    title: "Software Engineer Intern",
+    title: "Software Developer Intern",
     company: "DevFortress",
     summary: "Performance engineering, AI prototyping, Shopify e-commerce, and a full-stack AI Page Builder MVP.",
     tags: ["React", "Python", "FastAPI", "Remix", "Shopify"],

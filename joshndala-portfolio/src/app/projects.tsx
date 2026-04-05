@@ -23,7 +23,7 @@ function deriveGenre(technologies: string[] = []): string {
   if (/java|javafx/.test(t)) return "Desktop App";
   if (/r studio|tableau|pandas|numpy/.test(t)) return "Data Analytics";
   if (/php|mysql|ajax/.test(t)) return "Web Dev";
-  return "Software Engineering";
+  return "Software Development";
 }
 
 function getInitials(title: string): string {

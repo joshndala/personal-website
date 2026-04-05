@@ -33,7 +33,7 @@ const EXPERIENCES: Experience[] = [
     liveLink: "https://myhylite.com",
   },
   {
-    title: "Software Engineer Intern",
+    title: "Software Developer Intern",
     company: "DevFortress",
     location: "Toronto, ON",
     period: "Dec 2025 – Mar 2026",

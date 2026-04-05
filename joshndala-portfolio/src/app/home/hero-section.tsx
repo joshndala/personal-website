@@ -31,7 +31,7 @@ export default function HeroSection() {
             <div className="flex items-center gap-3">
               <div className="w-8 h-px bg-cinema-amber" />
               <span className="cinema-label text-cinema-amber tracking-[0.25em]">
-                Software Engineer &amp; AI Enthusiast
+                Software Developer &amp; AI Enthusiast
               </span>
             </div>
 
